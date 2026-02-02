@@ -393,14 +393,37 @@ export default function EditorPage() {
             <div>
               <label className="block text-sm text-gray-400 mb-2">API URL</label>
               <div className="flex gap-2">
-                <code className="flex-1 px-3 py-3 bg-gray-900 border border-gray-700 rounded-lg text-green-400 text-xs overflow-x-auto whitespace-nowrap">
-                  {buildUrl(32).replace(`&_=${updateKey}`, "")}
-                </code>
+                <div 
+                  className="flex-1 px-3 py-3 rounded-lg text-xs overflow-x-auto whitespace-nowrap font-mono"
+                  style={{ backgroundColor: "#0a0a0a", border: "1px solid #262626" }}
+                >
+                  <span style={{ color: "#6b7280" }}>/api/favicon</span>
+                  <span style={{ color: "#9ca3af" }}>?</span>
+                  <span style={{ color: "#34d399" }}>text</span>
+                  <span style={{ color: "#9ca3af" }}>=</span>
+                  <span style={{ color: "#fbbf24" }}>{text}</span>
+                  <span style={{ color: "#9ca3af" }}>&</span>
+                  <span style={{ color: "#34d399" }}>bg</span>
+                  <span style={{ color: "#9ca3af" }}>=</span>
+                  <span style={{ color: "#fbbf24" }}>{bg}</span>
+                  <span style={{ color: "#9ca3af" }}>&</span>
+                  <span style={{ color: "#34d399" }}>color</span>
+                  <span style={{ color: "#9ca3af" }}>=</span>
+                  <span style={{ color: "#fbbf24" }}>{color}</span>
+                  <span style={{ color: "#9ca3af" }}>&</span>
+                  <span style={{ color: "#34d399" }}>shape</span>
+                  <span style={{ color: "#9ca3af" }}>=</span>
+                  <span style={{ color: "#fbbf24" }}>{shape}</span>
+                  <span style={{ color: "#9ca3af" }}>&</span>
+                  <span style={{ color: "#34d399" }}>size</span>
+                  <span style={{ color: "#9ca3af" }}>=</span>
+                  <span style={{ color: "#fb923c" }}>32</span>
+                </div>
                 <button
                   onClick={copyUrl}
                   className={`px-4 py-3 rounded-lg font-medium text-sm transition ${
                     copied
-                      ? "bg-green-600 text-white"
+                      ? "bg-purple-600 text-white"
                       : "bg-gray-800 hover:bg-gray-700"
                   }`}
                 >
