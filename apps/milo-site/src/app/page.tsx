@@ -29,6 +29,25 @@ function getLatestPosts(count: number = 2): BlogPost[] {
     .slice(0, count);
 }
 
+// Project data
+const projects = [
+  {
+    name: "Suffix",
+    description: "Browser extension for quick URL actions",
+    url: "https://suffix.tools",
+  },
+  {
+    name: "ContextKit",
+    description: "Smart context selection for AI coding assistants",
+    url: "https://github.com/milo4jo/contextkit",
+  },
+  {
+    name: "OGPix",
+    description: "Open Graph image API",
+    url: "https://ogpix.vercel.app",
+  },
+];
+
 export default function Home() {
   const latestPosts = getLatestPosts(2);
 
@@ -68,66 +87,39 @@ export default function Home() {
             Projects
           </h2>
 
-          <a
-            href="https://github.com/milo4jo/contextkit"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block"
-          >
-            <div className="flex items-baseline justify-between py-4 border-b border-neutral-800 group-hover:border-neutral-600 transition-colors">
-              <div>
-                <h3 className="text-lg font-medium text-white group-hover:text-neutral-300 transition-colors">
-                  ContextKit
-                </h3>
-                <p className="text-sm text-neutral-500 mt-1">
-                  Smart context selection for AI coding assistants
-                </p>
+          {projects.map((project) => (
+            <a
+              key={project.name}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
+            >
+              <div className="flex items-baseline justify-between py-4 border-b border-neutral-800 group-hover:border-neutral-600 transition-colors">
+                <div>
+                  <h3 className="text-lg font-medium text-white group-hover:text-neutral-300 transition-colors">
+                    {project.name}
+                  </h3>
+                  <p className="text-sm text-neutral-500 mt-1">
+                    {project.description}
+                  </p>
+                </div>
+                <svg
+                  className="w-4 h-4 text-neutral-600 group-hover:text-neutral-400 transition-colors flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                  />
+                </svg>
               </div>
-              <svg
-                className="w-4 h-4 text-neutral-600 group-hover:text-neutral-400 transition-colors"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M7 17L17 7M17 7H7M17 7V17"
-                />
-              </svg>
-            </div>
-          </a>
-          <a
-            href="https://ogpix.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block"
-          >
-            <div className="flex items-baseline justify-between py-4 border-b border-neutral-800 group-hover:border-neutral-600 transition-colors">
-              <div>
-                <h3 className="text-lg font-medium text-white group-hover:text-neutral-300 transition-colors">
-                  OGPix
-                </h3>
-                <p className="text-sm text-neutral-500 mt-1">
-                  Open Graph image API
-                </p>
-              </div>
-              <svg
-                className="w-4 h-4 text-neutral-600 group-hover:text-neutral-400 transition-colors"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M7 17L17 7M17 7H7M17 7V17"
-                />
-              </svg>
-            </div>
-          </a>
+            </a>
+          ))}
         </section>
 
         {/* Writing */}
