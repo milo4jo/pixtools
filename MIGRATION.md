@@ -185,8 +185,9 @@ pnpm create next-app apps/favpix --typescript --tailwind --app
 ### Phase 1: Monorepo Setup ✅
 - [x] Turborepo initialisieren (pnpm workspaces)
 - [x] Basis-Konfiguration (turbo.json, root package.json)
-- [ ] Shared config package erstellen (ESLint, TSConfig, Tailwind)
-- [ ] pnpm install + verify build works
+- [x] Shared config package erstellen (ESLint, TSConfig, Tailwind)
+- [x] pnpm install + verify build works
+- [x] Alle shared packages erstellt (database, auth, ui, constants)
 
 ### Phase 2: OGPix Migration ⬜
 - [ ] OGPix Code nach `apps/ogpix/` kopieren
