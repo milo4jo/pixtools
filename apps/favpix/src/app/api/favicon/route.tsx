@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ImageResponse } from "@vercel/og";
-import fs from "fs";
-import path from "path";
 
 export const runtime = "edge";
 
