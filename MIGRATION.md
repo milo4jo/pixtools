@@ -158,46 +158,61 @@ export { tsconfig } from './typescript';
 Mit der richtigen Struktur ist eine neue App schnell erstellt:
 
 ```bash
-# 1. App-Ordner erstellen
-cp -r apps/template apps/newpix
+# Im Monorepo Root
+pnpm create next-app apps/favpix --typescript --tailwind --app
 
-# 2. package.json anpassen
-# 3. App-spezifische Route erstellen
-# 4. In Supabase apps-Tabelle eintragen
+# In apps/favpix/package.json dependencies hinzufügen:
+{
+  "dependencies": {
+    "@pixtools/ui": "workspace:*",
+    "@pixtools/database": "workspace:*",
+    "@pixtools/auth": "workspace:*",
+    "@pixtools/config": "workspace:*"
+  }
+}
 
-# Fertig! Shared auth, database, UI funktioniert sofort.
+# App-spezifische Logik schreiben, fertig!
 ```
+
+**Danach:**
+1. In Supabase `apps`-Tabelle eintragen
+2. Shared auth, database, UI funktioniert sofort
 
 ---
 
 ## 5. Migration Steps
 
-### Phase 1: Monorepo Setup ⬜
-- [ ] Turborepo initialisieren (pnpm workspaces)
-- [ ] Basis-Konfiguration (turbo.json, root package.json)
+### Phase 1: Monorepo Setup ✅
+- [x] Turborepo initialisieren (pnpm workspaces)
+- [x] Basis-Konfiguration (turbo.json, root package.json)
 - [ ] Shared config package erstellen (ESLint, TSConfig, Tailwind)
+- [ ] pnpm install + verify build works
 
 ### Phase 2: OGPix Migration ⬜
-- [ ] OGPix in `apps/ogpix/` kopieren
+- [ ] OGPix Code nach `apps/ogpix/` kopieren
 - [ ] Dependencies auf workspace packages umstellen
 - [ ] Supabase-Code nach `packages/database/` extrahieren
 - [ ] Auth-Code nach `packages/auth/` extrahieren
+- [ ] OGPix auf neue Packages umstellen
 - [ ] Tests anpassen und verifizieren
+- [ ] Vercel Deployment konfigurieren
 
-### Phase 3: Milo-Site Migration ⬜
-- [ ] Milo-site in `apps/milo-site/` kopieren
+### Phase 3: Supabase Schema Update ⬜
+- [ ] Multi-App Schema deployen (apps, unified tables)
+- [ ] Bestehende OGPix-Daten migrieren
+- [ ] `app_id` Spalte zu api_keys hinzufügen
+- [ ] OGPix auf neue Queries umstellen
+
+### Phase 4: Milo-Site Migration ⬜
+- [ ] Milo-site Code nach `apps/milo-site/` kopieren
 - [ ] Shared packages einbinden
 - [ ] UI-Komponenten nach `packages/ui/` extrahieren (falls shared)
 
-### Phase 4: Supabase Schema Update ⬜
-- [ ] Multi-App Schema deployen
-- [ ] Bestehende Daten migrieren
-- [ ] `app_id` Spalte zu api_keys hinzufügen
-
 ### Phase 5: FavPix (Neue App) ⬜
-- [ ] `apps/favpix/` erstellen
-- [ ] Favicon-Generator Logik implementieren
-- [ ] Shared packages nutzen
+- [ ] `apps/favpix/` bootstrappen mit Next.js template
+- [ ] Shared packages nutzen (@pixtools/ui, database, auth)
+- [ ] Favicon-Generator API bauen
+- [ ] In Supabase apps-Tabelle eintragen
 
 ---
 
