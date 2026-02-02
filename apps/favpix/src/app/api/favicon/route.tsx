@@ -21,25 +21,18 @@ let interBoldFont: ArrayBuffer | null = null;
 async function getInterFont(): Promise<ArrayBuffer> {
   if (interBoldFont) return interBoldFont;
   
-  // In Edge runtime, we need to fetch the font
-  // The font should be available in public/fonts
-  const fontUrl = new URL("/fonts/Inter-Bold.woff2", "https://favpix.vercel.app");
+  // Fetch Inter Bold from jsDelivr CDN (reliable, no auth needed, serves raw TTF)
+  // Using the official Inter font package on npm
+  const fontResponse = await fetch(
+    "https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.16/files/inter-latin-700-normal.woff",
+    { cache: "force-cache" }
+  );
   
-  try {
-    const response = await fetch(fontUrl);
-    if (response.ok) {
-      interBoldFont = await response.arrayBuffer();
-      return interBoldFont;
-    }
-  } catch {
-    // Fallback - fetch from Google Fonts CDN
+  if (!fontResponse.ok) {
+    throw new Error(`Failed to fetch font: ${fontResponse.status}`);
   }
   
-  // Fallback to Google Fonts
-  const googleFontResponse = await fetch(
-    "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiJ-Ek-_EeA.woff2"
-  );
-  interBoldFont = await googleFontResponse.arrayBuffer();
+  interBoldFont = await fontResponse.arrayBuffer();
   return interBoldFont;
 }
 
