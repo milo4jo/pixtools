@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import sharp from "sharp";
+import path from "path";
+import fs from "fs";
 
 export const runtime = "nodejs";
 
@@ -11,6 +13,27 @@ interface FaviconParams {
   shape: "square" | "circle" | "rounded";
   radius: number;
   fontSize: number;
+}
+
+// Load and cache the Inter font as base64 for SVG embedding
+let interFontBase64: string | null = null;
+
+async function getInterFontBase64(): Promise<string> {
+  if (interFontBase64) return interFontBase64;
+  
+  try {
+    // Try to load local font file
+    const fontPath = path.join(process.cwd(), "public", "fonts", "Inter-Bold.woff2");
+    if (fs.existsSync(fontPath)) {
+      const fontBuffer = fs.readFileSync(fontPath);
+      interFontBase64 = fontBuffer.toString("base64");
+      return interFontBase64;
+    }
+  } catch {
+    // Font file not available, will use fallback
+  }
+  
+  return "";
 }
 
 function parseParams(searchParams: URLSearchParams): FaviconParams {
@@ -27,7 +50,7 @@ function parseParams(searchParams: URLSearchParams): FaviconParams {
   };
 }
 
-function generateSVG(params: FaviconParams): string {
+function generateSVG(params: FaviconParams, fontBase64: string): string {
   const { text, bg, color, size, shape, radius, fontSize } = params;
   
   // Calculate border radius based on shape
@@ -38,25 +61,47 @@ function generateSVG(params: FaviconParams): string {
     rx = radius || size * 0.2;
   }
 
-  // Check if text is emoji (crude check)
+  // Check if text is emoji
   const isEmoji = /\p{Emoji}/u.test(text);
   const displayText = text.slice(0, 3); // Max 3 characters
   
-  return `
-    <svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
-      <rect width="${size}" height="${size}" fill="#${bg}" rx="${rx}" ry="${rx}"/>
-      <text 
-        x="50%" 
-        y="50%" 
-        dominant-baseline="central" 
-        text-anchor="middle" 
-        fill="#${color}"
-        font-family="${isEmoji ? 'Apple Color Emoji, Segoe UI Emoji' : 'Inter, system-ui, sans-serif'}"
-        font-size="${fontSize}px"
-        font-weight="bold"
-      >${displayText}</text>
-    </svg>
-  `.trim();
+  // Escape special XML characters
+  const escapedText = displayText
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  // Font definition - embed Inter if available, otherwise use DejaVu Sans (available on Linux/Vercel)
+  const fontFamily = isEmoji 
+    ? "Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji" 
+    : fontBase64 
+      ? "Inter" 
+      : "DejaVu Sans, Liberation Sans, Arial, sans-serif";
+  
+  const fontFace = fontBase64 ? `
+    <defs>
+      <style type="text/css">
+        @font-face {
+          font-family: 'Inter';
+          font-weight: bold;
+          src: url(data:font/woff2;base64,${fontBase64}) format('woff2');
+        }
+      </style>
+    </defs>` : "";
+
+  return `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">${fontFace}
+  <rect width="${size}" height="${size}" fill="#${bg}" rx="${rx}" ry="${rx}"/>
+  <text 
+    x="50%" 
+    y="50%" 
+    dominant-baseline="central" 
+    text-anchor="middle" 
+    fill="#${color}"
+    font-family="${fontFamily}"
+    font-size="${fontSize}px"
+    font-weight="bold"
+  >${escapedText}</text>
+</svg>`;
 }
 
 export async function GET(request: NextRequest) {
@@ -64,8 +109,11 @@ export async function GET(request: NextRequest) {
     const params = parseParams(request.nextUrl.searchParams);
     const format = request.nextUrl.searchParams.get("format") || "png";
     
+    // Load font for embedding
+    const fontBase64 = await getInterFontBase64();
+    
     // Generate SVG
-    const svg = generateSVG(params);
+    const svg = generateSVG(params, fontBase64);
     
     // If SVG requested, return directly
     if (format === "svg") {
