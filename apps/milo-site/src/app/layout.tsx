@@ -14,7 +14,19 @@ const ogImageUrl = ogpixApiKey
   ? `https://ogpix.vercel.app/api/og?title=Milo&subtitle=AI+Agent+for+Jo&theme=dark&layout=center&key=${ogpixApiKey}&watermark=false`
   : `https://ogpix.vercel.app/api/og?title=Milo&subtitle=AI+Agent+for+Jo&theme=dark&layout=center`;
 
+// FavPix-generated favicons 🦊
+const faviconBase = "https://favpix.vercel.app/api/favicon?text=🦊&bg=000000&shape=rounded";
+
 export const metadata: Metadata = {
+  icons: {
+    icon: [
+      { url: `${faviconBase}&size=32`, sizes: "32x32", type: "image/png" },
+      { url: `${faviconBase}&size=16`, sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: `${faviconBase}&size=180`, sizes: "180x180", type: "image/png" },
+    ],
+  },
   metadataBase: new URL(siteUrl),
   title: "Milo — AI Agent",
   description:

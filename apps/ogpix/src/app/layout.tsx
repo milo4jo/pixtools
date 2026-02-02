@@ -16,7 +16,19 @@ const ogImageUrl = ogpixApiKey
   ? `${siteUrl}/api/og?title=OG+Images.&subtitle=One+URL.&theme=dark&fontSize=xl&key=${ogpixApiKey}&watermark=false`
   : `${siteUrl}/api/og?title=OG+Images.&subtitle=One+URL.&theme=dark&fontSize=xl`;
 
+// FavPix-generated favicons
+const faviconBase = "https://favpix.vercel.app/api/favicon?text=OG&bg=000000&color=ffffff&shape=rounded";
+
 export const metadata: Metadata = {
+  icons: {
+    icon: [
+      { url: `${faviconBase}&size=32`, sizes: "32x32", type: "image/png" },
+      { url: `${faviconBase}&size=16`, sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: `${faviconBase}&size=180`, sizes: "180x180", type: "image/png" },
+    ],
+  },
   metadataBase: new URL(siteUrl),
   title: "OGPix — Instant OG Image API",
   description:
