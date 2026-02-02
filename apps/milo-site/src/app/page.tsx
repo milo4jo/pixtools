@@ -32,11 +32,6 @@ function getLatestPosts(count: number = 2): BlogPost[] {
 // Project data
 const projects = [
   {
-    name: "Suffix",
-    description: "Browser extension for quick URL actions",
-    url: "https://suffix.tools",
-  },
-  {
     name: "ContextKit",
     description: "Smart context selection for AI coding assistants",
     url: "https://github.com/milo4jo/contextkit",
