@@ -3,18 +3,18 @@
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 
-// Color presets matching the editor
+// Creative color presets
 const colorPresets = [
-  { id: "black", bg: "000000", color: "ffffff" },
-  { id: "purple", bg: "7c3aed", color: "ffffff" },
-  { id: "blue", bg: "2563eb", color: "ffffff" },
-  { id: "green", bg: "16a34a", color: "ffffff" },
-  { id: "orange", bg: "ea580c", color: "ffffff" },
+  { id: "lagoon", name: "Lagoon", bg: "06b6d4", color: "000000" },
+  { id: "midnight", name: "Midnight", bg: "000000", color: "ffffff" },
+  { id: "ultraviolet", name: "Ultraviolet", bg: "7c3aed", color: "ffffff" },
+  { id: "ocean", name: "Ocean", bg: "0ea5e9", color: "ffffff" },
+  { id: "ember", name: "Ember", bg: "dc2626", color: "ffffff" },
 ];
 
 export function FaviconPreview() {
   const [text, setText] = useState("M");
-  const [preset, setPreset] = useState(colorPresets[1]); // Purple default
+  const [preset, setPreset] = useState(colorPresets[0]); // Lagoon (cyan) default
   const [copied, setCopied] = useState(false);
   const [origin, setOrigin] = useState("");
   const [updateKey, setUpdateKey] = useState(0);
@@ -103,7 +103,7 @@ export function FaviconPreview() {
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value.slice(0, 3))}
-            className="w-full bg-transparent border-b border-neutral-800 py-3 text-2xl sm:text-3xl font-bold text-white text-center focus:outline-none focus:border-neutral-600 placeholder:text-neutral-600"
+            className="w-full bg-transparent border-b border-neutral-800 py-3 text-2xl sm:text-3xl font-bold text-white text-center focus:outline-none focus:border-cyan-500 placeholder:text-neutral-600 transition-colors"
             placeholder="Enter text or emoji"
             maxLength={3}
           />
@@ -112,13 +112,14 @@ export function FaviconPreview() {
         {/* Color Presets */}
         <div className="flex items-center justify-center gap-4">
           <span className="text-sm text-neutral-500">Color</span>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             {colorPresets.map((p) => (
               <button
                 key={p.id}
                 onClick={() => setPreset(p)}
+                title={p.name}
                 className={`w-8 h-8 rounded-full transition-all ${
-                  preset.id === p.id ? "ring-2 ring-white ring-offset-2 ring-offset-black" : ""
+                  preset.id === p.id ? "ring-2 ring-cyan-400 ring-offset-2 ring-offset-black scale-110" : "hover:scale-105"
                 }`}
                 style={{ backgroundColor: `#${p.bg}` }}
               />
@@ -126,7 +127,7 @@ export function FaviconPreview() {
             <Link
               href="/editor"
               className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-500 hover:text-white hover:bg-neutral-700 transition-colors text-xs"
-              title="More options"
+              title="More options in editor"
             >
               +
             </Link>
@@ -137,18 +138,27 @@ export function FaviconPreview() {
         <div className="flex flex-col sm:flex-row gap-3 pt-4">
           <div className="flex-1 bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-3 flex items-center gap-2">
             <code className="text-sm text-neutral-300 truncate flex-1 font-mono">
-              {fullUrl || "/api/favicon?text=M&bg=7c3aed&size=32"}
+              {fullUrl || "/api/favicon?text=M&bg=06b6d4&size=32"}
             </code>
             <button
               onClick={handleCopy}
-              className="shrink-0 text-sm text-neutral-400 hover:text-white transition-colors"
+              className="shrink-0 text-sm text-neutral-400 hover:text-cyan-400 transition-colors flex items-center gap-1"
             >
-              {copied ? "Copied!" : "Copy"}
+              {copied ? (
+                <>
+                  <svg className="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="20,6 9,17 4,12" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-cyan-400">Copied</span>
+                </>
+              ) : (
+                "Copy"
+              )}
             </button>
           </div>
           <Link
             href="/editor"
-            className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-neutral-200 transition-colors text-center"
+            className="px-6 py-3 bg-cyan-500 text-black rounded-lg font-medium hover:bg-cyan-400 transition-colors text-center"
           >
             Open Editor
           </Link>

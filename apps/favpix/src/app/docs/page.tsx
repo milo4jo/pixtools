@@ -1,18 +1,35 @@
 import Link from "next/link";
 import { CodeBlock, InlineCode } from "@pixtools/ui";
 
+// FavPix Logo component
+function FavPixLogo({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <rect x="2" y="2" width="6" height="6" rx="1" fill="currentColor"/>
+      <rect x="9" y="2" width="6" height="6" rx="1" fill="currentColor"/>
+      <rect x="16" y="2" width="6" height="6" rx="1" fill="currentColor" opacity="0.4"/>
+      <rect x="2" y="9" width="6" height="6" rx="1" fill="currentColor"/>
+      <rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor" opacity="0.4"/>
+      <rect x="2" y="16" width="6" height="6" rx="1" fill="currentColor"/>
+    </svg>
+  );
+}
+
 export default function DocsPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <header className="border-b border-neutral-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold flex items-center gap-2">
-            <span>🎨</span>
+          <Link href="/" className="text-xl font-bold flex items-center gap-2.5 group">
+            <FavPixLogo className="w-6 h-6 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
             <span>FavPix</span>
           </Link>
           <nav className="flex gap-4 items-center">
-            <Link href="/editor" className="text-sm text-neutral-400 hover:text-white transition-colors">
+            <Link 
+              href="/editor" 
+              className="text-sm px-4 py-2 bg-cyan-500 text-black rounded-lg font-medium hover:bg-cyan-400 transition-colors"
+            >
               Editor
             </Link>
           </nav>
@@ -22,13 +39,13 @@ export default function DocsPage() {
       {/* Docs Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         <h1 className="text-4xl font-bold mb-4">API Documentation</h1>
-        <p className="text-neutral-400 mb-12">Generate favicons with a simple HTTP request.</p>
+        <p className="text-neutral-400 mb-12">Generate pixel-perfect favicons with a single HTTP request.</p>
 
         {/* Quick Start */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold mb-6">Quick Start</h2>
           <CodeBlock 
-            code="curl https://favpix.vercel.app/api/favicon?text=M&bg=7c3aed&size=32 -o favicon.png"
+            code="curl https://favpix.vercel.app/api/favicon?text=M&bg=06b6d4&size=32 -o favicon.png"
             language="bash"
           />
         </section>
@@ -116,9 +133,9 @@ export default function DocsPage() {
             </div>
             
             <div>
-              <p className="text-neutral-400 text-sm mb-3">Emoji favicon with purple background</p>
+              <p className="text-neutral-400 text-sm mb-3">Emoji with cyan background</p>
               <CodeBlock 
-                code="https://favpix.vercel.app/api/favicon?text=🚀&bg=7c3aed&shape=rounded"
+                code="https://favpix.vercel.app/api/favicon?text=🚀&bg=06b6d4&shape=rounded"
                 language="url"
               />
             </div>
@@ -126,7 +143,7 @@ export default function DocsPage() {
             <div>
               <p className="text-neutral-400 text-sm mb-3">Apple Touch Icon (180×180)</p>
               <CodeBlock 
-                code="https://favpix.vercel.app/api/favicon?text=M&bg=2563eb&size=180&shape=rounded"
+                code="https://favpix.vercel.app/api/favicon?text=M&bg=0ea5e9&size=180&shape=rounded"
                 language="url"
               />
             </div>
@@ -145,9 +162,9 @@ export default function DocsPage() {
         <section className="mb-16">
           <h2 className="text-2xl font-semibold mb-6">HTML Integration</h2>
           <CodeBlock 
-            code={`<link rel="icon" type="image/png" sizes="32x32" href="https://favpix.vercel.app/api/favicon?text=M&bg=7c3aed&size=32">
-<link rel="icon" type="image/png" sizes="16x16" href="https://favpix.vercel.app/api/favicon?text=M&bg=7c3aed&size=16">
-<link rel="apple-touch-icon" sizes="180x180" href="https://favpix.vercel.app/api/favicon?text=M&bg=7c3aed&size=180&shape=rounded">`}
+            code={`<link rel="icon" type="image/png" sizes="32x32" href="https://favpix.vercel.app/api/favicon?text=M&bg=06b6d4&size=32">
+<link rel="icon" type="image/png" sizes="16x16" href="https://favpix.vercel.app/api/favicon?text=M&bg=06b6d4&size=16">
+<link rel="apple-touch-icon" sizes="180x180" href="https://favpix.vercel.app/api/favicon?text=M&bg=06b6d4&size=180&shape=rounded">`}
             language="html"
           />
         </section>
@@ -157,19 +174,19 @@ export default function DocsPage() {
           <h2 className="text-2xl font-semibold mb-6">Coming Soon</h2>
           <ul className="space-y-3 text-neutral-400">
             <li className="flex items-center gap-2">
-              <span className="text-neutral-600">○</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
               ICO format with multiple sizes
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-neutral-600">○</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
               ZIP package with all formats
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-neutral-600">○</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
               Web manifest generation
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-neutral-600">○</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
               Custom font support
             </li>
           </ul>
@@ -179,15 +196,33 @@ export default function DocsPage() {
         <div className="pt-8 border-t border-neutral-900">
           <Link 
             href="/editor" 
-            className="inline-flex items-center gap-2 text-white hover:text-neutral-300 transition-colors"
+            className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
           >
-            Try the Editor
+            Try the Visual Editor
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-neutral-900 mt-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-neutral-500">
+          <div className="flex items-center gap-2">
+            <FavPixLogo className="w-4 h-4 text-neutral-600" />
+            <span>FavPix</span>
+          </div>
+          <a
+            href="https://github.com/milo4jo/pixtools"
+            className="hover:text-white transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }

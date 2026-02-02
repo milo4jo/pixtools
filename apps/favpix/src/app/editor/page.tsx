@@ -3,18 +3,55 @@
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 
-// Preset color palettes
+// FavPix Logo component
+function FavPixLogo({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <rect x="2" y="2" width="6" height="6" rx="1" fill="currentColor"/>
+      <rect x="9" y="2" width="6" height="6" rx="1" fill="currentColor"/>
+      <rect x="16" y="2" width="6" height="6" rx="1" fill="currentColor" opacity="0.4"/>
+      <rect x="2" y="9" width="6" height="6" rx="1" fill="currentColor"/>
+      <rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor" opacity="0.4"/>
+      <rect x="2" y="16" width="6" height="6" rx="1" fill="currentColor"/>
+    </svg>
+  );
+}
+
+// Shape icons as SVG
+function ShapeIcon({ shape, className = "w-5 h-5" }: { shape: "square" | "rounded" | "circle"; className?: string }) {
+  if (shape === "square") {
+    return (
+      <svg className={className} viewBox="0 0 20 20" fill="currentColor">
+        <rect x="3" y="3" width="14" height="14" rx="1"/>
+      </svg>
+    );
+  }
+  if (shape === "rounded") {
+    return (
+      <svg className={className} viewBox="0 0 20 20" fill="currentColor">
+        <rect x="3" y="3" width="14" height="14" rx="4"/>
+      </svg>
+    );
+  }
+  return (
+    <svg className={className} viewBox="0 0 20 20" fill="currentColor">
+      <circle cx="10" cy="10" r="7"/>
+    </svg>
+  );
+}
+
+// Creative color presets
 const COLOR_PRESETS = [
-  { name: "Black", bg: "000000", color: "ffffff" },
-  { name: "White", bg: "ffffff", color: "000000" },
-  { name: "Purple", bg: "7c3aed", color: "ffffff" },
-  { name: "Blue", bg: "2563eb", color: "ffffff" },
-  { name: "Green", bg: "16a34a", color: "ffffff" },
-  { name: "Red", bg: "dc2626", color: "ffffff" },
-  { name: "Orange", bg: "ea580c", color: "ffffff" },
-  { name: "Yellow", bg: "facc15", color: "000000" },
-  { name: "Pink", bg: "ec4899", color: "ffffff" },
-  { name: "Teal", bg: "14b8a6", color: "ffffff" },
+  { name: "Midnight", bg: "000000", color: "ffffff" },
+  { name: "Arctic", bg: "ffffff", color: "000000" },
+  { name: "Ultraviolet", bg: "7c3aed", color: "ffffff" },
+  { name: "Ocean", bg: "0ea5e9", color: "ffffff" },
+  { name: "Forest", bg: "16a34a", color: "ffffff" },
+  { name: "Ember", bg: "dc2626", color: "ffffff" },
+  { name: "Sunset", bg: "ea580c", color: "ffffff" },
+  { name: "Lemon", bg: "facc15", color: "000000" },
+  { name: "Sakura", bg: "ec4899", color: "ffffff" },
+  { name: "Lagoon", bg: "14b8a6", color: "ffffff" },
 ];
 
 // Popular emojis for quick selection
@@ -24,15 +61,15 @@ type Shape = "square" | "circle" | "rounded";
 
 export default function EditorPage() {
   const [text, setText] = useState("M");
-  const [bg, setBg] = useState("000000");
-  const [color, setColor] = useState("ffffff");
+  const [bg, setBg] = useState("06b6d4"); // Cyan default
+  const [color, setColor] = useState("000000");
   const [shape, setShape] = useState<Shape>("rounded");
-  const [fontSize, setFontSize] = useState(60); // percentage of size
+  const [fontSize, setFontSize] = useState(60);
   const [updateKey, setUpdateKey] = useState(0);
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState<"text" | "emoji">("text");
+  const [downloading, setDownloading] = useState(false);
 
-  // Force re-render of images when params change
   useEffect(() => {
     setUpdateKey((k) => k + 1);
   }, [text, bg, color, shape, fontSize]);
@@ -40,13 +77,13 @@ export default function EditorPage() {
   const buildUrl = useCallback(
     (size: number, includeOrigin = false) => {
       const params = new URLSearchParams({
-        text, // URLSearchParams handles encoding automatically
+        text,
         bg,
         color,
         shape,
         size: size.toString(),
         fontSize: Math.floor((size * fontSize) / 100).toString(),
-        _: updateKey.toString(), // Cache buster
+        _: updateKey.toString(),
       });
       const path = `/api/favicon?${params}`;
       if (includeOrigin && typeof window !== "undefined") {
@@ -81,6 +118,7 @@ export default function EditorPage() {
   );
 
   const downloadAllSizes = useCallback(async () => {
+    setDownloading(true);
     const sizes = [
       { size: 16, name: "favicon-16x16.png" },
       { size: 32, name: "favicon-32x32.png" },
@@ -92,8 +130,9 @@ export default function EditorPage() {
 
     for (const { size, name } of sizes) {
       await downloadFavicon(size, name);
-      await new Promise((r) => setTimeout(r, 300)); // Small delay between downloads
+      await new Promise((r) => setTimeout(r, 300));
     }
+    setDownloading(false);
   }, [downloadFavicon]);
 
   const applyPreset = (preset: (typeof COLOR_PRESETS)[0]) => {
@@ -101,17 +140,20 @@ export default function EditorPage() {
     setColor(preset.color);
   };
 
+  // Find current preset name (if matches)
+  const currentPreset = COLOR_PRESETS.find(p => p.bg === bg && p.color === color);
+
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       {/* Header */}
-      <header className="border-b border-gray-800 p-3 md:p-4 sticky top-0 bg-black/95 backdrop-blur z-10">
+      <header className="border-b border-neutral-800 p-3 md:p-4 sticky top-0 bg-black/95 backdrop-blur z-10">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <Link href="/" className="text-lg md:text-xl font-bold flex items-center gap-2">
-            <span>🎨</span>
+          <Link href="/" className="text-lg md:text-xl font-bold flex items-center gap-2.5 group">
+            <FavPixLogo className="w-5 h-5 md:w-6 md:h-6 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
             <span className="hidden sm:inline">FavPix</span>
           </Link>
           <nav className="flex gap-2 md:gap-4 items-center">
-            <Link href="/docs" className="text-sm text-gray-400 hover:text-white px-2 py-1">
+            <Link href="/docs" className="text-sm text-neutral-400 hover:text-white px-2 py-1 transition-colors">
               Docs
             </Link>
           </nav>
@@ -119,15 +161,14 @@ export default function EditorPage() {
       </header>
 
       <main className="flex-1 max-w-6xl mx-auto w-full p-3 md:p-6">
-        {/* Mobile: Preview first, then controls */}
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6">
           
-          {/* Preview Section - Shows first on mobile */}
+          {/* Preview Section */}
           <div className="order-1 lg:order-2 space-y-4">
             <h2 className="text-lg md:text-xl font-bold">Preview</h2>
 
             {/* Main Preview */}
-            <div className="bg-gray-900 rounded-xl p-4 md:p-8">
+            <div className="bg-neutral-900 rounded-xl p-4 md:p-8 border border-neutral-800">
               {/* Large preview */}
               <div className="flex justify-center mb-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -155,7 +196,7 @@ export default function EditorPage() {
                       className="rounded mx-auto"
                       style={{ imageRendering: s <= 32 ? "pixelated" : "auto" }}
                     />
-                    <span className="text-[10px] md:text-xs text-gray-500 mt-1 block">
+                    <span className="text-[10px] md:text-xs text-neutral-500 mt-1 block">
                       {s}px
                     </span>
                   </div>
@@ -164,15 +205,15 @@ export default function EditorPage() {
             </div>
 
             {/* Browser Tab Preview */}
-            <div className="bg-gray-900 rounded-xl p-4">
-              <p className="text-xs text-gray-500 mb-2">Browser Tab Preview</p>
-              <div className="bg-gray-800 rounded-t-lg p-2 flex items-center gap-2">
-                <div className="flex gap-1">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <div className="bg-neutral-900 rounded-xl p-4 border border-neutral-800">
+              <p className="text-xs text-neutral-500 mb-2 font-medium">Browser Tab Preview</p>
+              <div className="bg-neutral-800 rounded-t-lg p-2 flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                 </div>
-                <div className="flex-1 flex items-center gap-2 bg-gray-700 rounded px-2 py-1 text-xs">
+                <div className="flex-1 flex items-center gap-2 bg-neutral-700 rounded px-2.5 py-1.5 text-xs">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     key={`tab-${updateKey}`}
@@ -182,63 +223,76 @@ export default function EditorPage() {
                     height={16}
                     className="rounded-sm"
                   />
-                  <span className="text-gray-300 truncate">My Website</span>
+                  <span className="text-neutral-300 truncate">My Website</span>
                 </div>
               </div>
-              <div className="bg-gray-700 h-20 rounded-b-lg"></div>
+              <div className="bg-neutral-700 h-16 rounded-b-lg"></div>
             </div>
 
-            {/* Download Section */}
-            <div className="space-y-3">
-              <p className="text-sm font-medium">Download</p>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  onClick={() => downloadFavicon(32, "favicon.png")}
-                  className="px-4 py-3 bg-white text-black font-semibold rounded-lg text-center hover:bg-gray-200 text-sm"
-                >
-                  PNG (32px)
+            {/* Primary Download CTA */}
+            <button
+              onClick={downloadAllSizes}
+              disabled={downloading}
+              className="w-full px-6 py-4 bg-cyan-500 hover:bg-cyan-400 disabled:bg-cyan-500/50 text-black font-semibold rounded-xl text-base transition-colors flex items-center justify-center gap-2"
+            >
+              {downloading ? (
+                <>
+                  <svg className="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" opacity="0.3"/>
+                    <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                  </svg>
+                  Downloading...
+                </>
+              ) : (
+                <>
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" strokeLinecap="round" strokeLinejoin="round"/>
+                    <polyline points="7,10 12,15 17,10" strokeLinecap="round" strokeLinejoin="round"/>
+                    <line x1="12" y1="15" x2="12" y2="3" strokeLinecap="round"/>
+                  </svg>
+                  Download Favicon Pack
+                </>
+              )}
+            </button>
+
+            {/* Individual sizes dropdown */}
+            <details className="group">
+              <summary className="text-sm text-neutral-500 cursor-pointer hover:text-neutral-300 transition-colors flex items-center gap-1">
+                <svg className="w-4 h-4 group-open:rotate-90 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="9,6 15,12 9,18" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Download individual sizes
+              </summary>
+              <div className="grid grid-cols-2 gap-2 mt-3">
+                <button onClick={() => downloadFavicon(32, "favicon-32x32.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
+                  32px (Browser)
                 </button>
-                <button
-                  onClick={() => downloadFavicon(180, "apple-touch-icon.png")}
-                  className="px-4 py-3 border border-gray-700 rounded-lg text-center hover:border-gray-500 text-sm"
-                >
-                  Apple Touch
+                <button onClick={() => downloadFavicon(16, "favicon-16x16.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
+                  16px (Tiny)
                 </button>
-                <button
-                  onClick={() => downloadFavicon(192, "android-chrome-192.png")}
-                  className="px-4 py-3 border border-gray-700 rounded-lg text-center hover:border-gray-500 text-sm"
-                >
-                  Android 192
+                <button onClick={() => downloadFavicon(180, "apple-touch-icon.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
+                  180px (Apple)
                 </button>
-                <button
-                  onClick={() => downloadFavicon(512, "android-chrome-512.png")}
-                  className="px-4 py-3 border border-gray-700 rounded-lg text-center hover:border-gray-500 text-sm"
-                >
-                  Android 512
+                <button onClick={() => downloadFavicon(512, "android-chrome-512x512.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
+                  512px (Android)
                 </button>
               </div>
-              <button
-                onClick={downloadAllSizes}
-                className="w-full px-4 py-3 bg-purple-600 hover:bg-purple-700 font-semibold rounded-lg text-sm"
-              >
-                ⬇️ Download All Sizes
-              </button>
-            </div>
+            </details>
           </div>
 
           {/* Controls Section */}
           <div className="order-2 lg:order-1 space-y-5">
-            <h1 className="text-lg md:text-xl font-bold">Customize</h1>
+            <h1 className="text-lg md:text-xl font-bold">Create your favicon</h1>
 
             {/* Text/Emoji Toggle */}
             <div>
-              <div className="flex gap-1 mb-3 bg-gray-900 rounded-lg p-1">
+              <div className="flex gap-1 mb-3 bg-neutral-900 rounded-lg p-1">
                 <button
                   onClick={() => setActiveTab("text")}
                   className={`flex-1 py-2 px-3 rounded-md text-sm font-medium transition ${
                     activeTab === "text"
-                      ? "bg-white text-black"
-                      : "text-gray-400 hover:text-white"
+                      ? "bg-cyan-500 text-black"
+                      : "text-neutral-400 hover:text-white"
                   }`}
                 >
                   Text
@@ -247,8 +301,8 @@ export default function EditorPage() {
                   onClick={() => setActiveTab("emoji")}
                   className={`flex-1 py-2 px-3 rounded-md text-sm font-medium transition ${
                     activeTab === "emoji"
-                      ? "bg-white text-black"
-                      : "text-gray-400 hover:text-white"
+                      ? "bg-cyan-500 text-black"
+                      : "text-neutral-400 hover:text-white"
                   }`}
                 >
                   Emoji
@@ -260,7 +314,7 @@ export default function EditorPage() {
                   type="text"
                   value={text}
                   onChange={(e) => setText(e.target.value.slice(0, 3))}
-                  className="w-full px-4 py-4 bg-gray-900 border border-gray-700 rounded-lg focus:border-purple-500 focus:outline-none text-2xl text-center font-bold"
+                  className="w-full px-4 py-4 bg-neutral-900 border border-neutral-800 rounded-lg focus:border-cyan-500 focus:outline-none text-2xl text-center font-bold transition-colors"
                   placeholder="M"
                   maxLength={3}
                 />
@@ -272,8 +326,8 @@ export default function EditorPage() {
                       onClick={() => setText(emoji)}
                       className={`p-3 text-2xl rounded-lg border transition ${
                         text === emoji
-                          ? "border-purple-500 bg-purple-500/20"
-                          : "border-gray-700 hover:border-gray-500 bg-gray-900"
+                          ? "border-cyan-500 bg-cyan-500/10"
+                          : "border-neutral-800 hover:border-neutral-600 bg-neutral-900"
                       }`}
                     >
                       {emoji}
@@ -283,47 +337,54 @@ export default function EditorPage() {
               )}
             </div>
 
-            {/* Shape Selector */}
+            {/* Shape Selector with SVG icons */}
             <div>
-              <label className="block text-sm text-gray-400 mb-2">Shape</label>
+              <label className="block text-sm text-neutral-400 mb-2">Shape</label>
               <div className="grid grid-cols-3 gap-2">
                 {(["square", "rounded", "circle"] as const).map((s) => (
                   <button
                     key={s}
                     onClick={() => setShape(s)}
-                    className={`py-3 px-2 rounded-lg border text-sm font-medium transition ${
+                    className={`py-3 px-3 rounded-lg border text-sm font-medium transition flex items-center justify-center gap-2 ${
                       shape === s
-                        ? "border-purple-500 bg-purple-500/20 text-white"
-                        : "border-gray-700 hover:border-gray-500 text-gray-300"
+                        ? "border-cyan-500 bg-cyan-500/10 text-white"
+                        : "border-neutral-800 hover:border-neutral-600 text-neutral-400"
                     }`}
                   >
-                    <span className="text-lg mr-1">
-                      {s === "square" ? "■" : s === "rounded" ? "▢" : "●"}
-                    </span>
+                    <ShapeIcon shape={s} className={`w-5 h-5 ${shape === s ? "text-cyan-400" : ""}`} />
                     <span className="capitalize">{s}</span>
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Color Presets */}
+            {/* Color Presets with Names */}
             <div>
-              <label className="block text-sm text-gray-400 mb-2">Color Presets</label>
+              <div className="flex justify-between items-center mb-2">
+                <label className="block text-sm text-neutral-400">Colors</label>
+                {currentPreset && (
+                  <span className="text-xs text-cyan-400 font-medium">{currentPreset.name}</span>
+                )}
+              </div>
               <div className="grid grid-cols-5 gap-2">
                 {COLOR_PRESETS.map((preset) => (
                   <button
                     key={preset.name}
                     onClick={() => applyPreset(preset)}
                     title={preset.name}
-                    className={`aspect-square rounded-lg border-2 transition ${
+                    className={`aspect-square rounded-lg border-2 transition relative group ${
                       bg === preset.bg && color === preset.color
-                        ? "border-purple-500 ring-2 ring-purple-500/50"
-                        : "border-transparent hover:border-gray-600"
+                        ? "border-cyan-500 ring-2 ring-cyan-500/30"
+                        : "border-transparent hover:border-neutral-600"
                     }`}
                     style={{ backgroundColor: `#${preset.bg}` }}
                   >
                     <span style={{ color: `#${preset.color}` }} className="text-xs font-bold">
                       A
+                    </span>
+                    {/* Tooltip */}
+                    <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                      {preset.name}
                     </span>
                   </button>
                 ))}
@@ -333,7 +394,7 @@ export default function EditorPage() {
             {/* Custom Colors */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-sm text-gray-400 mb-2">Background</label>
+                <label className="block text-sm text-neutral-400 mb-2">Background</label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -345,13 +406,13 @@ export default function EditorPage() {
                     type="text"
                     value={`#${bg}`}
                     onChange={(e) => setBg(e.target.value.replace("#", ""))}
-                    className="flex-1 px-3 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-purple-500 focus:outline-none font-mono text-sm"
+                    className="flex-1 px-3 py-3 bg-neutral-900 border border-neutral-800 rounded-lg focus:border-cyan-500 focus:outline-none font-mono text-sm transition-colors"
                     maxLength={7}
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm text-gray-400 mb-2">Text Color</label>
+                <label className="block text-sm text-neutral-400 mb-2">Text Color</label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -363,7 +424,7 @@ export default function EditorPage() {
                     type="text"
                     value={`#${color}`}
                     onChange={(e) => setColor(e.target.value.replace("#", ""))}
-                    className="flex-1 px-3 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:border-purple-500 focus:outline-none font-mono text-sm"
+                    className="flex-1 px-3 py-3 bg-neutral-900 border border-neutral-800 rounded-lg focus:border-cyan-500 focus:outline-none font-mono text-sm transition-colors"
                     maxLength={7}
                   />
                 </div>
@@ -372,8 +433,8 @@ export default function EditorPage() {
 
             {/* Font Size Slider */}
             <div>
-              <label className="block text-sm text-gray-400 mb-2">
-                Text Size: {fontSize}%
+              <label className="block text-sm text-neutral-400 mb-2">
+                Text Size <span className="text-neutral-600">({fontSize}%)</span>
               </label>
               <input
                 type="range"
@@ -381,9 +442,9 @@ export default function EditorPage() {
                 max="90"
                 value={fontSize}
                 onChange={(e) => setFontSize(parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
               />
-              <div className="flex justify-between text-xs text-gray-500 mt-1">
+              <div className="flex justify-between text-xs text-neutral-600 mt-1">
                 <span>Small</span>
                 <span>Large</span>
               </div>
@@ -391,43 +452,44 @@ export default function EditorPage() {
 
             {/* API URL */}
             <div>
-              <label className="block text-sm text-gray-400 mb-2">API URL</label>
+              <label className="block text-sm text-neutral-400 mb-2">API URL</label>
               <div className="flex gap-2">
                 <div 
-                  className="flex-1 px-3 py-3 rounded-lg text-xs overflow-x-auto whitespace-nowrap font-mono"
-                  style={{ backgroundColor: "#0a0a0a", border: "1px solid #262626" }}
+                  className="flex-1 px-3 py-3 rounded-lg text-xs overflow-x-auto whitespace-nowrap font-mono bg-neutral-950 border border-neutral-800"
                 >
-                  <span style={{ color: "#6b7280" }}>/api/favicon</span>
-                  <span style={{ color: "#9ca3af" }}>?</span>
-                  <span style={{ color: "#34d399" }}>text</span>
-                  <span style={{ color: "#9ca3af" }}>=</span>
-                  <span style={{ color: "#fbbf24" }}>{text}</span>
-                  <span style={{ color: "#9ca3af" }}>&</span>
-                  <span style={{ color: "#34d399" }}>bg</span>
-                  <span style={{ color: "#9ca3af" }}>=</span>
-                  <span style={{ color: "#fbbf24" }}>{bg}</span>
-                  <span style={{ color: "#9ca3af" }}>&</span>
-                  <span style={{ color: "#34d399" }}>color</span>
-                  <span style={{ color: "#9ca3af" }}>=</span>
-                  <span style={{ color: "#fbbf24" }}>{color}</span>
-                  <span style={{ color: "#9ca3af" }}>&</span>
-                  <span style={{ color: "#34d399" }}>shape</span>
-                  <span style={{ color: "#9ca3af" }}>=</span>
-                  <span style={{ color: "#fbbf24" }}>{shape}</span>
-                  <span style={{ color: "#9ca3af" }}>&</span>
-                  <span style={{ color: "#34d399" }}>size</span>
-                  <span style={{ color: "#9ca3af" }}>=</span>
-                  <span style={{ color: "#fb923c" }}>32</span>
+                  <span className="text-neutral-600">/api/favicon</span>
+                  <span className="text-neutral-700">?</span>
+                  <span className="text-emerald-400">text</span>
+                  <span className="text-neutral-700">=</span>
+                  <span className="text-amber-400">{text}</span>
+                  <span className="text-neutral-700">&</span>
+                  <span className="text-emerald-400">bg</span>
+                  <span className="text-neutral-700">=</span>
+                  <span className="text-amber-400">{bg}</span>
+                  <span className="text-neutral-700">&</span>
+                  <span className="text-emerald-400">color</span>
+                  <span className="text-neutral-700">=</span>
+                  <span className="text-amber-400">{color}</span>
+                  <span className="text-neutral-700">&</span>
+                  <span className="text-emerald-400">shape</span>
+                  <span className="text-neutral-700">=</span>
+                  <span className="text-amber-400">{shape}</span>
                 </div>
                 <button
                   onClick={copyUrl}
-                  className={`px-4 py-3 rounded-lg font-medium text-sm transition ${
+                  className={`px-4 py-3 rounded-lg font-medium text-sm transition flex items-center gap-1 ${
                     copied
-                      ? "bg-purple-600 text-white"
-                      : "bg-gray-800 hover:bg-gray-700"
+                      ? "bg-cyan-500 text-black"
+                      : "bg-neutral-800 hover:bg-neutral-700"
                   }`}
                 >
-                  {copied ? "✓" : "Copy"}
+                  {copied ? (
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="20,6 9,17 4,12" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  ) : (
+                    "Copy"
+                  )}
                 </button>
               </div>
             </div>
@@ -436,9 +498,14 @@ export default function EditorPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-800 p-4 text-center text-gray-500 text-sm">
+      <footer className="border-t border-neutral-800 p-4 text-center text-neutral-500 text-sm">
+        <Link href="/" className="hover:text-white transition-colors inline-flex items-center gap-1.5">
+          <FavPixLogo className="w-3.5 h-3.5" />
+          FavPix
+        </Link>
+        <span className="text-neutral-700 mx-2">·</span>
         Part of{" "}
-        <a href="https://ogpix.vercel.app" className="underline hover:text-gray-300">
+        <a href="https://github.com/milo4jo/pixtools" className="hover:text-white transition-colors">
           pixtools
         </a>
       </footer>
