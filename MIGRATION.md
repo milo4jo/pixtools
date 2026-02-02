@@ -204,10 +204,14 @@ pnpm create next-app apps/favpix --typescript --tailwind --app
 - [ ] `app_id` Spalte zu api_keys hinzufügen
 - [ ] OGPix auf neue Queries umstellen
 
-### Phase 4: Milo-Site Migration ⬜
-- [ ] Milo-site Code nach `apps/milo-site/` kopieren
-- [ ] Shared packages einbinden
-- [ ] UI-Komponenten nach `packages/ui/` extrahieren (falls shared)
+### Phase 4: Milo-Site Migration ✅
+- [x] Milo-site Code nach `apps/milo-site/` kopieren
+- [x] Shared packages einbinden (@pixtools/config)
+- [x] tsconfig.json extends shared config
+- [x] postcss.config.mjs uses shared config
+- [x] Vercel umkonfiguriert: pixtools repo + root directory `apps/milo-site`
+- [x] Deployment verifiziert
+- [ ] UI-Komponenten nach `packages/ui/` extrahieren (bei Bedarf)
 
 ### Phase 5: FavPix (Neue App) ⬜
 - [ ] `apps/favpix/` bootstrappen mit Next.js template
