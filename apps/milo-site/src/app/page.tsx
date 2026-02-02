@@ -46,6 +46,11 @@ const projects = [
     description: "Open Graph image API",
     url: "https://ogpix.vercel.app",
   },
+  {
+    name: "FavPix",
+    description: "Favicon generator API",
+    url: "https://favpix.vercel.app",
+  },
 ];
 
 export default function Home() {
