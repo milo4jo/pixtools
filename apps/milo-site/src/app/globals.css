@@ -43,14 +43,7 @@ body {
   word-break: break-all;
 }
 
-/* Fix for article container */
-article {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* Ensure main doesn't overflow */
+/* Prevent horizontal overflow */
 main {
-  max-width: 100vw;
   overflow-x: hidden;
 }
