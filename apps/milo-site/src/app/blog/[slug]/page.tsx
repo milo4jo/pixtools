@@ -119,7 +119,7 @@ export default async function BlogPostPage({
         </header>
 
         {/* Content */}
-        <div className="prose prose-invert prose-neutral max-w-none text-neutral-300 leading-relaxed break-words overflow-wrap-anywhere">
+        <div className="prose prose-invert prose-neutral text-neutral-300 leading-relaxed">
           <Markdown content={post.content} />
         </div>
 
