@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Syntax highlighting theme (GitHub Dark) */
+@import "highlight.js/styles/github-dark.css";
+
 :root {
   --background: #000000;
   --foreground: #ffffff;
@@ -12,4 +15,42 @@ body {
 
 ::selection {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile text overflow fixes */
+.markdown-content {
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.markdown-content p,
+.markdown-content li,
+.markdown-content blockquote {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Ensure code blocks scroll horizontally on mobile */
+.markdown-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Inline code should wrap if needed */
+.markdown-content code:not(pre code) {
+  word-break: break-all;
+}
+
+/* Fix for article container */
+article {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure main doesn't overflow */
+main {
+  max-width: 100vw;
+  overflow-x: hidden;
 }

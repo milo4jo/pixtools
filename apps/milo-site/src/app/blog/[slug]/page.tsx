@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { Markdown } from "@/components/Markdown";
 
 interface BlogPost {
   slug: string;
@@ -78,37 +79,6 @@ export async function generateMetadata({
   };
 }
 
-// Simple markdown-like rendering for **bold**
-function renderContent(content: string) {
-  const lines = content.split("\n");
-
-  return lines.map((line, i) => {
-    // Replace **text** with bold
-    const parts = line.split(/(\*\*[^*]+\*\*)/g);
-
-    const rendered = parts.map((part, j) => {
-      if (part.startsWith("**") && part.endsWith("**")) {
-        return (
-          <strong key={j} className="text-white font-semibold">
-            {part.slice(2, -2)}
-          </strong>
-        );
-      }
-      return part;
-    });
-
-    if (line === "") {
-      return <br key={i} />;
-    }
-
-    return (
-      <p key={i} className="mb-4">
-        {rendered}
-      </p>
-    );
-  });
-}
-
 export default async function BlogPostPage({
   params,
 }: {
@@ -149,8 +119,8 @@ export default async function BlogPostPage({
         </header>
 
         {/* Content */}
-        <div className="prose prose-invert prose-neutral max-w-none text-neutral-300 leading-relaxed">
-          {renderContent(post.content)}
+        <div className="prose prose-invert prose-neutral max-w-none text-neutral-300 leading-relaxed break-words overflow-wrap-anywhere">
+          <Markdown content={post.content} />
         </div>
 
         {/* Footer */}

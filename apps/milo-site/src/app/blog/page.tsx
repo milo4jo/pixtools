@@ -2,6 +2,7 @@ import Link from "next/link";
 import fs from "fs";
 import path from "path";
 import type { Metadata } from "next";
+import { Markdown } from "@/components/Markdown";
 
 const ogpixApiKey = process.env.OGPIX_API_KEY || "";
 const ogImageUrl = ogpixApiKey
@@ -87,9 +88,9 @@ export default function BlogPage() {
                   <h2 className="text-xl font-semibold mt-1 group-hover:text-neutral-300 transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-neutral-400 mt-2 line-clamp-3">
-                    {post.content.split("\n")[0]}
-                  </p>
+                  <div className="text-neutral-400 mt-2 line-clamp-3 overflow-hidden">
+                    <Markdown content={post.content} preview />
+                  </div>
                   <div className="flex gap-2 mt-3">
                     {post.tags.map((tag) => (
                       <span
