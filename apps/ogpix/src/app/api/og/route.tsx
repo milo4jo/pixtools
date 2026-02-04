@@ -470,6 +470,13 @@ export async function GET(request: NextRequest) {
     hero: { layout: "hero", pattern: "none" },
     feature: { badge: "New", layout: "featured", pattern: "none" },
     release: { badge: "Release", layout: "card", pattern: "grid" },
+    // Social & Marketing templates
+    testimonial: { tag: "Testimonial", layout: "center", pattern: "none" },
+    pricing: { tag: "Pricing", layout: "center", pattern: "none" },
+    quote: { layout: "center", pattern: "dots" },
+    social: { layout: "center", pattern: "none" },
+    podcast: { tag: "Podcast", layout: "left", pattern: "diagonal" },
+    video: { tag: "Video", layout: "center", pattern: "none" },
   };
 
   const templateConfig = templates[template] || {};

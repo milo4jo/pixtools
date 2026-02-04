@@ -145,7 +145,10 @@ test.describe("OG API - Font Sizes", () => {
 });
 
 test.describe("OG API - Templates", () => {
-  const templates = ["blog", "github", "product", "docs", "minimal", "hero", "feature"];
+  const templates = [
+    "blog", "github", "product", "docs", "minimal", "hero", "feature",
+    "testimonial", "pricing", "quote", "social", "podcast", "video"
+  ];
 
   for (const template of templates) {
     test(`should generate image with template: ${template}`, async ({ request }) => {
