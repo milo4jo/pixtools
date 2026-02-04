@@ -51,10 +51,10 @@
 ## FavPix Roadmap
 
 ### v0.2.0 (Next)
-- [ ] ICO format export
-- [ ] Multi-size pack download (16, 32, 48, 64, 128, 256, 512)
+- [ ] ICO format export (requires Node.js runtime, not Edge)
+- [x] Multi-size pack download (16, 32, 48, 180, 192, 512) ✅ Already implemented!
 - [ ] PWA manifest.json generator
-- [ ] API endpoint for programmatic access
+- [x] API endpoint for programmatic access ✅ Already exists at /api/favicon
 
 ### v0.3.0 (Future)
 - [ ] Animated favicons (GIF)
