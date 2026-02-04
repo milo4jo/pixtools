@@ -275,10 +275,25 @@ settings:
 
 ---
 
+## Try the Demo
+
+Want to see ContextKit in action? Check out the [demo project](./examples/demo-project/):
+
+```bash
+cd examples/demo-project
+contextkit init
+contextkit source add ./src
+contextkit index
+contextkit select "How does authentication work?"
+```
+
+---
+
 ## Roadmap
 
 - [x] CLI with init, source, index, select
 - [x] MCP server for Claude Desktop
+- [x] Demo project for testing
 - [ ] Incremental indexing (only changed files)
 - [ ] Watch mode (auto-reindex on save)
 - [ ] VS Code extension
