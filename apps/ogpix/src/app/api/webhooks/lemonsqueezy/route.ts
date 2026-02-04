@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 import { getServiceClient } from "@/lib/supabase";
+import { logger } from "@/lib/logger";
 
 // Lemon Squeezy webhook events we care about
 type LemonSqueezyEvent =
@@ -50,7 +51,7 @@ export async function POST(request: NextRequest) {
     const webhookSecret = process.env.LEMONSQUEEZY_WEBHOOK_SECRET;
 
     if (!webhookSecret) {
-      console.error("LEMONSQUEEZY_WEBHOOK_SECRET not configured");
+      logger.error("LEMONSQUEEZY_WEBHOOK_SECRET not configured");
       return NextResponse.json(
         { error: "Webhook not configured" },
         { status: 500 }
@@ -70,7 +71,7 @@ export async function POST(request: NextRequest) {
 
     // Verify signature
     if (!verifySignature(rawBody, signature, webhookSecret)) {
-      console.error("Invalid webhook signature");
+      logger.error("Invalid webhook signature");
       return NextResponse.json(
         { error: "Invalid signature" },
         { status: 401 }
@@ -82,7 +83,7 @@ export async function POST(request: NextRequest) {
     const { event_name } = webhook.meta;
     const { attributes } = webhook.data;
 
-    console.log(`[LemonSqueezy] Received event: ${event_name}`);
+    logger.info(`[LemonSqueezy] Received event: ${event_name}`);
 
     const supabase = getServiceClient();
 
@@ -94,7 +95,7 @@ export async function POST(request: NextRequest) {
           webhook.meta.custom_data?.user_email || attributes.user_email;
 
         if (!email) {
-          console.error("No email in webhook payload");
+          logger.error("No email in webhook payload");
           return NextResponse.json(
             { error: "No email provided" },
             { status: 400 }
@@ -109,7 +110,7 @@ export async function POST(request: NextRequest) {
           .single();
 
         if (!user) {
-          console.error(`User not found for email: ${email}`);
+          logger.error(`User not found for email: ${email}`);
           // Still return 200 to acknowledge webhook - user might sign up later
           return NextResponse.json({
             success: true,
@@ -132,14 +133,14 @@ export async function POST(request: NextRequest) {
         );
 
         if (error) {
-          console.error("Failed to upgrade user:", error);
+          logger.error("Failed to upgrade user:", error);
           return NextResponse.json(
             { error: "Database error" },
             { status: 500 }
           );
         }
 
-        console.log(`[LemonSqueezy] Upgraded ${email} to Pro`);
+        logger.info(`[LemonSqueezy] Upgraded ${email} to Pro`);
         break;
       }
 
@@ -160,10 +161,10 @@ export async function POST(request: NextRequest) {
           .eq("lemon_squeezy_subscription_id", subscriptionId);
 
         if (error) {
-          console.error("Failed to downgrade user:", error);
+          logger.error("Failed to downgrade user:", error);
         }
 
-        console.log(`[LemonSqueezy] Downgraded subscription ${subscriptionId}`);
+        logger.info(`[LemonSqueezy] Downgraded subscription ${subscriptionId}`);
         break;
       }
 
@@ -196,10 +197,10 @@ export async function POST(request: NextRequest) {
           .eq("lemon_squeezy_subscription_id", subscriptionId);
 
         if (error) {
-          console.error("Failed to update subscription:", error);
+          logger.error("Failed to update subscription:", error);
         }
 
-        console.log(
+        logger.info(
           `[LemonSqueezy] Updated subscription ${subscriptionId} to ${status}`
         );
         break;
@@ -207,19 +208,19 @@ export async function POST(request: NextRequest) {
 
       case "order_created": {
         // One-time purchase or first subscription payment
-        console.log(
+        logger.info(
           `[LemonSqueezy] Order created for customer ${attributes.customer_id}`
         );
         break;
       }
 
       default:
-        console.log(`[LemonSqueezy] Unhandled event: ${event_name}`);
+        logger.info(`[LemonSqueezy] Unhandled event: ${event_name}`);
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("[LemonSqueezy] Webhook error:", error);
+    logger.error("[LemonSqueezy] Webhook error:", error);
     return NextResponse.json(
       { error: "Webhook processing failed" },
       { status: 500 }
