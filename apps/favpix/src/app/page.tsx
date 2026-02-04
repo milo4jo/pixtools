@@ -137,7 +137,7 @@ export default function Home() {
                 <p className="text-xs text-neutral-500 mb-2 font-medium">Response</p>
                 <code className="text-sm text-neutral-400 font-mono">image/png (32×32)</code>
               </div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              
               <img
                 src="/api/favicon?text=M&bg=06b6d4&size=64"
                 alt="Example favicon"

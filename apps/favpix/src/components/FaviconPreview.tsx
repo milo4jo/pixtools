@@ -64,7 +64,7 @@ export function FaviconPreview() {
         <div className="border border-neutral-800 rounded-xl p-8 flex items-center justify-center bg-neutral-900/50">
           <div className="flex items-center gap-8">
             {/* Main preview */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+            
             <img
               key={`main-${updateKey}`}
               src={imageUrl}
@@ -78,7 +78,7 @@ export function FaviconPreview() {
             <div className="flex flex-col gap-3 items-center">
               {[64, 32, 16].map((size) => (
                 <div key={size} className="flex items-center gap-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  
                   <img
                     key={`${size}-${updateKey}`}
                     src={`/api/favicon?text=${encodeURIComponent(text)}&bg=${preset.bg}&color=${preset.color}&shape=rounded&size=${size}&_=${updateKey}`}

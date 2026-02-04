@@ -171,7 +171,7 @@ export default function EditorPage() {
             <div className="bg-neutral-900 rounded-xl p-4 md:p-8 border border-neutral-800">
               {/* Large preview */}
               <div className="flex justify-center mb-6">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                
                 <img
                   key={`main-${updateKey}`}
                   src={buildUrl(256)}
@@ -186,7 +186,7 @@ export default function EditorPage() {
               <div className="flex items-end justify-center gap-3 md:gap-4 flex-wrap">
                 {[16, 32, 48, 64, 128].map((s) => (
                   <div key={s} className="text-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    
                     <img
                       key={`${s}-${updateKey}`}
                       src={buildUrl(s)}
@@ -214,7 +214,7 @@ export default function EditorPage() {
                   <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                 </div>
                 <div className="flex-1 flex items-center gap-2 bg-neutral-700 rounded px-2.5 py-1.5 text-xs">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  
                   <img
                     key={`tab-${updateKey}`}
                     src={buildUrl(16)}
