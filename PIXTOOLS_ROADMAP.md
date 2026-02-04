@@ -53,7 +53,7 @@
 ### v0.2.0 (Next)
 - [ ] ICO format export (requires Node.js runtime, not Edge)
 - [x] Multi-size pack download (16, 32, 48, 180, 192, 512) ✅ Already implemented!
-- [ ] PWA manifest.json generator
+- [x] PWA manifest.json generator ✅ Added /api/manifest endpoint
 - [x] API endpoint for programmatic access ✅ Already exists at /api/favicon
 
 ### v0.3.0 (Future)

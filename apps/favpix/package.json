@@ -13,6 +13,7 @@
   "dependencies": {
     "@pixtools/config": "workspace:*",
     "@pixtools/ui": "workspace:*",
+    "@vercel/analytics": "^1.6.1",
     "@vercel/og": "^0.8.6",
     "jszip": "^3.10.1",
     "lucide-react": "^0.469.0",
