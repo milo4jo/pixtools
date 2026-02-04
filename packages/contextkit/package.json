@@ -50,9 +50,9 @@
   "engines": {
     "node": ">=18"
   },
-  "homepage": "https://github.com/milo4jo/contextkit#readme",
+  "homepage": "https://github.com/milo4jo/pixtools/tree/main/packages/contextkit#readme",
   "bugs": {
-    "url": "https://github.com/milo4jo/contextkit/issues"
+    "url": "https://github.com/milo4jo/pixtools/issues"
   },
   "keywords": [
     "llm",
@@ -62,10 +62,18 @@
     "embeddings",
     "claude",
     "gpt",
-    "cli"
+    "cli",
+    "mcp",
+    "model-context-protocol",
+    "semantic-search",
+    "code-search",
+    "context-window",
+    "token-budget",
+    "coding-assistant"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/milo4jo/contextkit.git"
+    "url": "git+https://github.com/milo4jo/pixtools.git",
+    "directory": "packages/contextkit"
   }
 }
