@@ -169,9 +169,48 @@ All commands support:
 - Node.js 18+
 - ~500MB disk space for embedding model (downloaded on first run)
 
+## MCP Server (Model Context Protocol)
+
+ContextKit includes an MCP server for integration with Claude Desktop and other MCP-compatible AI assistants.
+
+### Setup for Claude Desktop
+
+Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "contextkit": {
+      "command": "contextkit-mcp"
+    }
+  }
+}
+```
+
+Or start manually:
+
+```bash
+contextkit mcp
+```
+
+### Available MCP Tools
+
+| Tool | Description |
+|------|-------------|
+| `contextkit_select` | Select relevant context for a query |
+| `contextkit_index` | Re-index the codebase |
+| `contextkit_status` | Get index status |
+
+### Example Usage in Claude
+
+Once configured, Claude can use ContextKit tools:
+
+> "Use contextkit to find all code related to authentication"
+
+Claude will call `contextkit_select` with your query and return the most relevant code chunks.
+
 ## Coming Soon
 
-- MCP server for Claude Desktop
 - Agent skill for OpenCode/Clawdbot
 - Configurable embedding models
 - Incremental indexing
