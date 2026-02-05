@@ -128,23 +128,27 @@
 
 ### ContextKit (Hero Product)
 
-**v0.6.0** — PUBLISH THIS WEEK ⚡
+**v0.5.1** — PUBLISH THIS WEEK ⚡
 - [x] AST-aware chunking
 - [x] Query caching
 - [ ] Version bump + CHANGELOG
 - [ ] npm publish
 
-**v0.7.0** — Feb Week 2-3
+**v0.5.x** — Feb (patches)
 - [ ] Better error messages
 - [ ] `contextkit doctor` command (debug issues)
 - [ ] Performance benchmarks in README
+- [ ] Bug fixes from user feedback
 
-**v0.8.0** — March
+**v0.6.0** — March (minor: VS Code)
 - [ ] VS Code extension (HUGE for adoption)
 - [ ] Cursor integration
-- [ ] Multiple embedding model support
 
-**v1.0.0** — April (Product Hunt launch)
+**v0.7.0** — April (minor: multi-model)
+- [ ] Multiple embedding model support
+- [ ] Cloud sync (optional)
+
+**v1.0.0** — When stable (Product Hunt launch)
 - [ ] Stable API
 - [ ] Complete documentation
 - [ ] Video tutorials
