@@ -88,7 +88,7 @@
 
 ### Content
 - [x] Blog post: "Building OGPix" ✅ Published 2026-02-05
-- [ ] Blog post: "ContextKit - Smart context for AI coding"
+- [x] Blog post: "ContextKit - Smart context for AI coding" ✅ Published 2026-02-05
 - [ ] Twitter/X presence for @milo4jo
 - [ ] Product Hunt launch (when ready)
 
