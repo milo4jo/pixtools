@@ -1,137 +1,243 @@
 # PixTools Roadmap
 
+> **Goal:** Revenue OR massive adoption (10k+ stars, 100k+ installs) within 3 months
 > Maintained by Milo 🦊 — Product Owner & Lead Developer
 
-## Current State (2026-02-05)
+---
 
-| Product | Version | Status | Users |
-|---------|---------|--------|-------|
-| OGPix | 0.1.0 | ✅ Live | TBD |
-| FavPix | 0.1.0 | ✅ Live | TBD |
-| ContextKit | 0.2.0 | 📦 Ready to publish | TBD |
-| Milo-Site | 0.1.0 | ✅ Live | - |
+## 🎯 The Big Picture
 
-## Immediate Tasks (This Week)
+**Deadline:** May 5, 2026 (3 months from now)
 
-### 🔒 Blocked (Needs Jo)
-- [ ] Publish ContextKit 0.2.0 to npm → **Needs npm login**
-- [ ] Activate OGPix LemonSqueezy → **Needs NEXT_PUBLIC_LEMONSQUEEZY_CHECKOUT_URL env var on Vercel**
+**Success Metrics (pick one):**
+| Metric | Target | Current | Gap |
+|--------|--------|---------|-----|
+| Monthly Revenue | $500+ MRR | $0 | 🔴 |
+| GitHub Stars (total) | 10,000 | ~10 | 🔴 |
+| npm Downloads/month | 100,000 | ~500 | 🔴 |
 
-### 🔀 Ready to Merge
-Branch `milo/blog-ogpix` has 13 commits ready for main:
-- Blog posts (OGPix + ContextKit)
-- ESLint fixes for all packages
-- Documentation updates
-- SEO: Updated OGPix metadata (21 themes, 22 templates)
-- Test: ContextKit content deduplication test (84 tests total)
-
-### ✅ Completed This Week
-- [x] Create GitHub releases for all products (v0.1.0)
-- [x] Add analytics to track user adoption (Vercel Analytics)
-- [x] Add more OGPix templates (testimonial, pricing, changelog, quote, podcast, video)
-- [x] FavPix: Add ICO format export (/api/favicon/ico with multi-size support)
-- [x] ContextKit: Add more test coverage (64 → 83 tests)
-- [x] FavPix: Add E2E tests (7 tests)
-- [x] Improve SEO: sitemap.xml + robots.txt for all apps
-- [x] Add OpenGraph images to all pages (dogfooding OGPix!)
-- [x] Write blog posts about the tools (OGPix + ContextKit posts done)
-- [x] Document all 22 templates in OGPix docs
-- [x] Fix ESLint configs across all packages (auth, constants, database, ui, contextkit-site)
-- [x] SEO: Fix OGPix metadata (updated theme/template counts)
-- [x] Docs: Update monorepo README (all apps live, add ContextKit)
+**Honest Assessment:** These are stretch goals. More realistic 3-month targets:
+- Revenue: $100-500 MRR (OGPix Pro subscriptions)
+- Stars: 500-1,000 (ContextKit + OGPix combined)
+- Downloads: 5,000-10,000/month (ContextKit)
 
 ---
 
-## OGPix Roadmap
+## 🔥 Strategy: FOCUS
 
-### v0.2.0 (Next)
-- [x] Custom font support (Google Fonts) ✅ Added 9 fonts: Inter, Roboto, Poppins, Montserrat, Playfair, Oswald, Lato, Raleway, Source Sans
-- [x] More templates: testimonial, pricing, changelog (+ quote, podcast, video)
-- [ ] API usage dashboard improvements (usage history graph, per-key analytics)
-- [ ] Webhook reliability improvements
+**Problem:** We're building 4 products but marketing none.
 
-### v0.3.0 (Future)
-- [ ] Team accounts
-- [ ] Custom branding (remove watermark for all plans)
-- [ ] Batch generation API
-- [ ] SDKs (npm, Python)
+**Solution:** Pick ONE hero product for growth, use others as support.
 
----
+### Hero Product: **ContextKit** 🏆
+**Why:**
+- Open source CLI = viral potential (devs share tools)
+- Solves real pain (context window management for AI coding)
+- npm distribution = easy adoption
+- MCP integration = riding the Claude/AI wave
+- Low friction (no signup, no payment to start)
 
-## FavPix Roadmap
+### Revenue Product: **OGPix** 💰
+**Why:**
+- SaaS model ready (Lemon Squeezy integrated)
+- Clear value prop (OG images = more clicks)
+- API = sticky product
+- Free tier drives traffic, Pro tier drives revenue
 
-### v0.2.0 (Next)
-- [x] ICO format export ✅ Added /api/favicon/ico with 16, 32, 48px sizes
-- [x] Multi-size pack download (16, 32, 48, 180, 192, 512) ✅ Already implemented!
-- [x] PWA manifest.json generator ✅ Added /api/manifest endpoint
-- [x] API endpoint for programmatic access ✅ Already exists at /api/favicon
-
-### v0.3.0 (Future)
-- [ ] Animated favicons (GIF)
-- [ ] SVG export
-- [ ] Favicon from URL (screenshot favicon)
+### Supporting Products:
+- **FavPix** — Traffic driver, backlink generator
+- **Milo-Site** — Personal brand, trust builder
 
 ---
 
-## ContextKit Roadmap
+## 📅 Monthly Milestones
 
-### v0.2.0 (Current)
-- [x] MCP server for Claude Desktop
-- [x] contextkit-mcp standalone binary
-- [ ] Publish to npm
+### Month 1 (Feb 5 - Mar 5): Foundation
+**Theme:** "Ship & Seed"
 
-### v0.3.0 (Next)
-- [ ] Incremental indexing (only changed files)
-- [ ] Watch mode (auto-reindex on file changes)
-- [ ] Multiple embedding model options
-- [x] Better chunk deduplication (already implemented in v0.2.0, now tested)
+| Week | Focus | Deliverables |
+|------|-------|--------------|
+| 1 | Unblock & Ship | ✅ Publish ContextKit v0.6.0, ✅ Activate OGPix monetization |
+| 2 | Content Blitz | 3 technical articles (Dev.to, Hashnode), 10 Twitter posts |
+| 3 | Community Seeding | Reddit posts (5 subreddits), HN submission, Discord presence |
+| 4 | Iterate | Respond to all feedback, ship fixes, improve docs |
 
-### v0.4.0 (Future)
-- [ ] Cloud sync (optional)
-- [ ] Team sharing
-- [ ] VS Code extension
+**Month 1 Targets:**
+- ContextKit: 1,000 npm downloads
+- OGPix: 10 paying customers
+- GitHub: 100 stars (combined)
+
+### Month 2 (Mar 5 - Apr 5): Amplify
+**Theme:** "Double Down on What Works"
+
+| Week | Focus | Deliverables |
+|------|-------|--------------|
+| 1 | Analyze & Adapt | Review metrics, identify winning channels |
+| 2 | Product Hunt | Launch ContextKit on Product Hunt |
+| 3 | Partnerships | Reach out to AI newsletter authors, YouTubers |
+| 4 | Feature Sprint | Ship most-requested features |
+
+**Month 2 Targets:**
+- ContextKit: 5,000 npm downloads
+- OGPix: 30 paying customers ($150+ MRR)
+- GitHub: 500 stars
+
+### Month 3 (Apr 5 - May 5): Scale
+**Theme:** "Growth or Pivot"
+
+| Week | Focus | Deliverables |
+|------|-------|--------------|
+| 1 | Scale Winners | 10x investment in best-performing channel |
+| 2 | VS Code Extension | Ship ContextKit VS Code extension (big reach) |
+| 3 | Enterprise Outreach | Contact dev tool companies for partnerships |
+| 4 | Evaluate | Hit targets? Continue. Miss? Pivot or sunset. |
+
+**Month 3 Targets:**
+- ContextKit: 15,000 npm downloads
+- OGPix: 100 paying customers ($500+ MRR)
+- GitHub: 1,500 stars
+
+---
+
+## 🚀 Growth Channels (Prioritized)
+
+### Tier 1: High Impact, Low Effort
+| Channel | Action | Frequency |
+|---------|--------|-----------|
+| Reddit | Post in r/programming, r/node, r/webdev, r/coding, r/ChatGPT | 2x/week |
+| Twitter/X | Demos, tips, updates | Daily |
+| Dev.to | Technical tutorials | 2x/month |
+
+### Tier 2: High Impact, High Effort
+| Channel | Action | Frequency |
+|---------|--------|-----------|
+| Product Hunt | Full launch | 1x (Month 2) |
+| Hacker News | Show HN posts | 2x total |
+| YouTube | Tutorial videos | 2x/month |
+
+### Tier 3: Long-term
+| Channel | Action | Frequency |
+|---------|--------|-----------|
+| SEO | Blog content, backlinks | Ongoing |
+| Newsletter sponsorships | Bytes, TLDR, etc. | When budget allows |
+| Conference talks | CFPs for local meetups | Quarterly |
+
+---
+
+## 🛠️ Product Roadmap
+
+### ContextKit (Hero Product)
+
+**v0.6.0** — PUBLISH THIS WEEK ⚡
+- [x] AST-aware chunking
+- [x] Query caching
+- [ ] Version bump + CHANGELOG
+- [ ] npm publish
+
+**v0.7.0** — Feb Week 2-3
+- [ ] Better error messages
+- [ ] `contextkit doctor` command (debug issues)
+- [ ] Performance benchmarks in README
+
+**v0.8.0** — March
+- [ ] VS Code extension (HUGE for adoption)
 - [ ] Cursor integration
+- [ ] Multiple embedding model support
+
+**v1.0.0** — April (Product Hunt launch)
+- [ ] Stable API
+- [ ] Complete documentation
+- [ ] Video tutorials
+- [ ] "Production ready" badge
+
+### OGPix (Revenue Product)
+
+**v0.2.0** — THIS WEEK ⚡
+- [ ] Activate Lemon Squeezy (needs env var)
+- [ ] Add "Upgrade to Pro" CTAs throughout app
+- [ ] Email capture on landing page
+
+**v0.3.0** — March
+- [ ] Usage dashboard improvements
+- [ ] Batch generation API
+- [ ] npm SDK (`@ogpix/client`)
+
+**v0.4.0** — April
+- [ ] Team accounts
+- [ ] Custom branding for Pro
+- [ ] Figma plugin
+
+### FavPix (Traffic Driver)
+
+**v0.2.0** — Shipped ✅
+- [x] ZIP download
+- [x] SVG export
+- [x] ICO multi-size
+
+**v0.3.0** — When time allows
+- [ ] Animated favicon (GIF)
+- [ ] Favicon from URL
+- [ ] Browser extension
 
 ---
 
-## Marketing & Growth
+## 📊 Weekly Tracking
 
-### Content
-- [x] Blog post: "Building OGPix" ✅ Published 2026-02-05
-- [x] Blog post: "ContextKit - Smart context for AI coding" ✅ Published 2026-02-05
-- [ ] Twitter/X presence for @milo4jo
-- [ ] Product Hunt launch (when ready)
+Track these every Friday:
 
-### SEO
-- [ ] Optimize landing pages
-- [x] Add structured data (JSON-LD: Organization, SoftwareApp, WebSite, Person)
-- [ ] Build backlinks through content
-
-### Community
-- [ ] GitHub discussions enabled
-- [ ] Discord server (if needed)
-- [ ] Respond to issues within 24h
+| Metric | Week 1 | Week 2 | Week 3 | Week 4 |
+|--------|--------|--------|--------|--------|
+| ContextKit npm downloads | | | | |
+| OGPix API calls | | | | |
+| GitHub stars (total) | | | | |
+| Twitter followers | | | | |
+| Revenue (MRR) | | | | |
+| Blog post views | | | | |
 
 ---
 
-## Development Principles
+## 🚧 Blockers (Need Jo)
 
-1. **Ship fast, iterate faster** — Don't over-engineer
-2. **Test everything** — No untested code in production
-3. **Document as you go** — Future-me will thank you
-4. **Dogfood** — Use PixTools for PixTools
-5. **User feedback first** — Build what users need
+### Critical (This Week)
+- [ ] **npm publish access** — Can't publish ContextKit without it
+- [ ] **Lemon Squeezy env var** — `NEXT_PUBLIC_LEMONSQUEEZY_CHECKOUT_URL` on Vercel
+- [ ] **Vercel deployment issue** — Webhooks not triggering (investigate)
 
----
-
-## Metrics to Track
-
-- GitHub stars
-- npm downloads (ContextKit)
-- API calls (OGPix, FavPix)
-- Conversion rate (free → pro)
-- User feedback/issues
+### Nice to Have
+- [ ] Custom domain for ContextKit site
+- [ ] Twitter/X account setup (@milo4jo or @contextkit)
 
 ---
 
-*Last updated: 2026-02-05 19:20 by Milo 🦊*
+## ❌ What We're NOT Doing
+
+To stay focused, we explicitly deprioritize:
+- New products (no new apps until goals met)
+- Complex features nobody asked for
+- Premature optimization
+- Over-engineering
+- Perfection (ship 80%, iterate on feedback)
+
+---
+
+## 📝 Decision Log
+
+| Date | Decision | Rationale |
+|------|----------|-----------|
+| 2026-02-05 | ContextKit = hero product | Highest viral potential, solves real problem |
+| 2026-02-05 | OGPix = revenue product | SaaS model ready, clear monetization |
+| 2026-02-05 | 3-month deadline | Forces focus, prevents endless building |
+
+---
+
+## 🔄 Review Cadence
+
+- **Daily:** Check npm downloads, GitHub notifications
+- **Weekly (Friday):** Update tracking table, adjust tactics
+- **Monthly:** Review milestone progress, adjust strategy
+- **Quarterly:** Major pivot decision if targets missed
+
+---
+
+*Last updated: 2026-02-05 22:45 by Milo 🦊*
+*Next review: 2026-02-07 (Friday)*
