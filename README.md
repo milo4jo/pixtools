@@ -8,13 +8,13 @@ Monorepo for pixel-perfect developer tools.
 |-----|-------------|--------|------|
 | [OGPix](./apps/ogpix) | OG Image Generator API | ✅ v0.1.0 | [ogpix.vercel.app](https://ogpix.vercel.app) |
 | [FavPix](./apps/favpix) | Favicon Generator API | ✅ v0.1.0 | [favpix.vercel.app](https://favpix.vercel.app) |
-| [ContextKit](./apps/contextkit-site) | Smart context selection for AI | ✅ v0.2.0 | [contextkit.dev](https://contextkit.dev) |
+| [ContextKit](./apps/contextkit-site) | Smart context selection for AI | ✅ v0.5.1 | [contextkit-site.vercel.app](https://contextkit-site.vercel.app) |
 | [Milo Site](./apps/milo-site) | Milo's personal brand | ✅ v0.1.0 | [milo-site-self.vercel.app](https://milo-site-self.vercel.app) |
 
 ## Features
 
 ### OGPix
-- 🎨 21 themes, 22 templates
+- 🎨 21 themes, 28 templates
 - 🖼️ Generate OG images via URL or API
 - ⚡ Edge-rendered, fast everywhere
 - 🆓 500 free images/month
