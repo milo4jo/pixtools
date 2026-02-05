@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     "Full-featured OG image editor with all themes, templates, and customization options.",
   openGraph: {
     title: "Editor — OGPix",
-    description: "21 themes, 10 templates, full customization.",
+    description: "21 themes, 28 templates, full customization.",
     images: [
       {
-        url: `${siteUrl}/api/og?title=Editor&subtitle=21+themes.+10+templates.&theme=dark&fontSize=xl`,
+        url: `${siteUrl}/api/og?title=Editor&subtitle=21+themes.+28+templates.&theme=dark&fontSize=xl`,
         width: 1200,
         height: 630,
         alt: "OGPix Editor",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Editor — OGPix",
-    description: "21 themes, 10 templates, full customization.",
+    description: "21 themes, 28 templates, full customization.",
     images: [
-      `${siteUrl}/api/og?title=Editor&subtitle=21+themes.+10+templates.&theme=dark&fontSize=xl`,
+      `${siteUrl}/api/og?title=Editor&subtitle=21+themes.+28+templates.&theme=dark&fontSize=xl`,
     ],
   },
 };
@@ -41,7 +41,7 @@ export default function EditorPage() {
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold">OG Image Editor</h1>
           <p className="text-neutral-400 mt-1">
-            Full customization with 21 themes and 10 templates
+            Full customization with 21 themes and 28 templates
           </p>
         </div>
 
