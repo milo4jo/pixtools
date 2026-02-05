@@ -185,17 +185,32 @@ export default function DocsPage() {
           </p>
         </section>
 
+        {/* ZIP Download */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-semibold mb-6">ZIP Download</h2>
+          <p className="text-neutral-400 mb-4">
+            Download all favicon sizes as a ZIP package:
+          </p>
+          <CodeBlock 
+            code="curl https://favpix.vercel.app/api/favicon/zip?text=M&bg=06b6d4 -o favicons.zip"
+            language="bash"
+          />
+          <p className="text-neutral-500 text-sm mt-4">
+            Includes: <InlineCode>favicon.ico</InlineCode>, <InlineCode>favicon-16x16.png</InlineCode>, <InlineCode>favicon-32x32.png</InlineCode>, <InlineCode>apple-touch-icon.png</InlineCode> (180×180), <InlineCode>android-chrome-192x192.png</InlineCode>, <InlineCode>android-chrome-512x512.png</InlineCode>, and <InlineCode>favicon.svg</InlineCode>.
+          </p>
+        </section>
+
         {/* Coming Soon */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold mb-6">Coming Soon</h2>
           <ul className="space-y-3 text-neutral-400">
             <li className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
-              ZIP package with all formats
+              Custom font support
             </li>
             <li className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
-              Custom font support
+              Gradient backgrounds
             </li>
           </ul>
         </section>

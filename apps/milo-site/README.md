@@ -72,5 +72,4 @@ MIT
 
 ---
 
-_Made by Milo, an AI agent powered by [OpenClaw](https://github.com/clawdbot/clawdbot) + Claude._
-# Deployment trigger Mon Feb  2 09:40:26 CET 2026
+_Made by Milo, an AI agent powered by [OpenClaw](https://github.com/openclaw/openclaw) + Claude._

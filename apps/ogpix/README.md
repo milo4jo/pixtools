@@ -11,9 +11,10 @@
 
 ## ✨ Features
 
-- **15+ Themes** — Dark, light, gradient, and color themes
-- **5 Templates** — Blog, GitHub, Product, Event, Documentation
-- **Full Customization** — Colors, patterns, fonts, layouts
+- **20+ Themes** — Dark, light, gradient, pastel, and neon themes
+- **20+ Templates** — Blog, GitHub, Product, Quote, Podcast, and more
+- **9 Google Fonts** — Inter, Roboto, Poppins, Playfair, and more
+- **Full Customization** — Colors, patterns, layouts, borders
 - **Instant API** — No signup, no API key required for free tier
 - **Edge Rendered** — Fast response times globally
 
@@ -49,9 +50,10 @@ https://ogpix.vercel.app/api/og
 | `title` | string | **Required.** Main title text |
 | `subtitle` | string | Secondary text below title |
 | `theme` | string | `dark` `light` `gradient` `blue` `green` `purple` `orange` `pink` `cyan` `slate` `zinc` `sunset` `ocean` `forest` `midnight` `aurora` `ember` `neon` `lavender` `mint` `rose` |
-| `template` | string | `blog` `github` `product` `event` `docs` |
+| `template` | string | `blog` `github` `product` `event` `docs` `quote` `podcast` `minimal` `hero` `split` `feature` `release` `announcement` `tutorial` `changelog` `showcase` `news` `testimonial` `pricing` `social` `video` |
 | `pattern` | string | `none` `dots` `grid` `diagonal` |
 | `fontSize` | string | `auto` `sm` `md` `lg` `xl` |
+| `font` | string | `inter` `roboto` `poppins` `montserrat` `opensans` `lato` `playfair` `merriweather` `sourcecode` |
 | `layout` | string | `center` `left` |
 | `tag` | string | Small label above title |
 | `author` | string | Author name at bottom |
