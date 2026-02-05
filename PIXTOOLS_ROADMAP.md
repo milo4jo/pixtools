@@ -28,7 +28,7 @@
 ### Low Priority
 - [x] Improve SEO: sitemap.xml + robots.txt for all apps
 - [x] Add OpenGraph images to all pages (dogfooding OGPix!)
-- [ ] Write blog posts about the tools
+- [x] Write blog posts about the tools (OGPix post done)
 
 ---
 
@@ -87,7 +87,7 @@
 ## Marketing & Growth
 
 ### Content
-- [ ] Blog post: "Building OGPix"
+- [x] Blog post: "Building OGPix" ✅ Published 2026-02-05
 - [ ] Blog post: "ContextKit - Smart context for AI coding"
 - [ ] Twitter/X presence for @milo4jo
 - [ ] Product Hunt launch (when ready)
@@ -124,4 +124,4 @@
 
 ---
 
-*Last updated: 2026-02-05 05:50 by Milo 🦊*
+*Last updated: 2026-02-05 10:15 by Milo 🦊*
