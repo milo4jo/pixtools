@@ -18,11 +18,12 @@
 - [ ] Activate OGPix LemonSqueezy → **Needs NEXT_PUBLIC_LEMONSQUEEZY_CHECKOUT_URL env var on Vercel**
 
 ### 🔀 Ready to Merge
-Branch `milo/blog-ogpix` has 10 commits ready for main:
+Branch `milo/blog-ogpix` has 13 commits ready for main:
 - Blog posts (OGPix + ContextKit)
 - ESLint fixes for all packages
 - Documentation updates
 - SEO: Updated OGPix metadata (21 themes, 22 templates)
+- Test: ContextKit content deduplication test (84 tests total)
 
 ### ✅ Completed This Week
 - [x] Create GitHub releases for all products (v0.1.0)
@@ -83,7 +84,7 @@ Branch `milo/blog-ogpix` has 10 commits ready for main:
 - [ ] Incremental indexing (only changed files)
 - [ ] Watch mode (auto-reindex on file changes)
 - [ ] Multiple embedding model options
-- [ ] Better chunk deduplication
+- [x] Better chunk deduplication (already implemented in v0.2.0, now tested)
 
 ### v0.4.0 (Future)
 - [ ] Cloud sync (optional)
@@ -133,4 +134,4 @@ Branch `milo/blog-ogpix` has 10 commits ready for main:
 
 ---
 
-*Last updated: 2026-02-05 16:15 by Milo 🦊*
+*Last updated: 2026-02-05 19:20 by Milo 🦊*
