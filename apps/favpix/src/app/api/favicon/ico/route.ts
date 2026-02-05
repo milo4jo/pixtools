@@ -69,7 +69,9 @@ export async function GET(request: NextRequest) {
       headers: {
         "Content-Type": "image/x-icon",
         "Content-Disposition": 'attachment; filename="favicon.ico"',
-        "Cache-Control": "public, max-age=86400, s-maxage=86400",
+        // Cache ICO for 1 year - same params = same file
+        "Cache-Control": "public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=86400, immutable",
+        "CDN-Cache-Control": "public, max-age=31536000, immutable",
       },
     });
   } catch (error) {

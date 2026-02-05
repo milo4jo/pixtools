@@ -114,7 +114,9 @@ export async function GET(request: NextRequest) {
       headers: {
         "Content-Type": "application/zip",
         "Content-Disposition": 'attachment; filename="favicons.zip"',
-        "Cache-Control": "public, max-age=3600",
+        // Cache ZIP for 1 week - downloads are usually one-time
+        "Cache-Control": "public, max-age=604800, s-maxage=604800, stale-while-revalidate=86400",
+        "CDN-Cache-Control": "public, max-age=604800",
       },
     });
   } catch (error) {

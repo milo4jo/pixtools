@@ -109,7 +109,9 @@ export async function GET(request: NextRequest) {
       return new NextResponse(svg, {
         headers: {
           "Content-Type": "image/svg+xml",
-          "Cache-Control": "public, max-age=86400, s-maxage=86400",
+          // SVG is lightweight - cache aggressively (1 year)
+          "Cache-Control": "public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=86400, immutable",
+          "CDN-Cache-Control": "public, max-age=31536000, immutable",
         },
       });
     }
@@ -158,7 +160,9 @@ export async function GET(request: NextRequest) {
     return new NextResponse(pngBuffer, {
       headers: {
         "Content-Type": "image/png",
-        "Cache-Control": "public, max-age=86400, s-maxage=86400",
+        // Cache PNG aggressively (1 year) - same params = same image
+        "Cache-Control": "public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=86400, immutable",
+        "CDN-Cache-Control": "public, max-age=31536000, immutable",
       },
     });
   } catch (error) {
