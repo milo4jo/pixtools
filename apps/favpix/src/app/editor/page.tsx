@@ -143,23 +143,28 @@ export default function EditorPage() {
     URL.revokeObjectURL(downloadUrl);
   }, [text, bg, color, shape]);
 
-  const downloadAllSizes = useCallback(async () => {
+  const downloadAllAsZip = useCallback(async () => {
     setDownloading(true);
-    const sizes = [
-      { size: 16, name: "favicon-16x16.png" },
-      { size: 32, name: "favicon-32x32.png" },
-      { size: 48, name: "favicon-48x48.png" },
-      { size: 180, name: "apple-touch-icon.png" },
-      { size: 192, name: "android-chrome-192x192.png" },
-      { size: 512, name: "android-chrome-512x512.png" },
-    ];
-
-    for (const { size, name } of sizes) {
-      await downloadFavicon(size, name);
-      await new Promise((r) => setTimeout(r, 300));
+    try {
+      const params = new URLSearchParams({ text, bg, color, shape, fontSize: String(fontSize) });
+      const url = `/api/favicon/zip?${params}`;
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Failed to generate ZIP");
+      }
+      const blob = await response.blob();
+      const downloadUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = downloadUrl;
+      a.download = "favicons.zip";
+      a.click();
+      URL.revokeObjectURL(downloadUrl);
+    } catch (error) {
+      console.error("ZIP download failed:", error);
+    } finally {
+      setDownloading(false);
     }
-    setDownloading(false);
-  }, [downloadFavicon]);
+  }, [text, bg, color, shape, fontSize]);
 
   const applyPreset = (preset: (typeof COLOR_PRESETS)[0]) => {
     setBg(preset.bg);
@@ -257,7 +262,7 @@ export default function EditorPage() {
 
             {/* Primary Download CTA */}
             <button
-              onClick={downloadAllSizes}
+              onClick={downloadAllAsZip}
               disabled={downloading}
               className="w-full px-6 py-4 bg-cyan-500 hover:bg-cyan-400 disabled:bg-cyan-500/50 text-black font-semibold rounded-xl text-base transition-colors flex items-center justify-center gap-2"
             >
@@ -267,7 +272,7 @@ export default function EditorPage() {
                     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" opacity="0.3"/>
                     <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
                   </svg>
-                  Downloading...
+                  Generating ZIP...
                 </>
               ) : (
                 <>
@@ -276,7 +281,7 @@ export default function EditorPage() {
                     <polyline points="7,10 12,15 17,10" strokeLinecap="round" strokeLinejoin="round"/>
                     <line x1="12" y1="15" x2="12" y2="3" strokeLinecap="round"/>
                   </svg>
-                  Download Favicon Pack
+                  Download All (ZIP)
                 </>
               )}
             </button>
