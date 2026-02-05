@@ -31,6 +31,9 @@
 - [x] Write blog posts about the tools (OGPix + ContextKit posts done)
 - [x] Document all 22 templates in OGPix docs
 
+### Infrastructure (Done)
+- [x] Fix ESLint configs across all packages (auth, constants, database, ui, contextkit-site)
+
 ---
 
 ## OGPix Roadmap
