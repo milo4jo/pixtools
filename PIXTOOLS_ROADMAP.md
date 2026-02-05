@@ -45,9 +45,9 @@ Branch `milo/blog-ogpix` has 13 commits ready for main:
 ## OGPix Roadmap
 
 ### v0.2.0 (Next)
-- [ ] Custom font support (Google Fonts)
+- [x] Custom font support (Google Fonts) ✅ Added 9 fonts: Inter, Roboto, Poppins, Montserrat, Playfair, Oswald, Lato, Raleway, Source Sans
 - [x] More templates: testimonial, pricing, changelog (+ quote, podcast, video)
-- [ ] API usage dashboard improvements
+- [ ] API usage dashboard improvements (usage history graph, per-key analytics)
 - [ ] Webhook reliability improvements
 
 ### v0.3.0 (Future)

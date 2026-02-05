@@ -53,6 +53,19 @@ const patterns = ["none", "dots", "grid", "diagonal"];
 const fontSizes = ["auto", "sm", "md", "lg", "xl"];
 const layouts = ["center", "left", "hero", "minimal", "split", "card", "featured", "modern"];
 
+// Available fonts for title (v0.2.0)
+const fonts = [
+  { id: "inter", name: "Inter" },
+  { id: "roboto", name: "Roboto" },
+  { id: "poppins", name: "Poppins" },
+  { id: "montserrat", name: "Montserrat" },
+  { id: "playfair", name: "Playfair" },
+  { id: "oswald", name: "Oswald" },
+  { id: "lato", name: "Lato" },
+  { id: "raleway", name: "Raleway" },
+  { id: "source-sans", name: "Source Sans" },
+];
+
 export function OGBuilder() {
   const [title, setTitle] = useState("Build Something Amazing");
   const [subtitle, setSubtitle] = useState("The fastest way to generate OG images");
@@ -69,6 +82,8 @@ export function OGBuilder() {
   const [borderWidth, setBorderWidth] = useState(0);
   const [borderColor, setBorderColor] = useState("#ffffff");
   const [borderRadius, setBorderRadius] = useState(0);
+  // Font selection (v0.2.0)
+  const [font, setFont] = useState("inter");
   // New Vercel-style options
   const [badge, setBadge] = useState("");
   const [date, setDate] = useState("");
@@ -113,6 +128,7 @@ export function OGBuilder() {
     if (debouncedDate) params.set("date", debouncedDate);
     if (debouncedIcon) params.set("icon", debouncedIcon);
     if (gradientText) params.set("gradientText", "true");
+    if (font !== "inter") params.set("font", font);
     return `/api/og?${params.toString()}`;
   }, [
     debouncedTitle,
@@ -132,6 +148,7 @@ export function OGBuilder() {
     debouncedDate,
     debouncedIcon,
     gradientText,
+    font,
   ]);
 
   // Live URL for copying (uses current values, not debounced)
@@ -157,6 +174,7 @@ export function OGBuilder() {
     if (date) params.set("date", date);
     if (icon) params.set("icon", icon);
     if (gradientText) params.set("gradientText", "true");
+    if (font !== "inter") params.set("font", font);
     return `/api/og?${params.toString()}`;
   }, [
     title,
@@ -176,6 +194,7 @@ export function OGBuilder() {
     date,
     icon,
     gradientText,
+    font,
   ]);
 
   const fullUrl = origin ? `${origin}${liveUrl}` : liveUrl;
@@ -321,6 +340,24 @@ export function OGBuilder() {
                     }`}
                   >
                     {p}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Title Font Selection (v0.2.0) */}
+            <div>
+              <label className="block text-xs text-neutral-500 mb-1">Title Font</label>
+              <div className="flex flex-wrap gap-1">
+                {fonts.map((f) => (
+                  <button
+                    key={f.id}
+                    onClick={() => setFont(f.id)}
+                    className={`px-2 py-1 rounded text-xs ${
+                      font === f.id ? "bg-white text-black" : "bg-neutral-800 text-neutral-400"
+                    }`}
+                  >
+                    {f.name}
                   </button>
                 ))}
               </div>

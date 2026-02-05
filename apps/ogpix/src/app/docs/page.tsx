@@ -10,6 +10,7 @@ const sections = [
   { id: "api-keys", label: "API Keys" },
   { id: "api-reference", label: "API Reference" },
   { id: "themes", label: "Themes" },
+  { id: "fonts", label: "Fonts" },
   { id: "layouts", label: "Layouts" },
   { id: "templates", label: "Templates" },
   { id: "examples", label: "Examples" },
@@ -157,6 +158,12 @@ const parameters = [
     type: "boolean",
     required: false,
     description: "Apply gradient effect to title text",
+  },
+  {
+    name: "font",
+    type: "string",
+    required: false,
+    description: "Title font: inter (default), roboto, poppins, montserrat, playfair, oswald, lato, raleway, source-sans",
   },
 ];
 
@@ -424,6 +431,59 @@ Cache-Control: public, max-age=86400, s-maxage=86400, stale-while-revalidate=604
               <CodeBlock code={`/api/og?title=Custom&bg=1a1a2e&text=eaeaea`} language="url" />
             </section>
 
+            {/* Fonts */}
+            <section id="fonts" className="scroll-mt-20">
+              <h1 className="text-3xl sm:text-4xl font-bold mb-4">Fonts</h1>
+              <p className="text-neutral-400 mb-8 text-lg">
+                9 Google Fonts available for your title text.
+              </p>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-4">
+                  <InlineCode>inter</InlineCode>
+                  <p className="text-neutral-500 text-sm mt-1">Clean sans-serif (default)</p>
+                </div>
+                <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-4">
+                  <InlineCode>roboto</InlineCode>
+                  <p className="text-neutral-500 text-sm mt-1">Modern geometric sans</p>
+                </div>
+                <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-4">
+                  <InlineCode>poppins</InlineCode>
+                  <p className="text-neutral-500 text-sm mt-1">Friendly rounded sans</p>
+                </div>
+                <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-4">
+                  <InlineCode>montserrat</InlineCode>
+                  <p className="text-neutral-500 text-sm mt-1">Elegant sans-serif</p>
+                </div>
+                <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-4">
+                  <InlineCode>playfair</InlineCode>
+                  <p className="text-neutral-500 text-sm mt-1">Classic serif with contrast</p>
+                </div>
+                <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-4">
+                  <InlineCode>oswald</InlineCode>
+                  <p className="text-neutral-500 text-sm mt-1">Narrow, impactful sans</p>
+                </div>
+                <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-4">
+                  <InlineCode>lato</InlineCode>
+                  <p className="text-neutral-500 text-sm mt-1">Warm, humanist sans</p>
+                </div>
+                <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-4">
+                  <InlineCode>raleway</InlineCode>
+                  <p className="text-neutral-500 text-sm mt-1">Elegant thin display font</p>
+                </div>
+                <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-4">
+                  <InlineCode>source-sans</InlineCode>
+                  <p className="text-neutral-500 text-sm mt-1">Adobe&apos;s open-source sans</p>
+                </div>
+              </div>
+
+              <h2 className="text-xl font-semibold mt-8 mb-4">Example</h2>
+              <CodeBlock
+                code={`/api/og?title=Elegant+Typography&font=playfair&theme=dark`}
+                language="url"
+              />
+            </section>
+
             {/* Layouts */}
             <section id="layouts" className="scroll-mt-20">
               <h1 className="text-3xl sm:text-4xl font-bold mb-4">Layouts</h1>
@@ -549,6 +609,12 @@ Cache-Control: public, max-age=86400, s-maxage=86400, stale-while-revalidate=604
               <h2 className="text-xl font-semibold mt-8 mb-4">Card with Metadata</h2>
               <CodeBlock
                 code={`https://ogpix.vercel.app/api/og?title=Release+Notes&subtitle=Version+2.0&layout=card&author=Team&date=Feb+2026&theme=dark`}
+                language="url"
+              />
+
+              <h2 className="text-xl font-semibold mt-8 mb-4">Custom Font</h2>
+              <CodeBlock
+                code={`https://ogpix.vercel.app/api/og?title=Elegant+Typography&subtitle=Using+Playfair+Display&font=playfair&theme=dark`}
                 language="url"
               />
 

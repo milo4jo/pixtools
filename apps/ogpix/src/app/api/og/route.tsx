@@ -757,6 +757,16 @@ export async function GET(request: NextRequest) {
     {
       width: IMAGE.width,
       height: IMAGE.height,
+      ...(fontData && {
+        fonts: [
+          {
+            name: fontFamily,
+            data: fontData,
+            weight: 700 as const,
+            style: "normal" as const,
+          },
+        ],
+      }),
     }
   );
 
