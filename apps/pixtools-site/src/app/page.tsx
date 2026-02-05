@@ -5,7 +5,7 @@ const products = [
     name: "OGPix",
     tagline: "Open Graph Images API",
     href: "/products/ogpix",
-    external: "https://ogpix.milo.contact",
+    external: "https://ogpix.vercel.app",
     color: "blue",
     borderColor: "hover:border-blue-500",
     textColor: "group-hover:text-blue-400",
@@ -14,7 +14,7 @@ const products = [
     name: "FavPix",
     tagline: "Favicon Generator",
     href: "/products/favpix",
-    external: "https://favpix.milo.contact",
+    external: "https://favpix.vercel.app",
     color: "amber",
     borderColor: "hover:border-amber-500",
     textColor: "group-hover:text-amber-400",
@@ -23,7 +23,7 @@ const products = [
     name: "ContextKit",
     tagline: "AI Context Selection",
     href: "/products/contextkit",
-    external: "https://contextkit.milo.contact",
+    external: "https://contextkit-site.vercel.app",
     color: "green",
     borderColor: "hover:border-green-500",
     textColor: "group-hover:text-green-400",
@@ -78,7 +78,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-center text-sm text-neutral-500">
           Built by{" "}
           <a
-            href="https://milo.contact"
+            href="https://milo-site-self.vercel.app"
             className="text-white hover:text-neutral-300 transition-colors"
             target="_blank"
             rel="noopener noreferrer"

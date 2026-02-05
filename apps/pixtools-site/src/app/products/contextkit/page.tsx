@@ -57,7 +57,7 @@ export default function ContextKitPage() {
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4">
           <a
-            href="https://contextkit.milo.contact"
+            href="https://contextkit-site.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-500 rounded-lg font-medium transition-colors"
@@ -68,7 +68,7 @@ export default function ContextKitPage() {
             </svg>
           </a>
           <a
-            href="https://www.npmjs.com/package/contextkit"
+            href="https://www.npmjs.com/package/@milo4jo/contextkit"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-neutral-700 hover:border-neutral-500 rounded-lg font-medium transition-colors"

@@ -57,7 +57,7 @@ export default function FavPixPage() {
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4">
           <a
-            href="https://favpix.milo.contact"
+            href="https://favpix.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 rounded-lg font-medium transition-colors"

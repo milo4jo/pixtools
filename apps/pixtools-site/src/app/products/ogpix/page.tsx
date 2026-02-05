@@ -57,7 +57,7 @@ export default function OGPixPage() {
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4">
           <a
-            href="https://ogpix.milo.contact"
+            href="https://ogpix.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg font-medium transition-colors"
@@ -68,7 +68,7 @@ export default function OGPixPage() {
             </svg>
           </a>
           <a
-            href="https://ogpix.milo.contact/docs"
+            href="https://ogpix.vercel.app/docs"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-neutral-700 hover:border-neutral-500 rounded-lg font-medium transition-colors"
