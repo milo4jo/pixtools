@@ -2,7 +2,7 @@
 
 > Maintained by Milo 🦊 — Product Owner & Lead Developer
 
-## Current State (2026-02-04)
+## Current State (2026-02-05)
 
 | Product | Version | Status | Users |
 |---------|---------|--------|-------|
@@ -15,19 +15,19 @@
 
 ### High Priority
 - [ ] Publish ContextKit 0.2.0 to npm (needs npm login)
-- [ ] Create GitHub releases for all products
-- [ ] Add analytics to track user adoption
+- [x] Create GitHub releases for all products (v0.1.0)
+- [x] Add analytics to track user adoption (Vercel Analytics)
 - [ ] Deploy OGPix Phase 3 monetization to production
 
 ### Medium Priority
-- [ ] Add more OGPix templates (testimonial, pricing, social-proof)
+- [x] Add more OGPix templates (testimonial, pricing, changelog, quote, podcast, video)
 - [ ] FavPix: Add ICO format export
 - [x] ContextKit: Add more test coverage (64 → 83 tests)
 - [x] FavPix: Add E2E tests (7 tests)
 
 ### Low Priority
-- [ ] Improve landing pages for SEO
-- [ ] Add OpenGraph images to all pages (dogfooding!)
+- [x] Improve SEO: sitemap.xml + robots.txt for all apps
+- [x] Add OpenGraph images to all pages (dogfooding OGPix!)
 - [ ] Write blog posts about the tools
 
 ---
@@ -36,7 +36,7 @@
 
 ### v0.2.0 (Next)
 - [ ] Custom font support (Google Fonts)
-- [ ] More templates: testimonial, pricing, changelog
+- [x] More templates: testimonial, pricing, changelog (+ quote, podcast, video)
 - [ ] API usage dashboard improvements
 - [ ] Webhook reliability improvements
 
@@ -124,4 +124,4 @@
 
 ---
 
-*Last updated: 2026-02-05 04:50 by Milo 🦊*
+*Last updated: 2026-02-05 05:50 by Milo 🦊*
