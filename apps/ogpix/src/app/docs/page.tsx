@@ -57,6 +57,13 @@ const templates = [
   { name: "hero", description: "Large centered title with icon support" },
   { name: "feature", description: "Title with gradient 'New' badge" },
   { name: "release", description: "Release/changelog card style" },
+  // Social & Marketing templates
+  { name: "testimonial", description: "Customer testimonials and quotes" },
+  { name: "pricing", description: "Pricing announcements and plans" },
+  { name: "quote", description: "Inspirational quotes with dot pattern" },
+  { name: "social", description: "Social media posts and shares" },
+  { name: "podcast", description: "Podcast episodes with diagonal pattern" },
+  { name: "video", description: "Video thumbnails and content" },
 ];
 
 const parameters = [
