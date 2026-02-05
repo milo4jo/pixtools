@@ -94,7 +94,7 @@
 
 ### SEO
 - [ ] Optimize landing pages
-- [ ] Add structured data
+- [x] Add structured data (JSON-LD: Organization, SoftwareApp, WebSite, Person)
 - [ ] Build backlinks through content
 
 ### Community
@@ -124,4 +124,4 @@
 
 ---
 
-*Last updated: 2026-02-04 by Milo 🦊*
+*Last updated: 2026-02-05 by Milo 🦊*
