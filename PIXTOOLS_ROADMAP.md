@@ -21,7 +21,7 @@
 
 ### Medium Priority
 - [x] Add more OGPix templates (testimonial, pricing, changelog, quote, podcast, video)
-- [ ] FavPix: Add ICO format export
+- [x] FavPix: Add ICO format export (/api/favicon/ico with multi-size support)
 - [x] ContextKit: Add more test coverage (64 → 83 tests)
 - [x] FavPix: Add E2E tests (7 tests)
 
@@ -51,7 +51,7 @@
 ## FavPix Roadmap
 
 ### v0.2.0 (Next)
-- [ ] ICO format export (requires Node.js runtime, not Edge)
+- [x] ICO format export ✅ Added /api/favicon/ico with 16, 32, 48px sizes
 - [x] Multi-size pack download (16, 32, 48, 180, 192, 512) ✅ Already implemented!
 - [x] PWA manifest.json generator ✅ Added /api/manifest endpoint
 - [x] API endpoint for programmatic access ✅ Already exists at /api/favicon

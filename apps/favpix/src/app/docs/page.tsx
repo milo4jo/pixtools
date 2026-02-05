@@ -169,21 +169,29 @@ export default function DocsPage() {
           />
         </section>
 
+        {/* ICO Format */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-semibold mb-6">ICO Format</h2>
+          <p className="text-neutral-400 mb-4">
+            Generate <InlineCode>.ico</InlineCode> files with multiple sizes (16×16, 32×32, 48×48) embedded:
+          </p>
+          <CodeBlock 
+            code="curl https://favpix.vercel.app/api/favicon/ico?text=M&bg=06b6d4 -o favicon.ico"
+            language="bash"
+          />
+          <p className="text-neutral-500 text-sm mt-4">
+            The ICO endpoint accepts the same parameters as the PNG endpoint (<InlineCode>text</InlineCode>, <InlineCode>bg</InlineCode>, <InlineCode>color</InlineCode>, <InlineCode>shape</InlineCode>). 
+            The <InlineCode>size</InlineCode> parameter is ignored since ICO files bundle multiple sizes.
+          </p>
+        </section>
+
         {/* Coming Soon */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold mb-6">Coming Soon</h2>
           <ul className="space-y-3 text-neutral-400">
             <li className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
-              ICO format with multiple sizes
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
               ZIP package with all formats
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
-              Web manifest generation
             </li>
             <li className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50"></span>
