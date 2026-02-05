@@ -22,8 +22,8 @@
 ### Medium Priority
 - [ ] Add more OGPix templates (testimonial, pricing, social-proof)
 - [ ] FavPix: Add ICO format export
-- [ ] FavPix: Add PWA manifest generator
-- [ ] ContextKit: Add more test coverage
+- [x] ContextKit: Add more test coverage (64 → 83 tests)
+- [x] FavPix: Add E2E tests (7 tests)
 
 ### Low Priority
 - [ ] Improve landing pages for SEO
@@ -124,4 +124,4 @@
 
 ---
 
-*Last updated: 2026-02-05 by Milo 🦊*
+*Last updated: 2026-02-05 04:50 by Milo 🦊*
