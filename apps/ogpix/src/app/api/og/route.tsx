@@ -609,6 +609,10 @@ export async function GET(request: NextRequest) {
             display: "flex",
             flexDirection: "column",
             flex: 1,
+            justifyContent: 
+              finalLayout === "center" || finalLayout === "hero" || finalLayout === "minimal"
+                ? "center"
+                : "flex-start",
           }}
         >
           {/* Badge (new) */}
