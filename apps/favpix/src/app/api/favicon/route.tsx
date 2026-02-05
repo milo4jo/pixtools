@@ -48,6 +48,15 @@ function parseParams(searchParams: URLSearchParams): FaviconParams {
   };
 }
 
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 export async function GET(request: NextRequest) {
   try {
     const params = parseParams(request.nextUrl.searchParams);
@@ -65,8 +74,47 @@ export async function GET(request: NextRequest) {
     // Check if text is emoji
     const isEmoji = /\p{Emoji}/u.test(text);
     const displayText = text.slice(0, 3); // Max 3 characters
+
+    // SVG format - generate a proper vector SVG
+    if (format === "svg") {
+      // Generate shape element based on shape type
+      let shapeElement: string;
+      if (shape === "circle") {
+        const r = size / 2;
+        shapeElement = `<circle cx="${r}" cy="${r}" r="${r}" fill="#${bg}"/>`;
+      } else if (shape === "rounded") {
+        const rx = radius || Math.floor(size * 0.2);
+        shapeElement = `<rect width="${size}" height="${size}" fill="#${bg}" rx="${rx}"/>`;
+      } else {
+        shapeElement = `<rect width="${size}" height="${size}" fill="#${bg}"/>`;
+      }
+
+      // Escape special characters for XML
+      const escapedText = escapeXml(displayText);
+
+      // Use Inter font from Google Fonts for consistent rendering
+      const fontFamily = isEmoji ? "system-ui, sans-serif" : "'Inter', sans-serif";
+      const fontImport = isEmoji ? "" : `
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;display=swap');
+    </style>
+  </defs>`;
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${fontImport}
+  ${shapeElement}
+  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" fill="#${color}" font-family="${fontFamily}" font-size="${fontSize}px" font-weight="700">${escapedText}</text>
+</svg>`;
+
+      return new NextResponse(svg, {
+        headers: {
+          "Content-Type": "image/svg+xml",
+          "Cache-Control": "public, max-age=86400, s-maxage=86400",
+        },
+      });
+    }
     
-    // Load Inter font
+    // Load Inter font for PNG generation
     const interFont = await getInterFont();
 
     // Generate image using Satori
@@ -106,25 +154,6 @@ export async function GET(request: NextRequest) {
 
     // Get the PNG buffer
     const pngBuffer = await imageResponse.arrayBuffer();
-
-    // If SVG requested, we still return PNG (Satori doesn't output SVG directly in this config)
-    // For true SVG, we'd need a different approach
-    if (format === "svg") {
-      // For SVG format, return a simple SVG wrapper with embedded PNG
-      // This is a workaround - true SVG would require different rendering
-      return new NextResponse(
-        `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
-          <rect width="${size}" height="${size}" fill="#${bg}" rx="${borderRadius}"/>
-          <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" fill="#${color}" font-family="sans-serif" font-size="${fontSize}px" font-weight="bold">${displayText}</text>
-        </svg>`,
-        {
-          headers: {
-            "Content-Type": "image/svg+xml",
-            "Cache-Control": "public, max-age=86400, s-maxage=86400",
-          },
-        }
-      );
-    }
 
     return new NextResponse(pngBuffer, {
       headers: {

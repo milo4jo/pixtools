@@ -117,6 +117,32 @@ export default function EditorPage() {
     [buildUrl]
   );
 
+  const downloadIco = useCallback(async () => {
+    const params = new URLSearchParams({ text, bg, color, shape });
+    const url = `/api/favicon/ico?${params}`;
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const downloadUrl = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = downloadUrl;
+    a.download = "favicon.ico";
+    a.click();
+    URL.revokeObjectURL(downloadUrl);
+  }, [text, bg, color, shape]);
+
+  const downloadSvg = useCallback(async () => {
+    const params = new URLSearchParams({ text, bg, color, shape, size: "64", format: "svg" });
+    const url = `/api/favicon?${params}`;
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const downloadUrl = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = downloadUrl;
+    a.download = "favicon.svg";
+    a.click();
+    URL.revokeObjectURL(downloadUrl);
+  }, [text, bg, color, shape]);
+
   const downloadAllSizes = useCallback(async () => {
     setDownloading(true);
     const sizes = [
@@ -261,21 +287,33 @@ export default function EditorPage() {
                 <svg className="w-4 h-4 group-open:rotate-90 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <polyline points="9,6 15,12 9,18" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                Download individual sizes
+                Download individual sizes & formats
               </summary>
-              <div className="grid grid-cols-2 gap-2 mt-3">
-                <button onClick={() => downloadFavicon(32, "favicon-32x32.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
-                  32px (Browser)
-                </button>
-                <button onClick={() => downloadFavicon(16, "favicon-16x16.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
-                  16px (Tiny)
-                </button>
-                <button onClick={() => downloadFavicon(180, "apple-touch-icon.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
-                  180px (Apple)
-                </button>
-                <button onClick={() => downloadFavicon(512, "android-chrome-512x512.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
-                  512px (Android)
-                </button>
+              <div className="space-y-3 mt-3">
+                {/* PNG sizes */}
+                <div className="grid grid-cols-2 gap-2">
+                  <button onClick={() => downloadFavicon(32, "favicon-32x32.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
+                    32px (Browser)
+                  </button>
+                  <button onClick={() => downloadFavicon(16, "favicon-16x16.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
+                    16px (Tiny)
+                  </button>
+                  <button onClick={() => downloadFavicon(180, "apple-touch-icon.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
+                    180px (Apple)
+                  </button>
+                  <button onClick={() => downloadFavicon(512, "android-chrome-512x512.png")} className="px-3 py-2.5 border border-neutral-800 rounded-lg text-sm hover:border-neutral-600 hover:bg-neutral-900 transition-colors">
+                    512px (Android)
+                  </button>
+                </div>
+                {/* Other formats */}
+                <div className="grid grid-cols-2 gap-2">
+                  <button onClick={downloadIco} className="px-3 py-2.5 border border-amber-500/30 bg-amber-500/5 rounded-lg text-sm hover:border-amber-500/50 hover:bg-amber-500/10 transition-colors text-amber-400">
+                    favicon.ico
+                  </button>
+                  <button onClick={downloadSvg} className="px-3 py-2.5 border border-emerald-500/30 bg-emerald-500/5 rounded-lg text-sm hover:border-emerald-500/50 hover:bg-emerald-500/10 transition-colors text-emerald-400">
+                    favicon.svg
+                  </button>
+                </div>
               </div>
             </details>
           </div>
