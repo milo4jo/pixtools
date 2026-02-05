@@ -1,41 +1,8 @@
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Markdown } from "@/components/Markdown";
-
-interface BlogPost {
-  slug: string;
-  date: string;
-  title: string;
-  content: string;
-  tags: string[];
-}
-
-function getBlogPost(slug: string): BlogPost | null {
-  const filePath = path.join(process.cwd(), "src/content/blog", `${slug}.json`);
-
-  if (!fs.existsSync(filePath)) {
-    return null;
-  }
-
-  const content = fs.readFileSync(filePath, "utf-8");
-  return JSON.parse(content) as BlogPost;
-}
-
-function getAllSlugs(): string[] {
-  const blogDir = path.join(process.cwd(), "src/content/blog");
-
-  if (!fs.existsSync(blogDir)) {
-    return [];
-  }
-
-  return fs
-    .readdirSync(blogDir)
-    .filter((f) => f.endsWith(".json"))
-    .map((f) => f.replace(".json", ""));
-}
+import { getBlogPost, getAllSlugs } from "@/lib/blog";
 
 export function generateStaticParams() {
   const slugs = getAllSlugs();
@@ -106,14 +73,15 @@ export default async function BlogPostPage({
         <header className="mt-8 mb-12">
           <time className="text-sm text-neutral-500">{post.date}</time>
           <h1 className="text-3xl sm:text-4xl font-bold mt-2">{post.title}</h1>
-          <div className="flex gap-2 mt-4">
+          <div className="flex flex-wrap gap-2 mt-4">
             {post.tags.map((tag) => (
-              <span
+              <Link
                 key={tag}
-                className="text-xs px-2 py-1 bg-neutral-900 text-neutral-400 rounded"
+                href={`/blog/tag/${tag.toLowerCase()}`}
+                className="text-xs px-2 py-1 bg-neutral-900 text-neutral-400 rounded hover:bg-neutral-800 hover:text-neutral-300 transition-colors"
               >
                 {tag}
-              </span>
+              </Link>
             ))}
           </div>
         </header>
