@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import { StructuredData } from "@/components/structured-data";
 import "./globals.css";
 
 const siteUrl = "https://favpix.vercel.app";
@@ -54,6 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased min-h-screen">
+        <StructuredData />
         {children}
         <Analytics />
       </body>
