@@ -116,6 +116,41 @@ export const FONT_SIZES = ["auto", "sm", "md", "lg", "xl"] as const;
 export type FontSize = typeof FONT_SIZES[number];
 
 // ============================================
+// FONTS (Google Fonts support - v0.2.0)
+// ============================================
+export const FONTS = {
+  // System fonts (always available, no fetch needed)
+  system: [
+    { id: "inter", name: "Inter", family: "Inter", weight: 700 },
+    { id: "system", name: "System UI", family: "system-ui", weight: 700 },
+  ],
+  // Google Fonts (fetched on demand)
+  google: [
+    { id: "roboto", name: "Roboto", family: "Roboto", weight: 700, url: "https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2" },
+    { id: "poppins", name: "Poppins", family: "Poppins", weight: 700, url: "https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" },
+    { id: "montserrat", name: "Montserrat", family: "Montserrat", weight: 700, url: "https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" },
+    { id: "playfair", name: "Playfair Display", family: "Playfair Display", weight: 700, url: "https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDTbtPY_Q.woff2" },
+    { id: "oswald", name: "Oswald", family: "Oswald", weight: 700, url: "https://fonts.gstatic.com/s/oswald/v49/TK3_WkUHHAIjg75cFRf3bXL8LICs1xZosUZiZQ.woff2" },
+    { id: "lato", name: "Lato", family: "Lato", weight: 700, url: "https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh6UVSwaPGR_p.woff2" },
+    { id: "raleway", name: "Raleway", family: "Raleway", weight: 700, url: "https://fonts.gstatic.com/s/raleway/v28/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCGPrcVIT9d0c-dYA.woff2" },
+    { id: "source-sans", name: "Source Sans 3", family: "Source Sans 3", weight: 700, url: "https://fonts.gstatic.com/s/sourcesans3/v10/nwpBtKy2OAdR1K-IwhWudF-R9QMylBJAV3Bo8Kw47FEN_io6npfB.woff2" },
+  ],
+} as const;
+
+export type FontId = typeof FONTS.system[number]["id"] | typeof FONTS.google[number]["id"];
+
+// Helper to get font config by ID
+export function getFontById(fontId: string) {
+  const systemFont = FONTS.system.find(f => f.id === fontId);
+  if (systemFont) return { ...systemFont, type: "system" as const };
+  
+  const googleFont = FONTS.google.find(f => f.id === fontId);
+  if (googleFont) return { ...googleFont, type: "google" as const };
+  
+  return null;
+}
+
+// ============================================
 // LOGO URL ALLOWLIST
 // ============================================
 export const ALLOWED_LOGO_HOSTS: string[] = [

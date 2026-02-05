@@ -1,7 +1,7 @@
 import { ImageResponse } from "@vercel/og";
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { LIMITS, IMAGE, ALLOWED_LOGO_HOSTS, SECURITY, BRAND } from "@/lib/constants";
+import { LIMITS, IMAGE, ALLOWED_LOGO_HOSTS, SECURITY, BRAND, getFontById } from "@/lib/constants";
 
 export const runtime = "edge";
 
@@ -507,6 +507,28 @@ export async function GET(request: NextRequest) {
 
   const titleFontSize = getFontSize();
 
+  // Font customization (v0.2.0)
+  const fontId = searchParams.get("font") || "inter";
+  
+  // Load custom font if needed
+  const fontConfig = getFontById(fontId);
+  let fontData: ArrayBuffer | undefined;
+  let fontFamily = "Inter";
+  
+  if (fontConfig?.type === "google" && "url" in fontConfig) {
+    try {
+      const fontResponse = await fetch(fontConfig.url);
+      if (fontResponse.ok) {
+        fontData = await fontResponse.arrayBuffer();
+        fontFamily = fontConfig.family;
+      }
+    } catch {
+      // Fall back to default font on error
+    }
+  } else if (fontConfig) {
+    fontFamily = fontConfig.family;
+  }
+
   const response = new ImageResponse(
     <div
       style={{
@@ -651,11 +673,12 @@ export async function GET(request: NextRequest) {
             />
           )}
 
-          {/* Title - with optional gradient text */}
+          {/* Title - with optional gradient text and custom font */}
           <h1
             style={{
               fontSize: `${titleFontSize}px`,
               fontWeight: 700,
+              fontFamily: fontFamily,
               color: gradientText ? "transparent" : colors.text,
               margin: 0,
               lineHeight: 1.2,
