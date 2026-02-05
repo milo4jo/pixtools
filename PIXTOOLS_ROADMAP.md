@@ -18,10 +18,11 @@
 - [ ] Activate OGPix LemonSqueezy → **Needs NEXT_PUBLIC_LEMONSQUEEZY_CHECKOUT_URL env var on Vercel**
 
 ### 🔀 Ready to Merge
-Branch `milo/blog-ogpix` has 7 commits ready for main:
+Branch `milo/blog-ogpix` has 8 commits ready for main:
 - Blog posts (OGPix + ContextKit)
 - ESLint fixes for all packages
 - Documentation updates
+- SEO: Updated OGPix metadata (21 themes, 22 templates)
 
 ### ✅ Completed This Week
 - [x] Create GitHub releases for all products (v0.1.0)
@@ -35,6 +36,7 @@ Branch `milo/blog-ogpix` has 7 commits ready for main:
 - [x] Write blog posts about the tools (OGPix + ContextKit posts done)
 - [x] Document all 22 templates in OGPix docs
 - [x] Fix ESLint configs across all packages (auth, constants, database, ui, contextkit-site)
+- [x] SEO: Fix OGPix metadata (updated theme/template counts)
 
 ---
 
