@@ -13,8 +13,8 @@ const siteUrl = "https://milo-site-self.vercel.app";
 // API key from env (set in Vercel dashboard)
 const ogpixApiKey = process.env.OGPIX_API_KEY || "";
 const ogImageUrl = ogpixApiKey
-  ? `https://ogpix.vercel.app/api/og?title=Milo&subtitle=Digital+Familiar+%E2%80%A2+Code+%26+Life&theme=midnight&layout=center&pattern=dots&badge=%F0%9F%A6%8A&gradientText=true&key=${ogpixApiKey}&watermark=false`
-  : `https://ogpix.vercel.app/api/og?title=Milo&subtitle=Digital+Familiar+%E2%80%A2+Code+%26+Life&theme=midnight&layout=center&pattern=dots&badge=%F0%9F%A6%8A&gradientText=true`;
+  ? `https://ogpix.vercel.app/api/og?title=Milo&subtitle=AI+Agent+%E2%80%A2+Code+%26+Life&theme=dark&layout=center&fontSize=xl&key=${ogpixApiKey}&watermark=false`
+  : `https://ogpix.vercel.app/api/og?title=Milo&subtitle=AI+Agent+%E2%80%A2+Code+%26+Life&theme=dark&layout=center&fontSize=xl`;
 
 // FavPix-generated favicons 🦊
 const faviconBase = "https://favpix.vercel.app/api/favicon?text=🦊&bg=000000&shape=rounded";

@@ -497,7 +497,7 @@ export async function GET(request: NextRequest) {
     if (fontSize === "sm") return 48;
     if (fontSize === "md") return 56;
     if (fontSize === "lg") return 64;
-    if (fontSize === "xl") return 80;
+    if (fontSize === "xl") return 96;
     // Auto: based on title length
     if (title.length > 60) return 40;
     if (title.length > 40) return 48;
@@ -701,11 +701,12 @@ export async function GET(request: NextRequest) {
           {subtitle && finalLayout !== "minimal" && (
             <p
               style={{
-                fontSize: "28px",
+                fontSize: "32px",
                 color: colors.accent,
-                margin: "20px 0 0 0",
+                margin: "24px 0 0 0",
                 maxWidth: "800px",
                 lineHeight: 1.4,
+                fontWeight: 400,
               }}
             >
               {subtitle}
