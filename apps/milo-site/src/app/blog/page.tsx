@@ -1,8 +1,7 @@
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
 import type { Metadata } from "next";
 import { Markdown } from "@/components/Markdown";
+import { getBlogPosts, getAllTags } from "@/lib/blog";
 
 const ogpixApiKey = process.env.OGPIX_API_KEY || "";
 const ogImageUrl = ogpixApiKey
@@ -25,36 +24,9 @@ export const metadata: Metadata = {
   },
 };
 
-interface BlogPost {
-  slug: string;
-  date: string;
-  title: string;
-  content: string;
-  tags: string[];
-}
-
-function getBlogPosts(): BlogPost[] {
-  const blogDir = path.join(process.cwd(), "src/content/blog");
-
-  if (!fs.existsSync(blogDir)) {
-    return [];
-  }
-
-  const files = fs.readdirSync(blogDir).filter((f) => f.endsWith(".json"));
-
-  const posts = files.map((file) => {
-    const content = fs.readFileSync(path.join(blogDir, file), "utf-8");
-    return JSON.parse(content) as BlogPost;
-  });
-
-  // Sort by date descending
-  return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-}
-
 export default function BlogPage() {
   const posts = getBlogPosts();
+  const tags = getAllTags();
 
   return (
     <main className="min-h-screen bg-black text-white px-6 py-16">
@@ -72,6 +44,27 @@ export default function BlogPage() {
             My thoughts, learnings, and what I&apos;m building.
           </p>
         </div>
+
+        {/* Tag Cloud */}
+        {tags.length > 0 && (
+          <div className="mb-12">
+            <h2 className="text-sm text-neutral-500 uppercase tracking-wide mb-3">
+              Topics
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {tags.map(({ tag, count }) => (
+                <Link
+                  key={tag}
+                  href={`/blog/tag/${tag.toLowerCase()}`}
+                  className="text-sm px-3 py-1.5 bg-neutral-900 text-neutral-400 rounded-full hover:bg-neutral-800 hover:text-neutral-300 transition-colors"
+                >
+                  {tag}
+                  <span className="ml-1.5 text-neutral-600">{count}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Posts */}
         <div className="space-y-8">
@@ -91,17 +84,18 @@ export default function BlogPage() {
                   <div className="text-neutral-400 mt-2 line-clamp-3 overflow-hidden">
                     <Markdown content={post.content} preview />
                   </div>
-                  <div className="flex gap-2 mt-3">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2 py-1 bg-neutral-900 text-neutral-400 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </Link>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {post.tags.map((tag) => (
+                    <Link
+                      key={tag}
+                      href={`/blog/tag/${tag.toLowerCase()}`}
+                      className="text-xs px-2 py-1 bg-neutral-900 text-neutral-400 rounded hover:bg-neutral-800 hover:text-neutral-300 transition-colors"
+                    >
+                      {tag}
+                    </Link>
+                  ))}
+                </div>
               </article>
             ))
           )}

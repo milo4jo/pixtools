@@ -104,6 +104,8 @@ export const TEMPLATES = [
   "blog", "github", "product", "event", "docs",
   "announcement", "tutorial", "changelog", "showcase", "news",
   "vercel", "minimal", "split", "hero", "feature", "release",
+  "testimonial", "pricing", "quote", "social", "podcast", "video",
+  "stats", "comparison",
 ] as const;
 
 export type Template = typeof TEMPLATES[number];

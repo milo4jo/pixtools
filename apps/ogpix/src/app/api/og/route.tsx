@@ -473,10 +473,13 @@ export async function GET(request: NextRequest) {
     // Social & Marketing templates
     testimonial: { tag: "Testimonial", layout: "center", pattern: "none" },
     pricing: { tag: "Pricing", layout: "center", pattern: "none" },
-    quote: { layout: "center", pattern: "dots" },
+    quote: { tag: "Quote", layout: "center", pattern: "dots" },
     social: { layout: "center", pattern: "none" },
     podcast: { tag: "Podcast", layout: "left", pattern: "diagonal" },
     video: { tag: "Video", layout: "center", pattern: "none" },
+    // New templates v0.3.0
+    stats: { tag: "Stats", layout: "center", pattern: "grid" },
+    comparison: { tag: "Compare", layout: "split", pattern: "none" },
   };
 
   const templateConfig = templates[template] || {};
