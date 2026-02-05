@@ -17,7 +17,7 @@ export default function Home() {
               Docs
             </Link>
             <a
-              href="https://github.com/milo4jo/pixtools/tree/main/packages/contextkit"
+              href="https://github.com/milo4jo/contextkit"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-400 hover:text-white transition-colors"
@@ -227,7 +227,7 @@ export default function Home() {
               Read the docs
             </Link>
             <a
-              href="https://github.com/milo4jo/pixtools/tree/main/packages/contextkit"
+              href="https://github.com/milo4jo/contextkit"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-400 hover:text-white transition-colors flex items-center gap-1"
@@ -266,14 +266,13 @@ export default function Home() {
             </a>
           </p>
           <p className="text-sm text-neutral-700">
-            Part of{" "}
             <a
-              href="https://github.com/milo4jo/pixtools"
+              href="https://github.com/milo4jo/contextkit"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-500 hover:text-white transition-colors"
             >
-              PixTools
+              View source
             </a>
           </p>
         </div>

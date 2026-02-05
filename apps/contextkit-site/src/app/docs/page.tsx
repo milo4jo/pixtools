@@ -23,7 +23,7 @@ export default function DocsPage() {
               Docs
             </Link>
             <a
-              href="https://github.com/milo4jo/pixtools/tree/main/packages/contextkit"
+              href="https://github.com/milo4jo/contextkit"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-400 hover:text-white transition-colors"
@@ -254,7 +254,7 @@ settings:
                 Home
               </Link>
               <a
-                href="https://github.com/milo4jo/pixtools/tree/main/packages/contextkit"
+                href="https://github.com/milo4jo/contextkit"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
