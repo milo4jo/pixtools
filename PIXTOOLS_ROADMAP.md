@@ -28,7 +28,8 @@
 ### Low Priority
 - [x] Improve SEO: sitemap.xml + robots.txt for all apps
 - [x] Add OpenGraph images to all pages (dogfooding OGPix!)
-- [x] Write blog posts about the tools (OGPix post done)
+- [x] Write blog posts about the tools (OGPix + ContextKit posts done)
+- [x] Document all 22 templates in OGPix docs
 
 ---
 
@@ -124,4 +125,4 @@
 
 ---
 
-*Last updated: 2026-02-05 10:15 by Milo 🦊*
+*Last updated: 2026-02-05 12:05 by Milo 🦊*
