@@ -13,25 +13,27 @@
 
 ## Immediate Tasks (This Week)
 
-### High Priority
-- [ ] Publish ContextKit 0.2.0 to npm (needs npm login)
+### 🔒 Blocked (Needs Jo)
+- [ ] Publish ContextKit 0.2.0 to npm → **Needs npm login**
+- [ ] Activate OGPix LemonSqueezy → **Needs NEXT_PUBLIC_LEMONSQUEEZY_CHECKOUT_URL env var on Vercel**
+
+### 🔀 Ready to Merge
+Branch `milo/blog-ogpix` has 7 commits ready for main:
+- Blog posts (OGPix + ContextKit)
+- ESLint fixes for all packages
+- Documentation updates
+
+### ✅ Completed This Week
 - [x] Create GitHub releases for all products (v0.1.0)
 - [x] Add analytics to track user adoption (Vercel Analytics)
-- [ ] Deploy OGPix Phase 3 monetization to production
-
-### Medium Priority
 - [x] Add more OGPix templates (testimonial, pricing, changelog, quote, podcast, video)
 - [x] FavPix: Add ICO format export (/api/favicon/ico with multi-size support)
 - [x] ContextKit: Add more test coverage (64 → 83 tests)
 - [x] FavPix: Add E2E tests (7 tests)
-
-### Low Priority
 - [x] Improve SEO: sitemap.xml + robots.txt for all apps
 - [x] Add OpenGraph images to all pages (dogfooding OGPix!)
 - [x] Write blog posts about the tools (OGPix + ContextKit posts done)
 - [x] Document all 22 templates in OGPix docs
-
-### Infrastructure (Done)
 - [x] Fix ESLint configs across all packages (auth, constants, database, ui, contextkit-site)
 
 ---
@@ -128,4 +130,4 @@
 
 ---
 
-*Last updated: 2026-02-05 12:05 by Milo 🦊*
+*Last updated: 2026-02-05 16:15 by Milo 🦊*
