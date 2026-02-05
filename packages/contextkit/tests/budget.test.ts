@@ -205,6 +205,66 @@ describe('mergeAdjacentChunks', () => {
     expect(merged[0].endLine).toBe(25);
   });
 
+  it('should correctly deduplicate overlapping content', () => {
+    // Simulating chunks with 6-line overlap (lines 10-15 appear in both)
+    const chunks: RankedChunk[] = [
+      createRankedChunk('src/a.ts', 50, 1, 15),
+      createRankedChunk('src/a.ts', 50, 10, 25),
+    ];
+
+    // First chunk: lines 1-15
+    chunks[0].content = [
+      'line 1',
+      'line 2',
+      'line 3',
+      'line 4',
+      'line 5',
+      'line 6',
+      'line 7',
+      'line 8',
+      'line 9',
+      'line 10', // overlap starts
+      'line 11',
+      'line 12',
+      'line 13',
+      'line 14',
+      'line 15', // overlap ends
+    ].join('\n');
+
+    // Second chunk: lines 10-25 (first 6 lines overlap with chunk 1)
+    chunks[1].content = [
+      'line 10', // overlapping
+      'line 11',
+      'line 12',
+      'line 13',
+      'line 14',
+      'line 15', // overlap ends
+      'line 16', // new content starts
+      'line 17',
+      'line 18',
+      'line 19',
+      'line 20',
+      'line 21',
+      'line 22',
+      'line 23',
+      'line 24',
+      'line 25',
+    ].join('\n');
+
+    const merged = mergeAdjacentChunks(chunks);
+
+    expect(merged).toHaveLength(1);
+
+    // Verify no duplicate lines in merged content
+    const lines = merged[0].content.split('\n');
+    expect(lines).toHaveLength(25);
+
+    // Verify lines are in order and not duplicated
+    for (let i = 1; i <= 25; i++) {
+      expect(lines[i - 1]).toBe(`line ${i}`);
+    }
+  });
+
   it('should keep highest score when merging', () => {
     const chunks: RankedChunk[] = [
       createRankedChunk('src/a.ts', 50, 1, 10, 0.7),
