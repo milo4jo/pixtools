@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "OGPix — Instant OG Image API",
   description:
-    "Generate beautiful Open Graph images with a single API call. 15+ themes, templates, and full customization. No design skills needed. Free to use.",
+    "Generate beautiful Open Graph images with a single API call. 21 themes, 22 templates, and full customization. No design skills needed. Free to use.",
   keywords: [
     "og image",
     "open graph",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "OGPix",
     title: "OGPix — Instant OG Image API",
     description:
-      "Generate beautiful Open Graph images with a single API call. 15+ themes, templates, and full customization.",
+      "Generate beautiful Open Graph images with a single API call. 21 themes, 22 templates, full customization.",
     images: [
       {
         url: ogImageUrl,
