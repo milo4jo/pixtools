@@ -22,7 +22,8 @@
 ### Medium Priority
 - [ ] Add more OGPix templates (testimonial, pricing, social-proof)
 - [ ] FavPix: Add ICO format export
-- [ ] FavPix: Add PWA manifest generator
+- [x] FavPix: Add PWA manifest generator ✅ Already implemented at /api/manifest
+- [x] FavPix: Add test coverage ✅ PR #1 - 30 tests (API + landing page)
 - [ ] ContextKit: Add more test coverage
 
 ### Low Priority
