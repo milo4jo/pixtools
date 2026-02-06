@@ -183,6 +183,34 @@ export default function Home() {
                 Works with Claude, GPT, Llama — any LLM. Just outputs text.
               </p>
             </div>
+            <div>
+              <h3 className="font-medium mb-2">🔍 Symbol Search</h3>
+              <p className="text-sm text-neutral-500">
+                Find code by name with <code className="text-neutral-400">contextkit symbol</code>. 
+                Faster than semantic search when you know what you&apos;re looking for.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-medium mb-2">🕸️ Call Graph</h3>
+              <p className="text-sm text-neutral-500">
+                See what calls a function and what it calls. 
+                Navigate dependencies with <code className="text-neutral-400">contextkit graph</code>.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-medium mb-2">🗺️ Repo Map Mode</h3>
+              <p className="text-sm text-neutral-500">
+                Get a structure overview with signatures only. 
+                Use <code className="text-neutral-400">--mode map</code> to save tokens.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-medium mb-2">📝 Multi-language</h3>
+              <p className="text-sm text-neutral-500">
+                TypeScript, JavaScript, Python, Go, Rust, and Markdown. 
+                Structure-aware parsing via tree-sitter.
+              </p>
+            </div>
           </div>
         </div>
       </section>
