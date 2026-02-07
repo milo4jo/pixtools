@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm turbo build --filter=milo-site",
+  "framework": "nextjs",
+  "buildCommand": "cd apps/milo-site && pnpm run build",
   "installCommand": "pnpm install",
   "outputDirectory": "apps/milo-site/.next"
 }
