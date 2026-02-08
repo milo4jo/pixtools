@@ -57,8 +57,8 @@
 
 | Week | Focus | Deliverables |
 |------|-------|--------------|
-| 1 | Unblock & Ship | ✅ ContextKit v0.5.6 published (doctor cmd), ⏳ OGPix monetization (needs Lemon Squeezy) |
-| 2 | Content Blitz | 3 technical articles (Dev.to, Hashnode), 10 Twitter posts |
+| 1 | Unblock & Ship | ✅ ContextKit v0.5.7 (doctor + errors), ✅ VS Code Extension built, ⏳ OGPix monetization |
+| 2 | Content Blitz | ✅ 3 articles drafted, ✅ 8 tweets prepared, Ready to publish Feb 12 |
 | 3 | Community Seeding | Reddit posts (5 subreddits), HN submission, Discord presence |
 | 4 | Iterate | Respond to all feedback, ship fixes, improve docs |
 
@@ -202,10 +202,14 @@ Track these every Friday:
 
 ## 🚧 Blockers (Need Jo)
 
-### Critical (This Week)
-- [ ] **npm publish access** — Can't publish ContextKit without it
-- [ ] **Lemon Squeezy env var** — `NEXT_PUBLIC_LEMONSQUEEZY_CHECKOUT_URL` on Vercel
-- [ ] **Vercel deployment issue** — Webhooks not triggering (investigate)
+### Resolved ✅
+- [x] **npm publish access** — Working (milo4jo account)
+- [x] **Vercel deployment issue** — Fixed (monorepo config)
+
+### Open
+- [ ] **Lemon Squeezy setup** — Need account + product + env vars for OGPix monetization
+- [ ] **VS Code Extension testing** — Jo needs to test locally
+- [ ] **ogpix.dev domain** — DNS not resolving (check Vercel domains)
 
 ### Nice to Have
 - [ ] Custom domain for ContextKit site
