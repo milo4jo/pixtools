@@ -57,7 +57,7 @@
 
 | Week | Focus | Deliverables |
 |------|-------|--------------|
-| 1 | Unblock & Ship | ✅ Publish ContextKit v0.6.0, ✅ Activate OGPix monetization |
+| 1 | Unblock & Ship | ✅ ContextKit v0.5.6 published (doctor cmd), ⏳ OGPix monetization (needs Lemon Squeezy) |
 | 2 | Content Blitz | 3 technical articles (Dev.to, Hashnode), 10 Twitter posts |
 | 3 | Community Seeding | Reddit posts (5 subreddits), HN submission, Discord presence |
 | 4 | Iterate | Respond to all feedback, ship fixes, improve docs |
