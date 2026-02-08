@@ -108,6 +108,11 @@ export async function uploadIndex(
     chunkCount?: number;
   } = {}
 ): Promise<UploadResult> {
+  // Check for BLOB token
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    throw new Error("BLOB_READ_WRITE_TOKEN is not configured");
+  }
+
   // Get existing project
   const project = await getProject(userId, projectId);
   if (!project) {

@@ -127,8 +127,13 @@ export async function POST(
     );
   } catch (error) {
     console.error("Failed to upload index:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return new Response(
-      JSON.stringify({ error: "Failed to upload index" }),
+      JSON.stringify({ 
+        error: "Failed to upload index",
+        message: errorMessage,
+        hint: errorMessage.includes("BLOB") ? "BLOB_READ_WRITE_TOKEN may not be configured" : undefined,
+      }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
