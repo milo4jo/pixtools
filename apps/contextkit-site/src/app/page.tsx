@@ -44,7 +44,7 @@ export default function Home() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs text-neutral-400 mb-8">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            v0.5.8 — MCP + Symbol Search + Call Graph
+            v0.5.9 — Now with Java &amp; C# support
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
@@ -328,7 +328,7 @@ export default function Home() {
               <div className="text-xl mb-2">🌐</div>
               <h3 className="font-medium text-sm mb-1">Multi-language</h3>
               <p className="text-xs text-neutral-500">
-                TS, JS, Python, Go, Rust, Markdown. More coming.
+                TS, JS, Python, Go, Rust, Java, C#, Markdown.
               </p>
             </div>
             <div className="p-4">
