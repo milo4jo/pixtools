@@ -2,6 +2,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { getUsageStats, getMonthlyUsage } from "@/lib/usage";
 import { listApiKeys } from "@/lib/api-keys";
+import { syncCurrentUser } from "@/lib/sync-user";
 
 export default async function DashboardPage() {
   const user = await currentUser();
@@ -9,6 +10,9 @@ export default async function DashboardPage() {
   if (!user) {
     return null;
   }
+
+  // Ensure user exists in our database (fallback for webhook)
+  await syncCurrentUser();
 
   // Fetch data in parallel
   const [stats, monthly, keys] = await Promise.all([
