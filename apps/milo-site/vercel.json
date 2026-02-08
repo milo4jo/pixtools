@@ -3,5 +3,5 @@
   "framework": "nextjs",
   "installCommand": "cd ../.. && pnpm install",
   "buildCommand": "pnpm run build",
-  "ignoreCommand": "cd ../.. && bash scripts/ignore-build.sh apps/contextkit-site"
+  "ignoreCommand": "cd ../.. && bash scripts/ignore-build.sh apps/milo-site"
 }
