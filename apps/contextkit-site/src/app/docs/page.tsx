@@ -146,6 +146,97 @@ settings:
             </div>
           </section>
 
+          {/* How-Tos */}
+          <section className="mb-12">
+            <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-6">How-To Guides</h2>
+            
+            {/* How-To: Debug a Bug */}
+            <HowTo 
+              title="🐛 Debug a Bug"
+              steps={[
+                { cmd: 'contextkit select "error handling in payment"', desc: 'Find relevant code' },
+                { cmd: '| pbcopy', desc: 'Copy to clipboard (macOS)' },
+                { desc: 'Paste into Claude/ChatGPT with your error message' },
+              ]}
+            />
+
+            {/* How-To: Understand New Codebase */}
+            <HowTo 
+              title="🗺️ Understand a New Codebase"
+              steps={[
+                { cmd: 'contextkit select "main entry point" --mode map', desc: 'Get overview' },
+                { cmd: 'contextkit graph "main"', desc: 'See what main calls' },
+                { cmd: 'contextkit symbol "App"', desc: 'Find key components' },
+              ]}
+            />
+
+            {/* How-To: Refactor Safely */}
+            <HowTo 
+              title="🔄 Refactor Safely"
+              steps={[
+                { cmd: 'contextkit symbol "oldFunction"', desc: 'Find the function' },
+                { cmd: 'contextkit graph "oldFunction"', desc: 'See all callers' },
+                { cmd: 'contextkit select "usages of oldFunction"', desc: 'Get full context for AI' },
+              ]}
+            />
+
+            {/* How-To: Write Documentation */}
+            <HowTo 
+              title="📝 Write Documentation"
+              steps={[
+                { cmd: 'contextkit select "how does auth work" --budget 6000', desc: 'Get comprehensive context' },
+                { desc: 'Ask AI: "Write documentation for this authentication system"' },
+              ]}
+            />
+
+            {/* How-To: Code Review */}
+            <HowTo 
+              title="👀 Code Review with Context"
+              steps={[
+                { cmd: 'git diff --name-only main | head -5', desc: 'See changed files' },
+                { cmd: 'contextkit select "changes to user service"', desc: 'Get context for changed area' },
+                { desc: 'Review with full understanding of impact' },
+              ]}
+            />
+
+            {/* How-To: Use with Cursor */}
+            <HowTo 
+              title="⚡ Use with Cursor"
+              steps={[
+                { cmd: 'contextkit select "your question" | pbcopy', desc: 'Get context' },
+                { desc: 'In Cursor: Cmd+L → Paste → Ask your question' },
+                { desc: 'Or: Set up MCP for automatic context fetching' },
+              ]}
+            />
+          </section>
+
+          {/* Tips */}
+          <section className="mb-12">
+            <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-4">Tips & Tricks</h2>
+            <div className="space-y-4 text-sm">
+              <Tip 
+                title="Use --mode map for large codebases"
+                desc="Get function signatures instead of full code. Uses 90% fewer tokens."
+              />
+              <Tip 
+                title="Combine with grep"
+                desc="contextkit select 'error' | grep -A5 'catch' — Filter results further."
+              />
+              <Tip 
+                title="Set up shell alias"
+                desc="alias ctx='contextkit select' — Type less, search faster."
+              />
+              <Tip 
+                title="Watch mode for active development"
+                desc="contextkit watch — Auto-reindex when files change."
+              />
+              <Tip 
+                title="Use --explain to understand scoring"
+                desc="See why certain chunks were selected over others."
+              />
+            </div>
+          </section>
+
           {/* Privacy */}
           <section className="mb-12">
             <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-4">Privacy</h2>
@@ -194,6 +285,41 @@ function MCPTool({ name, desc }: { name: string; desc: string }) {
     <div className="flex items-baseline gap-3">
       <code className="font-mono text-xs text-neutral-300 bg-neutral-900 px-2 py-0.5 rounded">{name}</code>
       <span className="text-neutral-500 text-xs">{desc}</span>
+    </div>
+  );
+}
+
+function HowTo({ title, steps }: { title: string; steps: Array<{ cmd?: string; desc: string }> }) {
+  return (
+    <div className="mb-8 p-4 bg-neutral-950 border border-neutral-800 rounded-lg">
+      <h3 className="font-medium mb-3">{title}</h3>
+      <div className="space-y-2">
+        {steps.map((step, i) => (
+          <div key={i} className="flex items-start gap-3">
+            <span className="text-neutral-600 text-xs mt-1">{i + 1}.</span>
+            <div>
+              {step.cmd && (
+                <code className="block font-mono text-xs text-green-400 bg-neutral-900 px-2 py-1 rounded mb-1">
+                  {step.cmd}
+                </code>
+              )}
+              <span className="text-neutral-500 text-xs">{step.desc}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Tip({ title, desc }: { title: string; desc: string }) {
+  return (
+    <div className="flex items-start gap-3 p-3 bg-neutral-950 border border-neutral-800 rounded-lg">
+      <span className="text-yellow-500">💡</span>
+      <div>
+        <p className="font-medium text-sm text-neutral-300">{title}</p>
+        <p className="text-neutral-500 text-xs mt-1">{desc}</p>
+      </div>
     </div>
   );
 }
