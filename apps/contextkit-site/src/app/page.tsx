@@ -16,6 +16,12 @@ export default function Home() {
             >
               Docs
             </Link>
+            <Link
+              href="/blog"
+              className="text-neutral-400 hover:text-white transition-colors"
+            >
+              Blog
+            </Link>
             <a
               href="https://github.com/milo4jo/contextkit"
               target="_blank"
