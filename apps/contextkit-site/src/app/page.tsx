@@ -62,7 +62,7 @@ export default function Home() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs text-neutral-400 mb-8">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            v0.5.10 — Now with PHP support
+            v0.6.1 — Cloud Sync is here!
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
@@ -348,6 +348,64 @@ export default function Home() {
               <p className="text-xs text-neutral-500">
                 Specify max tokens. We fill it with the best chunks.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cloud Sync - NEW */}
+      <section className="py-20 px-6 border-t border-neutral-900">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-4">
+            <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest">
+              Cloud Sync
+            </h2>
+            <span className="px-2 py-0.5 text-xs rounded bg-blue-900/50 text-blue-400 border border-blue-800">
+              NEW
+            </span>
+          </div>
+          <p className="text-xl text-neutral-300 mb-8 max-w-2xl">
+            Your index, everywhere. Sync once, use on any machine. Perfect for teams.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-neutral-900 rounded-xl p-6 font-mono text-sm overflow-x-auto border border-neutral-800">
+              <div className="text-neutral-500 mb-2"># Sync your index</div>
+              <div className="space-y-1">
+                <div><span className="text-neutral-600">$</span> <span className="text-green-400">contextkit cloud login</span></div>
+                <div><span className="text-neutral-600">$</span> <span className="text-green-400">contextkit cloud sync</span></div>
+                <div className="text-neutral-500 mt-2"># On another machine</div>
+                <div><span className="text-neutral-600">$</span> <span className="text-green-400">contextkit cloud pull</span></div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <span className="text-blue-500 mt-0.5">→</span>
+                <div>
+                  <p className="font-medium text-sm">Multi-device</p>
+                  <p className="text-xs text-neutral-500">Same index on laptop, desktop, CI</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-blue-500 mt-0.5">→</span>
+                <div>
+                  <p className="font-medium text-sm">Team sharing</p>
+                  <p className="text-xs text-neutral-500">Share indexes with your team (Pro)</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-blue-500 mt-0.5">→</span>
+                <div>
+                  <p className="font-medium text-sm">Free tier</p>
+                  <p className="text-xs text-neutral-500">1 project, 100MB index — forever free</p>
+                </div>
+              </div>
+              <Link 
+                href="/dashboard" 
+                className="inline-block mt-2 text-sm text-blue-400 hover:text-blue-300"
+              >
+                Get started →
+              </Link>
             </div>
           </div>
         </div>

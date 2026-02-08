@@ -69,6 +69,30 @@ export default function DocsPage() {
             </div>
           </section>
 
+          {/* Cloud Sync */}
+          <section className="mb-12">
+            <div className="flex items-center gap-2 mb-4">
+              <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest">Cloud Sync</h2>
+              <span className="px-1.5 py-0.5 text-xs rounded bg-blue-900/50 text-blue-400 border border-blue-800">NEW</span>
+            </div>
+            <p className="text-neutral-400 text-sm mb-4">
+              Sync your index to the cloud. Access from any machine.
+            </p>
+            <div className="space-y-4">
+              <Command name="cloud login" desc="Authenticate with your API key" />
+              <Command name="cloud sync" desc="Upload index to cloud" />
+              <Command name="cloud pull" desc="Download index from cloud" />
+              <Command name="cloud status" desc="Check sync status" />
+              <Command name="cloud logout" desc="Remove stored credentials" />
+            </div>
+            <p className="text-neutral-600 text-xs mt-4">
+              Get your API key at{' '}
+              <a href="/dashboard/api-keys" className="text-blue-400 hover:text-blue-300">
+                Dashboard → API Keys
+              </a>
+            </p>
+          </section>
+
           {/* Languages */}
           <section className="mb-12">
             <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-4">Supported Languages</h2>
