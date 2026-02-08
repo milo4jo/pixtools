@@ -66,6 +66,34 @@ export const usageMonthly = sqliteTable("usage_monthly", {
   totalTokens: integer("total_tokens").default(0).notNull(),
 });
 
+// Projects - synced indexes
+export const projects = sqliteTable("projects", {
+  id: text("id").primaryKey(), // nanoid
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  name: text("name").notNull(), // display name (usually repo name)
+  slug: text("slug").notNull(), // URL-safe identifier
+  description: text("description"),
+  // Index storage
+  blobUrl: text("blob_url"), // Vercel Blob URL
+  blobPathname: text("blob_pathname"), // Vercel Blob pathname for deletion
+  indexHash: text("index_hash"), // SHA-256 of index for change detection
+  indexSize: integer("index_size"), // bytes
+  indexVersion: integer("index_version").default(1).notNull(), // increment on each sync
+  // Metadata
+  lastSyncedAt: integer("last_synced_at", { mode: "timestamp" }),
+  fileCount: integer("file_count"), // number of files indexed
+  chunkCount: integer("chunk_count"), // number of chunks
+  // Timestamps
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .default(sql`(unixepoch())`)
+    .notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" })
+    .default(sql`(unixepoch())`)
+    .notNull(),
+});
+
 // Types
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
@@ -73,3 +101,5 @@ export type ApiKey = typeof apiKeys.$inferSelect;
 export type NewApiKey = typeof apiKeys.$inferInsert;
 export type Usage = typeof usage.$inferSelect;
 export type NewUsage = typeof usage.$inferInsert;
+export type Project = typeof projects.$inferSelect;
+export type NewProject = typeof projects.$inferInsert;
