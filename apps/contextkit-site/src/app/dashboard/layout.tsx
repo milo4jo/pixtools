@@ -17,7 +17,10 @@ export default function DashboardLayout({
             </Link>
             <nav className="flex items-center gap-4 text-sm text-zinc-400">
               <Link href="/dashboard" className="hover:text-white">
-                Dashboard
+                Overview
+              </Link>
+              <Link href="/dashboard/cloud" className="hover:text-white">
+                Cloud
               </Link>
               <Link href="/dashboard/api-keys" className="hover:text-white">
                 API Keys

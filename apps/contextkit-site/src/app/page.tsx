@@ -1,18 +1,21 @@
 import Link from "next/link";
 import { CopyButton } from "@/components/CopyButton";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { MobileNav } from "@/components/MobileNav";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-neutral-900">
-        <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <Link href="/" className="font-semibold text-lg flex items-center gap-2">
             <span className="text-xl">🎯</span>
-            ContextKit
+            <span className="hidden xs:inline">ContextKit</span>
           </Link>
-          <div className="flex items-center gap-6 text-sm">
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6 text-sm">
             <Link
               href="/docs"
               className="text-neutral-400 hover:text-white transition-colors"
@@ -52,6 +55,21 @@ export default function Home() {
                 </button>
               </SignInButton>
             </SignedOut>
+          </div>
+          
+          {/* Mobile Navigation */}
+          <div className="flex md:hidden items-center gap-3">
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="px-3 py-1.5 bg-white text-black text-sm rounded-md font-medium hover:bg-neutral-200 transition-colors">
+                  Sign In
+                </button>
+              </SignInButton>
+            </SignedOut>
+            <MobileNav />
           </div>
         </div>
       </nav>

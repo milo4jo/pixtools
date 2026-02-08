@@ -2,7 +2,9 @@ import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { getUsageStats, getMonthlyUsage } from "@/lib/usage";
 import { listApiKeys } from "@/lib/api-keys";
+import { listProjects } from "@/lib/projects";
 import { syncCurrentUser } from "@/lib/sync-user";
+import { formatBytes } from "@/lib/utils";
 
 export default async function DashboardPage() {
   const user = await currentUser();
@@ -15,7 +17,7 @@ export default async function DashboardPage() {
   await syncCurrentUser();
 
   // Fetch data in parallel
-  const [stats, monthly, keys] = await Promise.all([
+  const [stats, monthly, keys, projects] = await Promise.all([
     getUsageStats(user.id).catch(() => ({
       today: 0,
       thisMonth: 0,
@@ -32,9 +34,11 @@ export default async function DashboardPage() {
       totalTokens: 0,
     })),
     listApiKeys(user.id).catch(() => []),
+    listProjects(user.id).catch(() => []),
   ]);
 
   const usagePercent = Math.min(100, (stats.thisMonth / stats.monthlyLimit) * 100);
+  const totalStorage = projects.reduce((sum, p) => sum + (p.indexSize || 0), 0);
 
   return (
     <>
@@ -92,17 +96,19 @@ export default async function DashboardPage() {
           </Link>
         </div>
 
-        {/* Plan Card */}
+        {/* Cloud Sync Card */}
         <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
-          <h2 className="text-sm font-medium text-zinc-400 mb-1">Plan</h2>
-          <div className="inline-block bg-zinc-800 text-zinc-300 px-3 py-1 rounded-full text-sm font-medium">
-            Free
+          <h2 className="text-sm font-medium text-zinc-400 mb-1">Cloud Sync</h2>
+          <div className="text-3xl font-bold">{projects.length}</div>
+          <div className="text-sm text-zinc-500">
+            {totalStorage > 0 ? formatBytes(totalStorage) : "No projects"}
           </div>
-          <div className="mt-2">
-            <button className="text-sm text-blue-400 hover:text-blue-300">
-              Upgrade →
-            </button>
-          </div>
+          <Link
+            href="/dashboard/cloud"
+            className="text-sm text-blue-400 hover:text-blue-300"
+          >
+            Manage →
+          </Link>
         </div>
       </div>
 
@@ -140,33 +146,38 @@ export default async function DashboardPage() {
           <div className="space-y-4">
             <div>
               <h3 className="text-sm font-medium text-zinc-400 mb-2">
-                1. Create an API key
-              </h3>
-              <Link
-                href="/dashboard/api-keys"
-                className="inline-block bg-white text-black px-4 py-2 rounded text-sm font-medium hover:bg-zinc-200"
-              >
-                Create API Key
-              </Link>
-            </div>
-            <div>
-              <h3 className="text-sm font-medium text-zinc-400 mb-2">
-                2. Install the CLI
+                1. Install the CLI
               </h3>
               <pre className="bg-black border border-zinc-700 rounded p-3 text-sm overflow-x-auto">
-                <code className="text-green-400">npx @milo4jo/contextkit</code>
+                <code className="text-green-400">npm i -g @milo4jo/contextkit</code>
               </pre>
             </div>
             <div>
               <h3 className="text-sm font-medium text-zinc-400 mb-2">
-                3. Configure your key
+                2. Index your project
               </h3>
               <pre className="bg-black border border-zinc-700 rounded p-3 text-sm overflow-x-auto">
-                <code className="text-green-400">
-                  contextkit config --api-key YOUR_KEY
-                </code>
+                <code className="text-green-400">contextkit init && contextkit index</code>
               </pre>
             </div>
+            <div>
+              <h3 className="text-sm font-medium text-zinc-400 mb-2">
+                3. Sync to cloud
+              </h3>
+              <pre className="bg-black border border-zinc-700 rounded p-3 text-sm overflow-x-auto">
+                <code className="text-green-400">contextkit cloud login</code>
+                {"\n"}
+                <code className="text-green-400">contextkit cloud sync</code>
+              </pre>
+            </div>
+          </div>
+          <div className="mt-4 pt-4 border-t border-zinc-800">
+            <Link
+              href="/dashboard/api-keys"
+              className="text-sm text-blue-400 hover:text-blue-300"
+            >
+              Get your API key →
+            </Link>
           </div>
         </div>
       </div>
