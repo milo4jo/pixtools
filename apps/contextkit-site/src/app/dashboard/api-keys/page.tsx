@@ -193,9 +193,12 @@ export default function ApiKeysPage() {
         <h3 className="font-medium text-zinc-400 mb-2">Using your API key</h3>
         <pre className="bg-zinc-900 border border-zinc-800 rounded p-4 overflow-x-auto">
           <code>
-            curl https://api.contextkit.dev/v1/select \{"\n"}
-            {"  "}-H &quot;Authorization: Bearer YOUR_API_KEY&quot; \{"\n"}
-            {"  "}-d &apos;{`{"query": "auth functions"}`}&apos;
+            {`# Check your usage
+curl https://contextkit-site.vercel.app/api/v1/usage \\
+  -H "Authorization: Bearer YOUR_API_KEY"
+
+# CLI configuration
+contextkit config --api-key YOUR_API_KEY`}
           </code>
         </pre>
       </div>
