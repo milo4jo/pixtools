@@ -73,7 +73,7 @@ export default function DocsPage() {
           <section className="mb-12">
             <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-4">Supported Languages</h2>
             <div className="flex flex-wrap gap-2">
-              {['TypeScript', 'JavaScript', 'Python', 'Go', 'Rust', 'Java', 'C#', 'Markdown'].map(lang => (
+              {['TypeScript', 'JavaScript', 'Python', 'Go', 'Rust', 'Java', 'C#', 'PHP', 'Markdown'].map(lang => (
                 <span key={lang} className="px-2 py-1 bg-neutral-900 rounded text-sm text-neutral-400">{lang}</span>
               ))}
             </div>
