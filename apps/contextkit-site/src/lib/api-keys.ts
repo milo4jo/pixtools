@@ -8,8 +8,8 @@
  * - Constant-time comparison to prevent timing attacks
  */
 
-import { randomBytes, createHash, timingSafeEqual } from "crypto";
-import { db, apiKeys, type ApiKey, type NewApiKey } from "@/db";
+import { randomBytes, createHash } from "crypto";
+import { db, apiKeys } from "@/db";
 import { eq, and } from "drizzle-orm";
 
 // Key format: ck_live_<32 random chars>
@@ -169,7 +169,7 @@ export async function listApiKeys(userId: string): Promise<
  * Revoke (delete) an API key
  */
 export async function revokeApiKey(userId: string, keyId: string): Promise<boolean> {
-  const result = await db
+  await db
     .delete(apiKeys)
     .where(and(eq(apiKeys.id, keyId), eq(apiKeys.userId, userId)));
 

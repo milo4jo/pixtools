@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { CopyButton } from "@/components/CopyButton";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
@@ -34,6 +36,22 @@ export default function Home() {
               </svg>
               GitHub
             </a>
+            <SignedIn>
+              <Link
+                href="/dashboard"
+                className="text-neutral-400 hover:text-white transition-colors"
+              >
+                Dashboard
+              </Link>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="px-3 py-1.5 bg-white text-black text-sm rounded-md font-medium hover:bg-neutral-200 transition-colors">
+                  Sign In
+                </button>
+              </SignInButton>
+            </SignedOut>
           </div>
         </div>
       </nav>
@@ -64,14 +82,7 @@ export default function Home() {
             <code className="bg-neutral-900 border border-neutral-800 px-5 py-3 rounded-lg font-mono text-sm flex items-center gap-3">
               <span className="text-neutral-500">$</span>
               <span>npm i -g @milo4jo/contextkit</span>
-              <button 
-                className="text-neutral-500 hover:text-white transition-colors"
-                title="Copy to clipboard"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
-              </button>
+              <CopyButton text="npm i -g @milo4jo/contextkit" />
             </code>
           </div>
           

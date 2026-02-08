@@ -71,7 +71,7 @@ export async function trackUsage(params: TrackUsageParams): Promise<void> {
   const actionColumn = `${action}Count` as const;
 
   // Try to update existing monthly record
-  const updateResult = await db
+  await db
     .update(usageMonthly)
     .set({
       [actionColumn]: sql`${usageMonthly[actionColumn as keyof typeof usageMonthly]} + 1`,
