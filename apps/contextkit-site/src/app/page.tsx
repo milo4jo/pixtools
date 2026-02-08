@@ -6,7 +6,8 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-neutral-900">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/" className="font-semibold text-lg">
+          <Link href="/" className="font-semibold text-lg flex items-center gap-2">
+            <span className="text-xl">🎯</span>
             ContextKit
           </Link>
           <div className="flex items-center gap-6 text-sm">
@@ -26,8 +27,11 @@ export default function Home() {
               href="https://github.com/milo4jo/contextkit"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-white transition-colors"
+              className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2"
             >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+              </svg>
               GitHub
             </a>
           </div>
@@ -35,186 +39,303 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="pt-28 pb-16 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs text-neutral-400 mb-8">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            v0.5.8 — MCP + Symbol Search + Call Graph
+          </div>
+          
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            Stop dumping your codebase
+            The right context.
             <br />
-            <span className="text-neutral-500">into AI prompts</span>
+            <span className="text-neutral-500">Every time.</span>
           </h1>
-          <p className="text-lg sm:text-xl text-neutral-400 mb-10 max-w-2xl mx-auto">
-            ContextKit selects the <em>right</em> context for any query —
-            saving tokens and improving answers.
+          
+          <p className="text-lg sm:text-xl text-neutral-400 mb-8 max-w-2xl mx-auto">
+            Stop dumping your entire codebase into AI prompts.
+            ContextKit selects the most relevant code for any query — 
+            <span className="text-white"> saving 90%+ tokens</span> and getting better answers.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <code className="bg-neutral-900 px-6 py-3 rounded-lg font-mono text-sm">
-              npm install -g @milo4jo/contextkit
+          
+          {/* Install command */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <code className="bg-neutral-900 border border-neutral-800 px-5 py-3 rounded-lg font-mono text-sm flex items-center gap-3">
+              <span className="text-neutral-500">$</span>
+              <span>npm i -g @milo4jo/contextkit</span>
+              <button 
+                className="text-neutral-500 hover:text-white transition-colors"
+                title="Copy to clipboard"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </button>
             </code>
           </div>
+          
+          {/* Social proof */}
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-neutral-500">
+            <a 
+              href="https://www.npmjs.com/package/@milo4jo/contextkit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-white transition-colors"
+            >
+              <img 
+                src="https://img.shields.io/npm/dw/@milo4jo/contextkit?style=flat&color=22c55e&labelColor=171717" 
+                alt="npm downloads" 
+                className="h-5"
+              />
+            </a>
+            <a 
+              href="https://github.com/milo4jo/contextkit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-white transition-colors"
+            >
+              <img 
+                src="https://img.shields.io/github/stars/milo4jo/contextkit?style=flat&color=22c55e&labelColor=171717" 
+                alt="GitHub stars" 
+                className="h-5"
+              />
+            </a>
+            <span className="flex items-center gap-2">
+              <span className="text-green-500">✓</span> 100% Local
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="text-green-500">✓</span> No API Keys
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* Problem / Solution */}
-      <section className="py-20 px-6 border-t border-neutral-900">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-12">
-            The Problem
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="p-6 border border-neutral-800 rounded-lg">
-              <div className="text-2xl mb-3">📦</div>
-              <h3 className="font-medium mb-2">Too much context</h3>
-              <p className="text-sm text-neutral-500">
-                Expensive, slow, hits token limits. The model gets confused.
-              </p>
+      {/* Demo */}
+      <section className="py-12 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl">
+            {/* Terminal header */}
+            <div className="flex items-center gap-2 px-4 py-3 bg-neutral-900 border-b border-neutral-800">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <span className="text-xs text-neutral-500 ml-2">terminal</span>
             </div>
-            <div className="p-6 border border-neutral-800 rounded-lg">
-              <div className="text-2xl mb-3">🫥</div>
-              <h3 className="font-medium mb-2">Too little context</h3>
-              <p className="text-sm text-neutral-500">
-                Hallucinations. Wrong answers. Missing the key piece.
-              </p>
-            </div>
-            <div className="p-6 border border-neutral-800 rounded-lg">
-              <div className="text-2xl mb-3">😤</div>
-              <h3 className="font-medium mb-2">Manual selection</h3>
-              <p className="text-sm text-neutral-500">
-                Tedious. You might miss something. Doesn&apos;t scale.
-              </p>
+            {/* Terminal content */}
+            <div className="p-6 font-mono text-sm overflow-x-auto">
+              <div className="text-neutral-500">$ contextkit select &quot;How does auth work?&quot;</div>
+              <div className="mt-4 text-neutral-300">
+                <span className="text-blue-400">Finding relevant context...</span>
+              </div>
+              <div className="mt-4">
+                <div className="text-green-400">## src/auth/middleware.ts</div>
+                <div className="text-neutral-400 mt-1 pl-4 border-l-2 border-neutral-800">
+                  <div className="text-purple-400">export</div>
+                  <div>{`const authMiddleware = async (req, res, next) => {`}</div>
+                  <div className="pl-4">{`const token = req.headers.authorization;`}</div>
+                  <div className="pl-4">{`const user = await validateToken(token);`}</div>
+                  <div className="pl-4">{`req.user = user;`}</div>
+                  <div>{`}`}</div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <div className="text-green-400">## src/auth/jwt.ts</div>
+                <div className="text-neutral-400 mt-1 pl-4 border-l-2 border-neutral-800">
+                  <div>{`function validateToken(token: string): User {`}</div>
+                  <div className="pl-4">{`return jwt.verify(token, SECRET);`}</div>
+                  <div>{`}`}</div>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-neutral-800 text-neutral-500">
+                📊 2,847 tokens | 6 chunks | 2 files
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-8">
-            The Solution
+      {/* Why ContextKit */}
+      <section className="py-20 px-6 border-t border-neutral-900">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-4">
+            Why ContextKit?
           </h2>
-          <p className="text-xl text-neutral-300 leading-relaxed">
-            ContextKit indexes your codebase locally, then uses semantic search
-            to find the most relevant chunks for any query — fitting them into
-            your token budget.
+          <p className="text-2xl sm:text-3xl font-medium text-neutral-200 mb-12 max-w-3xl">
+            AI assistants are only as good as the context you give them.
+            Most developers either paste too much or too little.
           </p>
-        </div>
-      </section>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="p-6 bg-neutral-950 border border-neutral-800 rounded-xl">
+              <div className="text-3xl mb-4">📦</div>
+              <h3 className="font-semibold text-lg mb-2">Too much context</h3>
+              <p className="text-neutral-500">
+                200k tokens for a 50k line codebase. Expensive. Slow. The model loses focus.
+              </p>
+            </div>
+            <div className="p-6 bg-neutral-950 border border-neutral-800 rounded-xl">
+              <div className="text-3xl mb-4">🫥</div>
+              <h3 className="font-semibold text-lg mb-2">Too little context</h3>
+              <p className="text-neutral-500">
+                Miss a key file and get hallucinations. Wrong imports. Broken code.
+              </p>
+            </div>
+            <div className="p-6 bg-green-950/30 border border-green-900/50 rounded-xl">
+              <div className="text-3xl mb-4">🎯</div>
+              <h3 className="font-semibold text-lg mb-2 text-green-400">Right context</h3>
+              <p className="text-neutral-400">
+                ContextKit gives you the 3-8k tokens that matter. 96% savings, better answers.
+              </p>
+            </div>
+          </div>
 
-      {/* How it works */}
-      <section className="py-20 px-6 border-t border-neutral-900">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-12">
-            How It Works
-          </h2>
-          <div className="space-y-8">
-            <div className="flex gap-6">
-              <div className="text-neutral-600 font-mono text-sm w-8">01</div>
-              <div>
-                <h3 className="font-medium mb-2">Index your code</h3>
-                <p className="text-neutral-500 text-sm">
-                  Files are split into chunks and embedded locally. Nothing
-                  leaves your machine.
-                </p>
-              </div>
+          {/* Comparison */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-6 border border-neutral-800 rounded-xl">
+              <h3 className="font-medium mb-4 text-neutral-400">❌ Without ContextKit</h3>
+              <ul className="space-y-3 text-sm text-neutral-500">
+                <li className="flex gap-2">
+                  <span className="text-red-500">•</span>
+                  Copy-paste random files
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-red-500">•</span>
+                  Hit token limits constantly
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-red-500">•</span>
+                  Miss important dependencies
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-red-500">•</span>
+                  Get hallucinated code
+                </li>
+              </ul>
             </div>
-            <div className="flex gap-6">
-              <div className="text-neutral-600 font-mono text-sm w-8">02</div>
-              <div>
-                <h3 className="font-medium mb-2">Query in natural language</h3>
-                <p className="text-neutral-500 text-sm">
-                  &quot;How does authentication work?&quot; — just ask what you need.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-6">
-              <div className="text-neutral-600 font-mono text-sm w-8">03</div>
-              <div>
-                <h3 className="font-medium mb-2">Get optimized context</h3>
-                <p className="text-neutral-500 text-sm">
-                  The most relevant code chunks, formatted and ready to paste.
-                </p>
-              </div>
+            <div className="p-6 border border-green-900/50 bg-green-950/20 rounded-xl">
+              <h3 className="font-medium mb-4 text-green-400">✓ With ContextKit</h3>
+              <ul className="space-y-3 text-sm text-neutral-300">
+                <li className="flex gap-2">
+                  <span className="text-green-500">•</span>
+                  Semantic search finds relevant code
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-green-500">•</span>
+                  Token budget respected
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-green-500">•</span>
+                  Import graph included
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-green-500">•</span>
+                  Accurate, grounded answers
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quick Start */}
+      {/* How it works - streamlined */}
       <section className="py-20 px-6 border-t border-neutral-900 bg-neutral-950">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-8">
-            Quick Start
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-12">
+            Three Commands. That&apos;s it.
           </h2>
-          <div className="bg-neutral-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
-            <div className="text-neutral-500"># Initialize in your project</div>
-            <div className="text-green-400">contextkit init</div>
-            <div className="mt-4 text-neutral-500"># Add source directories</div>
-            <div className="text-green-400">contextkit source add ./src</div>
-            <div className="mt-4 text-neutral-500"># Build the index</div>
-            <div className="text-green-400">contextkit index</div>
-            <div className="mt-4 text-neutral-500"># Find relevant context</div>
-            <div className="text-green-400">
-              contextkit select &quot;How does authentication work?&quot;
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-5xl font-bold text-neutral-800 mb-4">1</div>
+              <h3 className="font-semibold mb-2">Index</h3>
+              <code className="text-sm text-green-400">contextkit index</code>
+              <p className="text-sm text-neutral-500 mt-2">
+                Embeds your code locally. Runs in seconds, updates incrementally.
+              </p>
+            </div>
+            <div>
+              <div className="text-5xl font-bold text-neutral-800 mb-4">2</div>
+              <h3 className="font-semibold mb-2">Select</h3>
+              <code className="text-sm text-green-400">contextkit select &quot;query&quot;</code>
+              <p className="text-sm text-neutral-500 mt-2">
+                Finds the most relevant chunks. Respects your token budget.
+              </p>
+            </div>
+            <div>
+              <div className="text-5xl font-bold text-neutral-800 mb-4">3</div>
+              <h3 className="font-semibold mb-2">Use</h3>
+              <code className="text-sm text-green-400">| pbcopy</code>
+              <p className="text-sm text-neutral-500 mt-2">
+                Paste into Claude, GPT, or any LLM. Or use MCP for auto-fetch.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
+      {/* Features - compact */}
       <section className="py-20 px-6 border-t border-neutral-900">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-12">
-            Features
+            Everything you need
           </h2>
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
-            <div>
-              <h3 className="font-medium mb-2">🔒 Local-first</h3>
-              <p className="text-sm text-neutral-500">
-                All processing happens on your machine. Your code never leaves.
-                No API keys required.
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="p-4">
+              <div className="text-xl mb-2">🔒</div>
+              <h3 className="font-medium text-sm mb-1">Local-first</h3>
+              <p className="text-xs text-neutral-500">
+                Your code never leaves your machine. Zero data sent anywhere.
               </p>
             </div>
-            <div>
-              <h3 className="font-medium mb-2">🎯 Token-budget aware</h3>
-              <p className="text-sm text-neutral-500">
-                Specify your budget. ContextKit fills it with the highest-value
-                chunks.
+            <div className="p-4">
+              <div className="text-xl mb-2">🤖</div>
+              <h3 className="font-medium text-sm mb-1">MCP Server</h3>
+              <p className="text-xs text-neutral-500">
+                Claude Desktop fetches context automatically. Zero copy-paste.
               </p>
             </div>
-            <div>
-              <h3 className="font-medium mb-2">🤖 MCP Server</h3>
-              <p className="text-sm text-neutral-500">
-                Integrates with Claude Desktop via Model Context Protocol.
-                Let Claude fetch its own context.
+            <div className="p-4">
+              <div className="text-xl mb-2">🔍</div>
+              <h3 className="font-medium text-sm mb-1">Symbol Search</h3>
+              <p className="text-xs text-neutral-500">
+                Find functions by name instantly. Faster than grep.
               </p>
             </div>
-            <div>
-              <h3 className="font-medium mb-2">⚡ Model-agnostic</h3>
-              <p className="text-sm text-neutral-500">
-                Works with Claude, GPT, Llama — any LLM. Just outputs text.
+            <div className="p-4">
+              <div className="text-xl mb-2">🕸️</div>
+              <h3 className="font-medium text-sm mb-1">Call Graph</h3>
+              <p className="text-xs text-neutral-500">
+                See what calls what. Navigate dependencies visually.
               </p>
             </div>
-            <div>
-              <h3 className="font-medium mb-2">🔍 Symbol Search</h3>
-              <p className="text-sm text-neutral-500">
-                Find code by name with <code className="text-neutral-400">contextkit symbol</code>. 
-                Faster than semantic search when you know what you&apos;re looking for.
+            <div className="p-4">
+              <div className="text-xl mb-2">⚡</div>
+              <h3 className="font-medium text-sm mb-1">Incremental</h3>
+              <p className="text-xs text-neutral-500">
+                Only re-indexes changed files. Sub-second updates.
               </p>
             </div>
-            <div>
-              <h3 className="font-medium mb-2">🕸️ Call Graph</h3>
-              <p className="text-sm text-neutral-500">
-                See what calls a function and what it calls. 
-                Navigate dependencies with <code className="text-neutral-400">contextkit graph</code>.
+            <div className="p-4">
+              <div className="text-xl mb-2">🗺️</div>
+              <h3 className="font-medium text-sm mb-1">Map Mode</h3>
+              <p className="text-xs text-neutral-500">
+                Get signatures only. Perfect for codebase overviews.
               </p>
             </div>
-            <div>
-              <h3 className="font-medium mb-2">🗺️ Repo Map Mode</h3>
-              <p className="text-sm text-neutral-500">
-                Get a structure overview with signatures only. 
-                Use <code className="text-neutral-400">--mode map</code> to save tokens.
+            <div className="p-4">
+              <div className="text-xl mb-2">🌐</div>
+              <h3 className="font-medium text-sm mb-1">Multi-language</h3>
+              <p className="text-xs text-neutral-500">
+                TS, JS, Python, Go, Rust, Markdown. More coming.
               </p>
             </div>
-            <div>
-              <h3 className="font-medium mb-2">📝 Multi-language</h3>
-              <p className="text-sm text-neutral-500">
-                TypeScript, JavaScript, Python, Go, Rust, and Markdown. 
-                Structure-aware parsing via tree-sitter.
+            <div className="p-4">
+              <div className="text-xl mb-2">📊</div>
+              <h3 className="font-medium text-sm mb-1">Token Budget</h3>
+              <p className="text-xs text-neutral-500">
+                Specify max tokens. We fill it with the best chunks.
               </p>
             </div>
           </div>
@@ -223,40 +344,128 @@ export default function Home() {
 
       {/* MCP Section */}
       <section className="py-20 px-6 border-t border-neutral-900 bg-neutral-950">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-8">
-            Claude Desktop Integration
-          </h2>
-          <p className="text-neutral-300 mb-8">
-            ContextKit includes an MCP server. Add it to your Claude Desktop
-            config and Claude can fetch context directly.
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-4">
+            <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest">
+              Claude Desktop Integration
+            </h2>
+            <span className="px-2 py-0.5 text-xs rounded bg-green-900/50 text-green-400 border border-green-800">
+              MCP
+            </span>
+          </div>
+          <p className="text-xl text-neutral-300 mb-8 max-w-2xl">
+            Let Claude fetch its own context. Ask a question, and Claude uses ContextKit 
+            to find the relevant code — no copy-paste needed.
           </p>
-          <div className="bg-neutral-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
-            <div className="text-neutral-500">
-              {`// claude_desktop_config.json`}
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-neutral-900 rounded-xl p-6 font-mono text-sm overflow-x-auto border border-neutral-800">
+              <div className="text-neutral-500 mb-2"># claude_desktop_config.json</div>
+              <div className="text-neutral-300">{`{`}</div>
+              <div className="text-neutral-300 pl-4">{`"mcpServers": {`}</div>
+              <div className="text-neutral-300 pl-8">{`"contextkit": {`}</div>
+              <div className="text-green-400 pl-12">{`"command": "contextkit-mcp"`}</div>
+              <div className="text-neutral-300 pl-8">{`}`}</div>
+              <div className="text-neutral-300 pl-4">{`}`}</div>
+              <div className="text-neutral-300">{`}`}</div>
             </div>
-            <div className="text-neutral-300">{`{`}</div>
-            <div className="text-neutral-300 pl-4">{`"mcpServers": {`}</div>
-            <div className="text-neutral-300 pl-8">{`"contextkit": {`}</div>
-            <div className="text-green-400 pl-12">{`"command": "contextkit-mcp"`}</div>
-            <div className="text-neutral-300 pl-8">{`}`}</div>
-            <div className="text-neutral-300 pl-4">{`}`}</div>
-            <div className="text-neutral-300">{`}`}</div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <span className="text-green-500 mt-0.5">→</span>
+                <div>
+                  <p className="font-medium text-sm">contextkit_select</p>
+                  <p className="text-xs text-neutral-500">Semantic search for relevant code</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-500 mt-0.5">→</span>
+                <div>
+                  <p className="font-medium text-sm">contextkit_symbol</p>
+                  <p className="text-xs text-neutral-500">Find functions/classes by name</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-500 mt-0.5">→</span>
+                <div>
+                  <p className="font-medium text-sm">contextkit_graph</p>
+                  <p className="text-xs text-neutral-500">Show call relationships</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-500 mt-0.5">→</span>
+                <div>
+                  <p className="font-medium text-sm">contextkit_index</p>
+                  <p className="text-xs text-neutral-500">Re-index after changes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section className="py-20 px-6 border-t border-neutral-900">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-12">
+            Use Cases
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-6 border border-neutral-800 rounded-xl">
+              <h3 className="font-semibold mb-3">🐛 Bug Investigation</h3>
+              <p className="text-sm text-neutral-400 mb-3">
+                &quot;Find all code related to payment processing&quot;
+              </p>
+              <p className="text-xs text-neutral-600">
+                Get the relevant handlers, services, and utils — not the entire codebase.
+              </p>
+            </div>
+            <div className="p-6 border border-neutral-800 rounded-xl">
+              <h3 className="font-semibold mb-3">📝 Documentation</h3>
+              <p className="text-sm text-neutral-400 mb-3">
+                &quot;How does our caching layer work?&quot;
+              </p>
+              <p className="text-xs text-neutral-600">
+                Feed the AI the right code, get accurate documentation back.
+              </p>
+            </div>
+            <div className="p-6 border border-neutral-800 rounded-xl">
+              <h3 className="font-semibold mb-3">🔄 Refactoring</h3>
+              <p className="text-sm text-neutral-400 mb-3">
+                &quot;Show me all usages of the legacy auth module&quot;
+              </p>
+              <p className="text-xs text-neutral-600">
+                Understand impact before making changes. Call graph included.
+              </p>
+            </div>
+            <div className="p-6 border border-neutral-800 rounded-xl">
+              <h3 className="font-semibold mb-3">🆕 Onboarding</h3>
+              <p className="text-sm text-neutral-400 mb-3">
+                &quot;How does this feature work?&quot;
+              </p>
+              <p className="text-xs text-neutral-600">
+                New team member? Give them context, not overwhelming codebases.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 border-t border-neutral-900">
+      <section className="py-24 px-6 border-t border-neutral-900 bg-gradient-to-b from-neutral-950 to-black">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Start in 30 seconds</h2>
-          <code className="inline-block bg-neutral-900 px-6 py-3 rounded-lg font-mono text-sm mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Better context = Better answers
+          </h2>
+          <p className="text-neutral-400 mb-8">
+            Install ContextKit and start getting the right code context in seconds.
+          </p>
+          <code className="inline-block bg-neutral-900 border border-neutral-800 px-6 py-3 rounded-lg font-mono text-sm mb-8">
             npm install -g @milo4jo/contextkit
           </code>
-          <div className="flex justify-center gap-6 text-sm">
+          <div className="flex flex-wrap justify-center gap-6 text-sm">
             <Link
               href="/docs"
-              className="text-neutral-400 hover:text-white transition-colors"
+              className="px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-neutral-200 transition-colors"
             >
               Read the docs
             </Link>
@@ -264,21 +473,11 @@ export default function Home() {
               href="https://github.com/milo4jo/contextkit"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-white transition-colors flex items-center gap-1"
+              className="px-4 py-2 border border-neutral-700 rounded-lg hover:border-neutral-500 transition-colors flex items-center gap-2"
             >
               View on GitHub
-              <svg
-                className="w-3 h-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 17L17 7M17 7H7M17 7V17"
-                />
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
           </div>
@@ -287,28 +486,44 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-neutral-900">
-        <div className="max-w-3xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-neutral-600">
-            Built by{" "}
-            <a
-              href="https://github.com/milo4jo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-white transition-colors"
-            >
-              Milo
-            </a>
-          </p>
-          <p className="text-sm text-neutral-700">
-            <a
-              href="https://github.com/milo4jo/contextkit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-500 hover:text-white transition-colors"
-            >
-              View source
-            </a>
-          </p>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+            <div>
+              <div className="font-semibold text-lg flex items-center gap-2 mb-2">
+                <span>🎯</span> ContextKit
+              </div>
+              <p className="text-sm text-neutral-500 max-w-xs">
+                The right context for AI coding assistants. Local-first, open source.
+              </p>
+            </div>
+            <div className="flex gap-12 text-sm">
+              <div>
+                <h4 className="font-medium mb-3 text-neutral-400">Product</h4>
+                <ul className="space-y-2 text-neutral-500">
+                  <li><Link href="/docs" className="hover:text-white transition-colors">Docs</Link></li>
+                  <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+                  <li><a href="https://github.com/milo4jo/contextkit/blob/main/CHANGELOG.md" className="hover:text-white transition-colors">Changelog</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-medium mb-3 text-neutral-400">Links</h4>
+                <ul className="space-y-2 text-neutral-500">
+                  <li><a href="https://github.com/milo4jo/contextkit" className="hover:text-white transition-colors">GitHub</a></li>
+                  <li><a href="https://www.npmjs.com/package/@milo4jo/contextkit" className="hover:text-white transition-colors">npm</a></li>
+                  <li><a href="https://github.com/milo4jo" className="hover:text-white transition-colors">@milo4jo</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-neutral-900 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-neutral-600">
+            <p>MIT License</p>
+            <p>
+              Built by{" "}
+              <a href="https://github.com/milo4jo" className="text-neutral-400 hover:text-white transition-colors">
+                Milo 🦊
+              </a>
+            </p>
+          </div>
         </div>
       </footer>
     </main>
