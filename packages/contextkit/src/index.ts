@@ -9,6 +9,7 @@ import { sourceCommand } from './commands/source/index.js';
 import { indexCommand } from './commands/index-cmd.js';
 import { selectCommand } from './commands/select.js';
 import { mcpCommand } from './commands/mcp.js';
+import { doctorCommand } from './commands/doctor.js';
 import { ContextKitError, InvalidUsageError } from './errors/index.js';
 import { writeError, writeMessage } from './utils/streams.js';
 
@@ -74,6 +75,7 @@ program.addCommand(sourceCommand);
 program.addCommand(indexCommand);
 program.addCommand(selectCommand);
 program.addCommand(mcpCommand);
+program.addCommand(doctorCommand);
 
 // Default action when no command given
 program.action(() => {
@@ -92,6 +94,7 @@ Commands:
   index         Index all sources (re-run after code changes)
   select        Select context for a query
   mcp           Start MCP server for AI assistants
+  doctor        Diagnose issues with your setup
 
 Global Options:
   --json        Output as JSON
