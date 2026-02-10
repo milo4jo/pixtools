@@ -5,6 +5,15 @@ All notable changes to ContextKit will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2026-02-10
+
+### Added
+- **Doctor Command** — `contextkit doctor` for diagnostics and troubleshooting
+  - Checks Node.js version, configuration, index status
+  - Validates embeddings and cache state
+  - Reports disk usage
+  - Provides actionable fix suggestions
+
 ## [0.2.0] - 2026-02-04
 
 ### Added
