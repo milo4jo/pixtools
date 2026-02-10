@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { OGBuilder } from "@/components/OGBuilder";
+import { ProBanner } from "@/components/ProBanner";
 import type { Metadata } from "next";
 
 const siteUrl = "https://ogpix.vercel.app";
@@ -87,6 +88,11 @@ export default function EditorPage() {
               </h3>
               <p className="text-sm text-neutral-500">500 images/month free</p>
             </Link>
+          </div>
+
+          {/* Pro CTA */}
+          <div className="mt-8">
+            <ProBanner />
           </div>
         </div>
       </div>
