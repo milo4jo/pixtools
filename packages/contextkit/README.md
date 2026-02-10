@@ -1,14 +1,17 @@
 # ContextKit 🎯
 
-> **Stop dumping your entire codebase into AI prompts.**  
-> ContextKit selects the *right* context for any query — saving tokens and improving answers.
+> **Stop copy-pasting code into ChatGPT. Get the right context automatically.**
+
+ContextKit indexes your codebase and intelligently selects the most relevant chunks for any query — saving tokens, time, and improving AI answers.
 
 [![npm version](https://img.shields.io/npm/v/@milo4jo/contextkit)](https://www.npmjs.com/package/@milo4jo/contextkit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+**Quick links:** [Get Started](#quick-start) • [How It Works](#how-it-works) • [Commands](#commands) • [MCP for Claude](#-mcp-server-claude-desktop-integration) • [Performance](#-performance)
+
 ---
 
-## The Problem
+## 🤔 The Problem
 
 AI coding assistants are only as good as the context you give them. But:
 
