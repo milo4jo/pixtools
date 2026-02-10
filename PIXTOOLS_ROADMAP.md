@@ -137,7 +137,7 @@
 **v0.5.x** — Feb (patches)
 - [x] Better error messages (v0.2.0)
 - [x] `contextkit doctor` command (v0.2.1 — ready to publish)
-- [ ] Performance benchmarks in README
+- [x] Performance benchmarks in README (added 2026-02-10)
 - [ ] Bug fixes from user feedback
 
 **v0.6.0** — March (minor: VS Code)
@@ -157,9 +157,9 @@
 ### OGPix (Revenue Product)
 
 **v0.2.0** — THIS WEEK ⚡
-- [ ] Activate Lemon Squeezy (needs env var)
-- [ ] Add "Upgrade to Pro" CTAs throughout app
-- [ ] Email capture on landing page
+- [ ] Activate Lemon Squeezy (needs env var) ← BLOCKED: needs Jo
+- [x] Add "Upgrade to Pro" CTAs throughout app (ProBanner, editor CTA)
+- [x] Email capture on landing page (WaitlistForm)
 
 **v0.3.0** — March
 - [ ] Usage dashboard improvements
