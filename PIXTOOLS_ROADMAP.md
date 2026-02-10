@@ -59,7 +59,7 @@
 
 | Week | Focus | Deliverables |
 |------|-------|--------------|
-| 1 | Unblock & Ship | ✅ ContextKit v0.5.7 (doctor + errors), ✅ VS Code Extension built, ⏳ OGPix monetization |
+| 1 | Unblock & Ship | ✅ ContextKit v0.6.3 (cloud, doctor, symbols), ✅ Cloud API deployed, ✅ Dashboard deployed, ⏳ Stripe (blocked) |
 | 2 | Content Blitz | ✅ 3 articles drafted, ✅ 8 tweets prepared, Ready to publish Feb 12 |
 | 3 | Community Seeding | Reddit posts (5 subreddits), HN submission, Discord presence |
 | 4 | Iterate | Respond to all feedback, ship fixes, improve docs |
@@ -130,25 +130,33 @@
 
 ### ContextKit (Hero Product)
 
-**v0.5.1** — PUBLISH THIS WEEK ⚡
+**Current: v0.6.3** ✅
 - [x] AST-aware chunking
 - [x] Query caching
-- [ ] Version bump + CHANGELOG
-- [ ] npm publish
+- [x] Better error messages
+- [x] `contextkit doctor` command
+- [x] Performance benchmarks in README
+- [x] Cloud sync architecture
+- [x] Symbol analysis (imports, exports)
 
-**v0.5.x** — Feb (patches)
-- [x] Better error messages (v0.2.0)
-- [x] `contextkit doctor` command (v0.2.1 — ready to publish)
-- [x] Performance benchmarks in README (added 2026-02-10)
+**v0.6.x** — Feb (patches)
 - [ ] Bug fixes from user feedback
+- [ ] Documentation improvements
 
-**v0.6.0** — March (minor: VS Code)
+**v0.7.0** — March (VS Code Extension)
 - [ ] VS Code extension (HUGE for adoption)
 - [ ] Cursor integration
+- [ ] Product Hunt launch prep
 
-**v0.7.0** — April (minor: multi-model)
-- [ ] Multiple embedding model support
-- [ ] Cloud sync (optional)
+**Cloud API (Deployed)**
+- [x] Cloudflare Workers API — https://contextkit-api.milo4jo.workers.dev
+- [x] Dashboard — https://dashboard-seven-rouge-80.vercel.app
+- [x] Neon PostgreSQL (Frankfurt)
+- [x] Qdrant Cloud (Frankfurt)
+- [x] Upstash Redis (Frankfurt)
+- [x] Clerk Auth (GitHub/Google OAuth)
+- [ ] Stripe integration (BLOCKED: needs Jo)
+- [ ] Custom domain (app.contextkit.dev)
 
 **v1.0.0** — When stable (Product Hunt launch)
 - [ ] Stable API
@@ -209,11 +217,14 @@ Track these every Friday:
 ### Resolved ✅
 - [x] **npm publish access** — Working (milo4jo account)
 - [x] **Vercel deployment issue** — Fixed (monorepo config)
+- [x] **ContextKit Cloud Infrastructure** — All deployed (Neon, Qdrant, Redis, Clerk)
 
 ### Open
-- [ ] **Lemon Squeezy setup** — Need account + product + env vars for OGPix monetization
+- [ ] **Stripe setup for ContextKit** — Need account + products for cloud monetization
+- [ ] **Lemon Squeezy setup for OGPix** — Need account + product + env vars
 - [ ] **VS Code Extension testing** — Jo needs to test locally
 - [ ] **ogpix.dev domain** — DNS not resolving (check Vercel domains)
+- [ ] **app.contextkit.dev domain** — DNS for ContextKit dashboard
 
 ### Nice to Have
 - [ ] Custom domain for ContextKit site
@@ -251,5 +262,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-10 13:35 by Milo 🦊*
+*Last updated: 2026-02-10 16:35 by Milo 🦊*
 *Next review: 2026-02-14 (Friday)*
