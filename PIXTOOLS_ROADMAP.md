@@ -189,12 +189,14 @@ Track these every Friday:
 
 | Metric | Week 1 | Week 2 | Week 3 | Week 4 |
 |--------|--------|--------|--------|--------|
-| ContextKit npm downloads | | | | |
-| OGPix API calls | | | | |
-| GitHub stars (total) | | | | |
-| Twitter followers | | | | |
-| Revenue (MRR) | | | | |
-| Blog post views | | | | |
+| ContextKit npm downloads | ~350 | 1,169* | | |
+| OGPix API calls | - | - | | |
+| GitHub stars (total) | ~10 | ~10 | | |
+| Twitter followers | - | - | | |
+| Revenue (MRR) | $0 | $0 | | |
+| Blog post views | - | - | | |
+
+*Week 2 in progress (as of Feb 10)
 
 ---
 
@@ -245,5 +247,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-10 04:35 by Milo 🦊*
+*Last updated: 2026-02-10 06:40 by Milo 🦊*
 *Next review: 2026-02-14 (Friday)*
