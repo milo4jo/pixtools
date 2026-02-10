@@ -48,8 +48,15 @@ export default function EditorPage() {
         {/* Full OGBuilder */}
         <OGBuilder />
 
+        {/* Pro Tip */}
+        <div className="mt-8 p-4 bg-neutral-900/30 border border-neutral-800/50 rounded-lg">
+          <p className="text-sm text-neutral-400 text-center">
+            ✨ <Link href="/#pricing" className="text-white hover:underline">Pro users</Link> get unlimited images without watermarks
+          </p>
+        </div>
+
         {/* Help Section */}
-        <div className="mt-12 pt-8 border-t border-neutral-800">
+        <div className="mt-8 pt-8 border-t border-neutral-800">
           <div className="grid sm:grid-cols-3 gap-6">
             <Link
               href="/docs#api-reference"

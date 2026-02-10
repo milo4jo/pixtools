@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import { Navbar } from "@/components/Navbar";
 import { WelcomeModal } from "@/components/WelcomeModal";
+import { ProBanner } from "@/components/ProBanner";
 
 interface ApiKey {
   id: string;
@@ -169,6 +170,15 @@ export default function DashboardPage() {
             <span className="text-red-200 text-sm">{error}</span>
             <button onClick={() => setError(null)} className="text-red-400/60 hover:text-red-400">✕</button>
           </div>
+        )}
+
+        {/* Pro Banner - show for free users */}
+        {data?.plan?.plan !== "pro" && (
+          <ProBanner 
+            usage={data?.totalUsage || 0} 
+            limit={data?.plan?.monthly_limit || 500}
+            variant="prominent"
+          />
         )}
 
         {/* Stats - 3 columns, uniform style */}

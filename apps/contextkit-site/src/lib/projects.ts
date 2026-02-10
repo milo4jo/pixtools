@@ -6,9 +6,9 @@
  */
 
 import { nanoid } from "nanoid";
-import { db, projects, type Project, type NewProject } from "@/db";
+import { db, projects, type Project } from "@/db";
 import { eq, and, desc } from "drizzle-orm";
-import { put, del, head } from "@vercel/blob";
+import { put, del } from "@vercel/blob";
 import { createHash } from "crypto";
 
 // Plan limits

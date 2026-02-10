@@ -77,7 +77,9 @@ export async function POST(
     const file = formData.get("file") as File | null;
     const fileCount = formData.get("fileCount");
     const chunkCount = formData.get("chunkCount");
-    const clientHash = formData.get("hash");
+    // Reserved for future client-side hash comparison optimization
+    const _clientHash = formData.get("hash");
+    void _clientHash;
 
     if (!file) {
       return new Response(

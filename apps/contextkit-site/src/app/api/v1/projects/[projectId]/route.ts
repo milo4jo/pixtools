@@ -9,8 +9,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { validateApiKey } from "@/lib/api-keys";
 import { getProject, updateProject, deleteProject, getIndexMetadata } from "@/lib/projects";
-import { db, users } from "@/db";
-import { eq } from "drizzle-orm";
 
 async function getAuthenticatedUserId(req: Request): Promise<string | null> {
   // Try API key auth first
