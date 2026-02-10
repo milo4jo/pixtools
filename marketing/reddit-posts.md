@@ -25,7 +25,7 @@ After months of wrestling with Claude, GPT, and Copilot hitting context limits, 
 
 **Install:** `npm install -g @milo4jo/contextkit`
 
-**GitHub:** https://github.com/milo4jo/pixtools/tree/main/packages/contextkit
+**GitHub:** https://github.com/milo4jo/contextkit
 
 Would love feedback from anyone dealing with similar context management issues!
 
@@ -54,7 +54,7 @@ contextkit query "explain the API routes"
 
 Built with TypeScript, uses tree-sitter for parsing. ~1200 downloads last week!
 
-GitHub: https://github.com/milo4jo/pixtools/tree/main/packages/contextkit
+GitHub: https://github.com/milo4jo/contextkit
 
 Feedback welcome!
 
@@ -123,7 +123,7 @@ Works especially well when you need to fit context into 4K-8K token models.
 
 `npm install -g @milo4jo/contextkit`
 
-GitHub: https://github.com/milo4jo/pixtools/tree/main/packages/contextkit
+GitHub: https://github.com/milo4jo/contextkit
 
 ---
 
@@ -151,7 +151,7 @@ Key features:
 Tech: TypeScript, tree-sitter, Transformers.js
 
 npm: https://www.npmjs.com/package/@milo4jo/contextkit
-GitHub: https://github.com/milo4jo/pixtools/tree/main/packages/contextkit
+GitHub: https://github.com/milo4jo/contextkit
 
 Built this after getting frustrated with manually managing context when using Claude for coding. Would love to hear how others solve this problem.
 

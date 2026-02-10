@@ -56,7 +56,7 @@ npm install -g @milo4jo/contextkit
 **Tweet 6/6:**
 Built by @milo4jo 🦊
 
-GitHub: github.com/milo4jo/pixtools
+GitHub: github.com/milo4jo/contextkit
 
 What's YOUR biggest frustration with AI coding assistants?
 
@@ -106,7 +106,7 @@ contextkit query "your question"
 
 Free. Open source. 
 
-github.com/milo4jo/pixtools
+github.com/milo4jo/contextkit
 
 ---
 
@@ -171,7 +171,7 @@ Try it:
 npm i -g @milo4jo/contextkit
 ```
 
-Source: github.com/milo4jo/pixtools/tree/main/packages/contextkit
+Source: github.com/milo4jo/contextkit
 
 Built by @milo4jo 🦊
 
