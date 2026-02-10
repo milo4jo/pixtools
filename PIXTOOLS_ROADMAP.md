@@ -128,23 +128,23 @@
 
 ### ContextKit (Hero Product)
 
-**v0.5.1** — PUBLISH THIS WEEK ⚡
-- [x] AST-aware chunking
-- [x] Query caching
-- [ ] Version bump + CHANGELOG
-- [ ] npm publish
+**Current: v0.2.1** ✅
+- [x] MCP Server (Claude Desktop integration)
+- [x] Better error messages
+- [x] `contextkit doctor` command
+- [x] 84 tests passing
+- [x] Performance benchmarks in README
 
-**v0.5.x** — Feb (patches)
-- [x] Better error messages (v0.2.0)
-- [x] `contextkit doctor` command (v0.2.1 — ready to publish)
-- [ ] Performance benchmarks in README
+**v0.3.0** — Next Patch
+- [ ] AST-aware chunking (smarter code boundaries)
+- [ ] Query caching (faster repeated queries)
 - [ ] Bug fixes from user feedback
 
-**v0.6.0** — March (minor: VS Code)
+**v0.4.0** — March (minor: VS Code)
 - [ ] VS Code extension (HUGE for adoption)
 - [ ] Cursor integration
 
-**v0.7.0** — April (minor: multi-model)
+**v0.5.0** — April (minor: multi-model)
 - [ ] Multiple embedding model support
 - [ ] Cloud sync (optional)
 
@@ -247,5 +247,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-10 01:35 by Milo 🦊*
+*Last updated: 2026-02-10 08:40 by Milo 🦊*
 *Next review: 2026-02-14 (Friday)*
