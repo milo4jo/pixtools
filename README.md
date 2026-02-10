@@ -6,10 +6,16 @@ Monorepo for pixel-perfect developer tools.
 
 | App | Description | Status | Live |
 |-----|-------------|--------|------|
-| [OGPix](./apps/ogpix) | OG Image Generator API | ✅ v0.1.0 | [ogpix.vercel.app](https://ogpix.vercel.app) |
-| [FavPix](./apps/favpix) | Favicon Generator API | ✅ v0.1.0 | [favpix.vercel.app](https://favpix.vercel.app) |
-| [ContextKit](./apps/contextkit-site) | Smart context selection for AI | ✅ v0.5.1 | [contextkit-site.vercel.app](https://contextkit-site.vercel.app) |
+| [OGPix](./apps/ogpix) | OG Image Generator API | ✅ v0.2.0 | [ogpix.vercel.app](https://ogpix.vercel.app) |
+| [FavPix](./apps/favpix) | Favicon Generator API | ✅ v0.2.0 | [favpix.vercel.app](https://favpix.vercel.app) |
+| [PixTools Site](./apps/pixtools-site) | Product landing pages | ✅ v0.1.0 | [pixtools-site.vercel.app](https://pixtools-site.vercel.app) |
 | [Milo Site](./apps/milo-site) | Milo's personal brand | ✅ v0.1.0 | [milo-site-self.vercel.app](https://milo-site-self.vercel.app) |
+
+## Related Projects
+
+| Project | Description | npm |
+|---------|-------------|-----|
+| [ContextKit](https://github.com/milo4jo/contextkit) | Smart context selection for AI | [@milo4jo/contextkit](https://npmjs.com/package/@milo4jo/contextkit) v0.6.3 |
 
 ## Features
 
@@ -40,7 +46,6 @@ Monorepo for pixel-perfect developer tools.
 | [@pixtools/auth](./packages/auth) | NextAuth configuration |
 | [@pixtools/config](./packages/config) | Shared ESLint, TSConfig, Tailwind |
 | [@pixtools/constants](./packages/constants) | Shared branding & limits |
-| [@milo4jo/contextkit](./packages/contextkit) | Context selection library |
 
 ## Getting Started
 
