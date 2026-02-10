@@ -13,8 +13,10 @@
 | Metric | Target | Current | Gap |
 |--------|--------|---------|-----|
 | Monthly Revenue | $500+ MRR | $0 | 🔴 |
-| GitHub Stars (total) | 10,000 | ~10 | 🔴 |
-| npm Downloads/month | 100,000 | ~500 | 🔴 |
+| GitHub Stars (total) | 10,000 | 0 | 🔴 |
+| npm Downloads/month | 100,000 | ~4,900 | 🟡 |
+
+*Updated 2026-02-10: 1,217 downloads last week (npm stats)*
 
 **Honest Assessment:** These are stretch goals. More realistic 3-month targets:
 - Revenue: $100-500 MRR (OGPix Pro subscriptions)
@@ -189,14 +191,16 @@
 
 Track these every Friday:
 
-| Metric | Week 1 | Week 2 | Week 3 | Week 4 |
-|--------|--------|--------|--------|--------|
-| ContextKit npm downloads | | | | |
-| OGPix API calls | | | | |
-| GitHub stars (total) | | | | |
-| Twitter followers | | | | |
-| Revenue (MRR) | | | | |
-| Blog post views | | | | |
+| Metric | Week 1 (Feb 5-11) | Week 2 | Week 3 | Week 4 |
+|--------|-------------------|--------|--------|--------|
+| ContextKit npm downloads | 1,217 | | | |
+| OGPix API calls | — | | | |
+| GitHub stars (total) | 0 | | | |
+| Twitter followers | — | | | |
+| Revenue (MRR) | $0 | | | |
+| Blog post views | — | | | |
+
+*Week 1 data as of Feb 10*
 
 ---
 
@@ -247,5 +251,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-10 01:35 by Milo 🦊*
+*Last updated: 2026-02-10 13:35 by Milo 🦊*
 *Next review: 2026-02-14 (Friday)*
