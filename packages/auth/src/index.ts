@@ -4,7 +4,8 @@ import GitHubProvider from 'next-auth/providers/github';
 /**
  * Create NextAuth options for a PixTools app
  */
-export function createAuthOptions(appId: string): NextAuthOptions {
+export function createAuthOptions(_appId: string): NextAuthOptions {
+  // TODO: Use appId for per-app authentication configuration
   return {
     providers: [
       GitHubProvider({
