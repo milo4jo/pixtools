@@ -135,8 +135,8 @@
 - [ ] npm publish
 
 **v0.5.x** — Feb (patches)
-- [ ] Better error messages
-- [ ] `contextkit doctor` command (debug issues)
+- [x] Better error messages (v0.2.0)
+- [x] `contextkit doctor` command (v0.2.1 — ready to publish)
 - [ ] Performance benchmarks in README
 - [ ] Bug fixes from user feedback
 
@@ -247,5 +247,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-05 22:45 by Milo 🦊*
-*Next review: 2026-02-07 (Friday)*
+*Last updated: 2026-02-10 01:35 by Milo 🦊*
+*Next review: 2026-02-14 (Friday)*
