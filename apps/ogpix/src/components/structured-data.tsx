@@ -22,7 +22,7 @@ export function StructuredData({ type = "website" }: StructuredDataProps) {
     name: "OGPix",
     url: siteUrl,
     description:
-      "Generate beautiful Open Graph images with a single API call. 15+ themes, templates, and full customization.",
+      "Generate beautiful Open Graph images with a single API call. 21 themes, 22 templates, and full customization.",
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -46,13 +46,14 @@ export function StructuredData({ type = "website" }: StructuredDataProps) {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
-      description: "Free tier with 1,000 images/month",
+      description: "Free tier with 500 images/month",
     },
     featureList: [
-      "15+ beautiful themes",
-      "Multiple templates (blog, product, event, profile)",
+      "21 beautiful themes including gradients",
+      "22 templates (blog, product, announcement, tutorial, etc.)",
       "Custom fonts and colors",
       "No design skills required",
+      "Edge-rendered for maximum speed",
       "API and URL-based generation",
     ],
     author: {

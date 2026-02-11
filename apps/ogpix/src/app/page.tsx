@@ -30,10 +30,14 @@ export default function Home() {
 
       {/* Features - Ultra Minimal */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-24">
-        <div className="grid sm:grid-cols-3 gap-12 text-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12 text-center">
           <div>
             <div className="text-4xl font-bold mb-2">21</div>
             <div className="text-neutral-500">Themes</div>
+          </div>
+          <div>
+            <div className="text-4xl font-bold mb-2">22</div>
+            <div className="text-neutral-500">Templates</div>
           </div>
           <div>
             <div className="text-4xl font-bold mb-2">Fast</div>
