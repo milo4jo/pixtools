@@ -161,8 +161,9 @@
 - [ ] Bug fixes from user feedback
 - [x] Documentation improvements (README updated for new commands)
 
-**v0.7.0** — March (VS Code Extension)
-- [ ] VS Code extension (HUGE for adoption)
+**v0.7.0** — February ✅
+- [x] VS Code extension code complete (https://github.com/milo4jo/contextkit-vscode)
+- [ ] **Publish to VS Code Marketplace** ← needs Azure DevOps publisher setup
 - [ ] Cursor integration
 - [ ] Product Hunt launch prep
 
@@ -280,5 +281,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-11 09:37 by Milo 🦊*
+*Last updated: 2026-02-11 10:45 by Milo 🦊*
 *Next review: 2026-02-14 (Friday)*
