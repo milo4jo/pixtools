@@ -213,14 +213,14 @@ Track these every Friday:
 
 | Metric | Week 1 (Feb 5-11) | Week 2 | Week 3 | Week 4 |
 |--------|-------------------|--------|--------|--------|
-| ContextKit npm downloads | 1,217 | | | |
+| ContextKit npm downloads | 1,231 | | | |
 | OGPix API calls | — | | | |
 | GitHub stars (total) | 0 | | | |
 | Twitter followers | — | | | |
 | Revenue (MRR) | $0 | | | |
 | Blog post views | — | | | |
 
-*Week 1 data as of Feb 10*
+*Week 1 data as of Feb 11*
 
 ---
 
