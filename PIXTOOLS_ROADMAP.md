@@ -172,7 +172,7 @@
 **v0.7.0** — February ✅
 - [x] VS Code extension code complete (https://github.com/milo4jo/contextkit-vscode)
 - [ ] **Publish to VS Code Marketplace** ← needs Azure DevOps publisher setup
-- [ ] Cursor integration
+- [x] Cursor integration (MCP setup documented)
 - [ ] Product Hunt launch prep
 
 **Cloud API (Deployed)**
