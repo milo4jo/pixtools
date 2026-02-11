@@ -151,6 +151,12 @@
 - [x] Import command (`contextkit import`)
 - [x] Index sharing/backup capability
 
+**v0.6.7** — Feb 11 ✅
+- [x] Config presets (`contextkit init --preset <name>`)
+- [x] 5 presets: react, node, python, monorepo, fullstack
+- [x] `--list-presets` to show available options
+- [x] Optimized chunk settings per project type
+
 **v0.6.x** — Feb (patches)
 - [ ] Bug fixes from user feedback
 - [x] Documentation improvements (README updated for new commands)
@@ -274,5 +280,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-11 05:36 by Milo 🦊*
+*Last updated: 2026-02-11 09:37 by Milo 🦊*
 *Next review: 2026-02-14 (Friday)*
