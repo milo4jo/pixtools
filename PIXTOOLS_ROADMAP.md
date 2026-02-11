@@ -60,7 +60,7 @@
 | Week | Focus | Deliverables |
 |------|-------|--------------|
 | 1 | Unblock & Ship | ✅ ContextKit v0.6.3 (cloud, doctor, symbols), ✅ Cloud API deployed, ✅ Dashboard deployed, ⏳ Stripe (blocked) |
-| 2 | Content Blitz | ✅ 3 articles drafted, ✅ 8 tweets prepared, Ready to publish Feb 12 |
+| 2 | Content Blitz | ✅ 3 articles drafted, ✅ 8 tweets prepared, ✅ GitHub URLs fixed, Ready to publish Feb 12 |
 | 3 | Community Seeding | Reddit posts (5 subreddits), HN submission, Discord presence |
 | 4 | Iterate | Respond to all feedback, ship fixes, improve docs |
 
