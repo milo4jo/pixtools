@@ -139,6 +139,9 @@
 - [x] Cloud sync architecture
 - [x] Symbol analysis (imports, exports)
 
+**v0.6.4** — Feb 11 ✅
+- [x] Interactive mode (`contextkit i`)
+
 **v0.6.x** — Feb (patches)
 - [ ] Bug fixes from user feedback
 - [ ] Documentation improvements
