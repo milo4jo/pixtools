@@ -130,7 +130,7 @@
 
 ### ContextKit (Hero Product)
 
-**Current: v0.6.3** ✅
+**Current: v0.6.9** ✅
 - [x] AST-aware chunking
 - [x] Query caching
 - [x] Better error messages
@@ -162,8 +162,11 @@
 - [x] Track and re-run past queries
 - [x] View query stats (tokens used, chunks found)
 
+**v0.6.9** — Feb 11 ✅
+- [x] Fix: Database migration for `query_history` table (upgrading from older versions)
+
 **v0.6.x** — Feb (patches)
-- [ ] Bug fixes from user feedback
+- [x] Bug fixes from user feedback
 - [x] Documentation improvements (README updated for new commands)
 
 **v0.7.0** — February ✅
