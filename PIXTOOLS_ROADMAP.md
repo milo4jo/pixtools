@@ -157,6 +157,11 @@
 - [x] `--list-presets` to show available options
 - [x] Optimized chunk settings per project type
 
+**v0.6.8** — Feb 11 ✅
+- [x] Query history (`contextkit history`)
+- [x] Track and re-run past queries
+- [x] View query stats (tokens used, chunks found)
+
 **v0.6.x** — Feb (patches)
 - [ ] Bug fixes from user feedback
 - [x] Documentation improvements (README updated for new commands)
