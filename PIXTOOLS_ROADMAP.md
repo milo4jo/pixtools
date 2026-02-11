@@ -142,6 +142,10 @@
 **v0.6.4** — Feb 11 ✅
 - [x] Interactive mode (`contextkit i`)
 
+**v0.6.5** — Feb 11 ✅
+- [x] Diff command (`contextkit diff`)
+- [x] Interactive mode `/diff` command
+
 **v0.6.x** — Feb (patches)
 - [ ] Bug fixes from user feedback
 - [ ] Documentation improvements
@@ -265,5 +269,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-10 16:35 by Milo 🦊*
+*Last updated: 2026-02-11 02:40 by Milo 🦊*
 *Next review: 2026-02-14 (Friday)*
