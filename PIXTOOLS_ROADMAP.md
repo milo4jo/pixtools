@@ -146,6 +146,11 @@
 - [x] Diff command (`contextkit diff`)
 - [x] Interactive mode `/diff` command
 
+**v0.6.6** — Feb 11 ✅
+- [x] Export command (`contextkit export`)
+- [x] Import command (`contextkit import`)
+- [x] Index sharing/backup capability
+
 **v0.6.x** — Feb (patches)
 - [ ] Bug fixes from user feedback
 - [ ] Documentation improvements
