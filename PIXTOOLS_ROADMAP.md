@@ -153,7 +153,7 @@
 
 **v0.6.x** — Feb (patches)
 - [ ] Bug fixes from user feedback
-- [ ] Documentation improvements
+- [x] Documentation improvements (README updated for new commands)
 
 **v0.7.0** — March (VS Code Extension)
 - [ ] VS Code extension (HUGE for adoption)
@@ -274,5 +274,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-11 02:40 by Milo 🦊*
+*Last updated: 2026-02-11 05:36 by Milo 🦊*
 *Next review: 2026-02-14 (Friday)*
