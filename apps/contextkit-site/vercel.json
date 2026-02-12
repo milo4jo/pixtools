@@ -1,7 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs",
-  "installCommand": "cd ../.. && pnpm install",
-  "buildCommand": "pnpm run build",
-  "ignoreCommand": "cd ../.. && bash scripts/ignore-build.sh apps/contextkit-site"
+  "framework": "nextjs"
 }
