@@ -1,0 +1,39 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="accent-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f472b6"/>
+      <stop offset="100%" style="stop-color:#c084fc"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background rounded square -->
+  <rect x="12" y="12" width="216" height="216" rx="40" fill="url(#bg-gradient)"/>
+  
+  <!-- Stylized image frame -->
+  <rect x="45" y="55" width="150" height="110" rx="12" fill="white" fill-opacity="0.95"/>
+  
+  <!-- Image preview area -->
+  <rect x="55" y="65" width="130" height="70" rx="6" fill="#1e1b4b"/>
+  
+  <!-- OG text inside preview -->
+  <text x="120" y="108" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white" text-anchor="middle">OG</text>
+  
+  <!-- Decorative pixels -->
+  <rect x="160" y="70" width="12" height="12" rx="2" fill="url(#accent-gradient)"/>
+  <rect x="173" y="70" width="8" height="8" rx="2" fill="#f472b6" fill-opacity="0.7"/>
+  <rect x="173" y="80" width="8" height="8" rx="2" fill="#c084fc" fill-opacity="0.6"/>
+  
+  <!-- Metadata lines -->
+  <rect x="55" y="145" width="80" height="8" rx="4" fill="#6366f1" fill-opacity="0.6"/>
+  <rect x="55" y="156" width="55" height="6" rx="3" fill="#8b5cf6" fill-opacity="0.4"/>
+  
+  <!-- API indicator dot -->
+  <circle cx="175" cy="149" r="6" fill="#22c55e"/>
+  
+  <!-- PIX text below -->
+  <text x="120" y="202" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="800" fill="white" text-anchor="middle" letter-spacing="3">PIX</text>
+</svg>
