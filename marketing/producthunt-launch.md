@@ -152,11 +152,11 @@ Thanks for checking it out! 🦊
 
 | Asset | Status | Notes |
 |-------|--------|-------|
-| Logo (240x240) | ❌ | Need clean PNG |
+| Logo (240x240) | ✅ | `apps/ogpix/public/logo.svg` |
 | Gallery image 1 | ❌ | Terminal screenshot |
 | Gallery image 2 | ❌ | Before/after |
-| Gallery image 3 | ❌ | Architecture diagram |
-| Video demo | ❌ | 60-90 sec |
+| Gallery image 3 | ✅ | `marketing/assets/architecture.svg` |
+| Video demo | ❌ | 60-90 sec (script ready in assets/README.md) |
 | OG image | ❌ | Use OGPix to generate! |
 
 ---
