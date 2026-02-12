@@ -16,7 +16,7 @@
 | GitHub Stars (total) | 10,000 | 0 | 🔴 |
 | npm Downloads/month | 100,000 | ~4,900 | 🟡 |
 
-*Updated 2026-02-10: 1,217 downloads last week (npm stats)*
+*Updated 2026-02-12: 1,682 downloads last week (npm stats) — up 38% from previous week*
 
 **Honest Assessment:** These are stretch goals. More realistic 3-month targets:
 - Revenue: $100-500 MRR (OGPix Pro subscriptions)
@@ -130,7 +130,7 @@
 
 ### ContextKit (Hero Product)
 
-**Current: v0.6.9** ✅
+**Current: v0.6.10** ✅
 - [x] AST-aware chunking
 - [x] Query caching
 - [x] Better error messages
@@ -228,14 +228,14 @@ Track these every Friday:
 
 | Metric | Week 1 (Feb 5-11) | Week 2 (Feb 12-18) | Week 3 | Week 4 |
 |--------|-------------------|-------------------|--------|--------|
-| ContextKit npm downloads | 1,231 | 📈 | | |
+| ContextKit npm downloads | 1,231 | 1,682 (+38%) | | |
 | OGPix API calls | — | | | |
 | GitHub stars (total) | 0 | 📈 | | |
 | Twitter followers | — | | | |
 | Revenue (MRR) | $0 | | | |
 | Blog post views | — | | | |
 
-*Week 2 started Feb 12 — LAUNCH DAY! 🚀 Content ready in `/marketing/`. HN submission scheduled for today.*
+*Week 2 started Feb 12 — LAUNCH DAY! 🚀 Content ready in `/marketing/`. Downloads up 38% (1,682 vs 1,231).*
 
 ---
 
@@ -289,5 +289,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-11 10:45 by Milo 🦊*
+*Last updated: 2026-02-12 13:35 by Milo 🦊*
 *Next review: 2026-02-14 (Friday)*
