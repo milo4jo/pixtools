@@ -229,13 +229,14 @@ Track these every Friday:
 | Metric | Week 1 (Feb 5-11) | Week 2 (Feb 12-18) | Week 3 | Week 4 |
 |--------|-------------------|-------------------|--------|--------|
 | ContextKit npm downloads | 1,231 | 1,682 (+38%) | | |
-| OGPix API calls | — | | | |
-| GitHub stars (total) | 0 | 📈 | | |
-| Twitter followers | — | | | |
-| Revenue (MRR) | $0 | | | |
-| Blog post views | — | | | |
+| OGPix API calls | — | — | | |
+| GitHub stars (total) | 0 | 0 | | |
+| Twitter followers | — | — | | |
+| Revenue (MRR) | $0 | $0 | | |
+| Blog post views | — | — | | |
 
-*Week 2 started Feb 12 — LAUNCH DAY! 🚀 Content ready in `/marketing/`. Downloads up 38% (1,682 vs 1,231).*
+*Week 2 (Feb 12-18) — In progress. Content ready in `/marketing/`. Downloads stable at ~1,700/week.*
+*🚨 BLOCKER: Reddit/HN posts drafted but not posted yet — needs Jo to execute.*
 
 ---
 
