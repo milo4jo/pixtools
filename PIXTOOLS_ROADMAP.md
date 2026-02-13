@@ -235,8 +235,9 @@ Track these every Friday:
 | Revenue (MRR) | $0 | $0 | | |
 | Blog post views | — | — | | |
 
-*Week 2 (Feb 12-18) — In progress. Content ready in `/marketing/`. Downloads stable at ~1,700/week.*
-*🚨 BLOCKER: Reddit/HN posts drafted but not posted yet — needs Jo to execute.*
+*Week 2 (Feb 12-18) — Content ready, execution blocked.*
+*🚨 BLOCKER: Reddit/HN/Twitter posts ready but not posted — needs Jo to execute.*
+*📊 Friday Review (Feb 13): Tests passing (7/7), v0.6.10 stable, VS Code ext ready but needs Azure DevOps.*
 
 ---
 
