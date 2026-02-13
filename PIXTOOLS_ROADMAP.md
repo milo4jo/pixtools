@@ -226,18 +226,24 @@
 
 Track these every Friday:
 
-| Metric | Week 1 (Feb 5-11) | Week 2 (Feb 12-18) | Week 3 | Week 4 |
-|--------|-------------------|-------------------|--------|--------|
-| ContextKit npm downloads | 1,231 | 1,682 (+38%) | | |
-| OGPix API calls | — | — | | |
-| GitHub stars (total) | 0 | 0 | | |
-| Twitter followers | — | — | | |
-| Revenue (MRR) | $0 | $0 | | |
-| Blog post views | — | — | | |
+| Metric | Week 1 (Feb 5-11) | Week 2 (Feb 12-18) | Week 3 (Feb 19-25) | Week 4 |
+|--------|-------------------|-------------------|-------------------|--------|
+| ContextKit npm downloads | 1,231 | 1,682 (+38%) | — | |
+| OGPix API calls | — | — | — | |
+| GitHub stars (total) | 0 | 0 | 0 | |
+| Twitter followers | — | — | — | |
+| Revenue (MRR) | $0 | $0 | $0 | |
+| Blog post views | — | — | — | |
 
 *Week 2 (Feb 12-18) — Content ready, execution blocked.*
 *🚨 BLOCKER: Reddit/HN/Twitter posts ready but not posted — needs Jo to execute.*
 *📊 Friday Review (Feb 13): Tests passing (7/7), v0.6.10 stable, VS Code ext ready but needs Azure DevOps.*
+
+*📊 Friday Review (Feb 14):*
+*- Tests: 7/7 passing (FULL TURBO cache hit)*
+*- Downloads: ~1,544 (Feb 7-13), spikes on Feb 8 (800) and Feb 11 (542) from releases*
+*- Status: All technical work complete. Blocked on marketing execution & Jo blockers.*
+*- Blockers unchanged: Stripe, Lemon Squeezy, VS Code Marketplace, domains*
 
 ---
 
@@ -291,5 +297,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-12 13:35 by Milo 🦊*
-*Next review: 2026-02-14 (Friday)*
+*Last updated: 2026-02-14 00:35 by Milo 🦊*
+*Next review: 2026-02-21 (Friday)*
