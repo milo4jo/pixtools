@@ -226,7 +226,7 @@
 
 Track these every Friday:
 
-| Metric | Week 1 (Feb 5-11) | Week 2 (Feb 12-18) | Week 3 | Week 4 |
+| Metric | Week 1 (Feb 5-11) | Week 2 (Feb 12-18) | Week 3 (Feb 19-25) | Week 4 |
 |--------|-------------------|-------------------|--------|--------|
 | ContextKit npm downloads | 1,231 | 1,582 | | |
 | OGPix API calls | — | — | | |
@@ -234,6 +234,25 @@ Track these every Friday:
 | Twitter followers | — | — | | |
 | Revenue (MRR) | $0 | $0 | | |
 | Blog post views | — | — | | |
+
+### ⚠️ Week 2 FINAL Status (Feb 14 - Saturday)
+
+**Situation:** All code complete. Zero marketing executed.
+
+**The Numbers:**
+- npm: 1,582 downloads (up 28% week-over-week)
+- GitHub stars: 0 
+- Reddit/HN posts: 0 (content ready since Feb 10)
+- Revenue: $0
+
+**What's Blocking Progress:**
+Everything that drives growth needs Jo:
+1. **Reddit/HN posts** — Content in `/marketing/`, ready to copy-paste
+2. **VS Code extension** — VSIX packaged, needs Azure DevOps PAT to publish
+3. **Stripe/Lemon Squeezy** — Monetization blocked on account setup
+4. **Domains** — ogpix.dev, app.contextkit.dev not pointing
+
+**Launch Runbook:** See `/docs/LAUNCH_RUNBOOK.md` — 2-hour setup guide covering all blockers.
 
 ### Week 2 Review (Feb 14) ⚠️
 
