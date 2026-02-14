@@ -237,7 +237,7 @@ Track these every Friday:
 
 ### Week 2 Review (Feb 14) ⚠️
 
-**Status:** Content ready but NOT posted.
+**Status:** Content ready but NOT posted. VS Code extension VSIX packaged.
 
 **npm breakdown (Feb 7-14):**
 - Feb 8: 800 downloads (spike)
@@ -248,8 +248,19 @@ Track these every Friday:
 **Critical Finding:** 0 GitHub stars = Reddit/HN posts were NOT made.
 Marketing content is ready in `/marketing/` but Jo needs to post them.
 
+**Today's work (Feb 14):**
+- ✅ All 253 tests passing
+- ✅ VS Code extension packaged as VSIX (ready for Jo to test locally)
+- ✅ Added LICENSE + .vscodeignore to contextkit-vscode repo
+- ⏳ Waiting on Jo: Post Reddit/HN content, test VS Code extension
+
 **Action needed:** Jo must post the Reddit/HN content this weekend or early next week.
 The longer we wait, the more stale the "launch" feels.
+
+**VS Code Extension ready for local test:**
+```bash
+code --install-extension /Users/johannesmandle/clawd/contextkit-vscode/contextkit-0.2.0.vsix
+```
 
 ---
 
