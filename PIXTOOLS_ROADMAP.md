@@ -16,7 +16,7 @@
 | GitHub Stars (total) | 10,000 | 0 | 🔴 |
 | npm Downloads/month | 100,000 | ~4,900 | 🟡 |
 
-*Updated 2026-02-10: 1,217 downloads last week (npm stats)*
+*Updated 2026-02-14: 1,582 downloads last week (npm stats) — Week 2 review*
 
 **Honest Assessment:** These are stretch goals. More realistic 3-month targets:
 - Revenue: $100-500 MRR (OGPix Pro subscriptions)
@@ -130,7 +130,7 @@
 
 ### ContextKit (Hero Product)
 
-**Current: v0.6.9** ✅
+**Current: v0.6.10** ✅
 - [x] AST-aware chunking
 - [x] Query caching
 - [x] Better error messages
@@ -228,14 +228,28 @@ Track these every Friday:
 
 | Metric | Week 1 (Feb 5-11) | Week 2 (Feb 12-18) | Week 3 | Week 4 |
 |--------|-------------------|-------------------|--------|--------|
-| ContextKit npm downloads | 1,231 | 📈 | | |
-| OGPix API calls | — | | | |
-| GitHub stars (total) | 0 | 📈 | | |
-| Twitter followers | — | | | |
-| Revenue (MRR) | $0 | | | |
-| Blog post views | — | | | |
+| ContextKit npm downloads | 1,231 | 1,582 | | |
+| OGPix API calls | — | — | | |
+| GitHub stars (total) | 0 | 0 ⚠️ | | |
+| Twitter followers | — | — | | |
+| Revenue (MRR) | $0 | $0 | | |
+| Blog post views | — | — | | |
 
-*Week 2 started Feb 12 — LAUNCH DAY! 🚀 Content ready in `/marketing/`. HN submission scheduled for today.*
+### Week 2 Review (Feb 14) ⚠️
+
+**Status:** Content ready but NOT posted.
+
+**npm breakdown (Feb 7-14):**
+- Feb 8: 800 downloads (spike)
+- Feb 11: 542 downloads (spike)
+- Other days: 12-115 downloads
+- Total: 1,582 (up 28% from week 1)
+
+**Critical Finding:** 0 GitHub stars = Reddit/HN posts were NOT made.
+Marketing content is ready in `/marketing/` but Jo needs to post them.
+
+**Action needed:** Jo must post the Reddit/HN content this weekend or early next week.
+The longer we wait, the more stale the "launch" feels.
 
 ---
 
