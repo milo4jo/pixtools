@@ -16,7 +16,7 @@
 | GitHub Stars (total) | 10,000 | 0 | 🔴 |
 | npm Downloads/month | 100,000 | ~4,900 | 🟡 |
 
-*Updated 2026-02-15: 1,609 downloads Week 2 (npm stats) — Week 3 start*
+*Updated 2026-02-15 3:33 PM: 1,609 downloads Week 2, Week 3 Day 1 — all code stable*
 
 **Honest Assessment:** These are stretch goals. More realistic 3-month targets:
 - Revenue: $100-500 MRR (OGPix Pro subscriptions)
@@ -265,18 +265,14 @@ Track these every Friday:
 
 **Theme:** Community Seeding — blocked on marketing execution.
 
-**Status (Feb 15 9:35 AM):**
+**Status (Feb 15 3:33 PM):**
 - ✅ All code complete, tests passing (253 tests, all green)
-- ✅ ContextKit lockfile updated for tree-sitter-php
-- ✅ VS Code extension VSIX packaged, ready for local test
+- ✅ ContextKit v0.6.10 stable, 0 vulnerabilities
+- ✅ VS Code extension VSIX packaged (contextkit-0.2.0.vsix)
 - ✅ Launch runbook complete (`/docs/LAUNCH_RUNBOOK.md`)
-- ✅ ContextKit: Fixed `qs` security vulnerability (6.14.1→6.14.2)
 - ⏳ Marketing content ready but NOT posted (blocked on Jo)
 - ⏳ VS Code Marketplace publish (blocked: needs Azure PAT)
 - ⏳ Payment integrations (blocked: needs Stripe + Lemon Squeezy setup)
-- ⚠️ Upstream vulnerabilities (not fixable by us):
-  - esbuild (moderate) in drizzle-kit — dev dependency only
-  - cookie (low) in @auth/core — waiting on next-auth update
 
 **npm downloads (Feb 8-14):** 1,609 total (+31% WoW)
 
