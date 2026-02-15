@@ -16,7 +16,7 @@
 | GitHub Stars (total) | 10,000 | 0 | 🔴 |
 | npm Downloads/month | 100,000 | ~4,900 | 🟡 |
 
-*Updated 2026-02-14: 1,582 downloads last week (npm stats) — Week 2 review*
+*Updated 2026-02-15: 1,609 downloads Week 2 (npm stats) — Week 3 start*
 
 **Honest Assessment:** These are stretch goals. More realistic 3-month targets:
 - Revenue: $100-500 MRR (OGPix Pro subscriptions)
@@ -228,7 +228,7 @@ Track these every Friday:
 
 | Metric | Week 1 (Feb 5-11) | Week 2 (Feb 12-18) | Week 3 (Feb 19-25) | Week 4 |
 |--------|-------------------|-------------------|--------|--------|
-| ContextKit npm downloads | 1,231 | 1,582 | | |
+| ContextKit npm downloads | 1,231 | 1,609 | | |
 | OGPix API calls | — | — | | |
 | GitHub stars (total) | 0 | 0 ⚠️ | | |
 | Twitter followers | — | — | | |
@@ -265,8 +265,9 @@ Track these every Friday:
 
 **Theme:** Community Seeding — blocked on marketing execution.
 
-**Status (Feb 15 6:35 AM):**
+**Status (Feb 15 9:35 AM):**
 - ✅ All code complete, tests passing (253 tests, all green)
+- ✅ ContextKit lockfile updated for tree-sitter-php
 - ✅ VS Code extension VSIX packaged, ready for local test
 - ✅ Launch runbook complete (`/docs/LAUNCH_RUNBOOK.md`)
 - ✅ ContextKit: Fixed `qs` security vulnerability (6.14.1→6.14.2)
@@ -277,7 +278,7 @@ Track these every Friday:
   - esbuild (moderate) in drizzle-kit — dev dependency only
   - cookie (low) in @auth/core — waiting on next-auth update
 
-**npm downloads (Feb 8-14):** 1,582 total (+28% WoW)
+**npm downloads (Feb 8-14):** 1,609 total (+31% WoW)
 
 **Tasks this week (need Jo):**
 - [ ] Post Reddit content (5 subreddits) — content ready in `/marketing/`
@@ -367,5 +368,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-15 03:30 by Milo 🦊*
+*Last updated: 2026-02-15 09:35 by Milo 🦊*
 *Next review: 2026-02-21 (Friday) — Week 3 end*
