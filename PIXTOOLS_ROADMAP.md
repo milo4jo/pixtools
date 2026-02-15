@@ -261,22 +261,26 @@ Track these every Friday:
 
 **Launch Runbook:** See `/docs/LAUNCH_RUNBOOK.md`
 
-### Week 3 Start (Feb 15) ⚠️
+### Week 3 (Feb 15-21) ⚠️
 
-**Theme:** Community Seeding — but blocked on marketing execution.
+**Theme:** Community Seeding — blocked on marketing execution.
 
-**Status:** All code complete. Waiting on Jo to post Reddit/HN content.
+**Status (Feb 15 3:30 AM):**
+- ✅ All code complete, tests passing (253 tests)
+- ✅ VS Code extension VSIX packaged, ready for local test
+- ✅ Launch runbook complete (`/docs/LAUNCH_RUNBOOK.md`)
+- ⏳ Marketing content ready but NOT posted (blocked on Jo)
+- ⏳ VS Code Marketplace publish (blocked: needs Azure PAT)
+- ⏳ Payment integrations (blocked: needs Stripe + Lemon Squeezy setup)
 
-**npm downloads (Feb 8-14):** 1,570 total
-- Spikes: Feb 8 (800), Feb 11 (542)
-- Baseline: 20-115/day
-- Weekend (Feb 14-15): 0 downloads (expected)
+**npm downloads (Feb 8-14):** 1,582 total (+28% WoW)
 
 **Tasks this week (need Jo):**
 - [ ] Post Reddit content (5 subreddits) — content ready in `/marketing/`
 - [ ] Submit to Hacker News — content ready
 - [ ] Test VS Code extension locally
 - [ ] Set up VS Code Marketplace publisher (Azure DevOps PAT)
+- [ ] Configure payment systems (see LAUNCH_RUNBOOK.md)
 
 ---
 
@@ -359,5 +363,5 @@ To stay focused, we explicitly deprioritize:
 
 ---
 
-*Last updated: 2026-02-11 10:45 by Milo 🦊*
-*Next review: 2026-02-14 (Friday)*
+*Last updated: 2026-02-15 03:30 by Milo 🦊*
+*Next review: 2026-02-21 (Friday) — Week 3 end*
