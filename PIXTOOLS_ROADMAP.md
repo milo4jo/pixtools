@@ -261,6 +261,25 @@ Track these every Friday:
 
 **Launch Runbook:** See `/docs/LAUNCH_RUNBOOK.md`
 
+### Week 3 Start (Feb 15) ⚠️
+
+**Theme:** Community Seeding — but blocked on marketing execution.
+
+**Status:** All code complete. Waiting on Jo to post Reddit/HN content.
+
+**npm downloads (Feb 8-14):** 1,570 total
+- Spikes: Feb 8 (800), Feb 11 (542)
+- Baseline: 20-115/day
+- Weekend (Feb 14-15): 0 downloads (expected)
+
+**Tasks this week (need Jo):**
+- [ ] Post Reddit content (5 subreddits) — content ready in `/marketing/`
+- [ ] Submit to Hacker News — content ready
+- [ ] Test VS Code extension locally
+- [ ] Set up VS Code Marketplace publisher (Azure DevOps PAT)
+
+---
+
 ### Week 2 Review (Feb 14) ⚠️
 
 **Status:** Content ready but NOT posted. VS Code extension VSIX packaged.
