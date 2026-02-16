@@ -265,7 +265,7 @@ Track these every Friday:
 
 **Theme:** Community Seeding — blocked on marketing execution.
 
-**Status (Feb 15 3:33 PM):**
+**Status (Feb 16 9:30 AM — Monday):**
 - ✅ All code complete, tests passing (253 tests, all green)
 - ✅ ContextKit v0.6.10 stable, 0 vulnerabilities
 - ✅ VS Code extension VSIX packaged (contextkit-0.2.0.vsix)
@@ -274,7 +274,12 @@ Track these every Friday:
 - ⏳ VS Code Marketplace publish (blocked: needs Azure PAT)
 - ⏳ Payment integrations (blocked: needs Stripe + Lemon Squeezy setup)
 
-**npm downloads (Feb 8-14):** 1,609 total (+31% WoW)
+**npm downloads (Feb 14-16):** 
+- Feb 14: 39 downloads
+- Feb 15: 26 downloads
+- Feb 16: 0 (so far, 9:30 AM)
+
+**Week 2 final:** ~835 downloads (Feb 9-15 via npm API)
 
 **Tasks this week (need Jo):**
 - [ ] Post Reddit content (5 subreddits) — content ready in `/marketing/`
