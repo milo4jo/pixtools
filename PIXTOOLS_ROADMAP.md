@@ -265,20 +265,22 @@ Track these every Friday:
 
 **Theme:** Community Seeding — blocked on marketing execution.
 
-**Status (Feb 16 5:44 PM — Monday evening):**
-- ✅ All code complete, tests passing (253 tests, all green, turbo cached)
+**Status (Feb 16 9:49 PM — Monday night):**
+- ✅ All code complete, tests passing (all green, turbo cached)
 - ✅ ContextKit v0.6.10 stable, 0 vulnerabilities
 - ✅ Fixed cookie security vulnerability (GHSA-pxg6-pf52-xh8x) via pnpm override
 - ✅ VS Code extension VSIX packaged (contextkit-0.2.0.vsix)
 - ✅ Launch runbook complete (`/docs/LAUNCH_RUNBOOK.md`)
-- ✅ Dependency audit: no known vulnerabilities
+- ✅ Dependency audit: no known vulnerabilities, no outdated packages
+- ✅ Lint: all passing
 - ⏳ Marketing content ready but NOT posted (blocked on Jo)
 - ⏳ VS Code Marketplace publish (blocked: needs Azure PAT)
 - ⏳ Payment integrations (blocked: needs Stripe + Lemon Squeezy setup)
 
-**npm downloads:** 
+**npm downloads (organic, no marketing):** 
+- Feb 14: 39 downloads
 - Feb 15: 26 downloads
-- Week 2 (Feb 9-15): 835 downloads
+- Week 2 total (Feb 9-15): 835 downloads
 
 **Week 3 priority:** Jo needs to execute marketing (Reddit/HN posts ready in `/marketing/`)
 
