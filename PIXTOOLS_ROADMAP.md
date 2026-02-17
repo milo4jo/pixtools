@@ -287,11 +287,13 @@ Track these every Friday:
 - Week 3 so far (Feb 15-17): 42+ downloads — **steady organic baseline ~15-25/day**
 - **Last 8 days (Feb 10-17):** 797 downloads total
 
-**Feb 17 7:50 PM Status:**
+**Feb 17 9:53 PM Status:**
 - All tests passing ✅ (7 test tasks, all cached/green)
 - All lint passing ✅ (8 lint tasks, all cached/green)
 - One moderate dev-dependency vulnerability (ajv in eslint) — not production risk
-- ESLint 10.0.0 available but staying on 9.x for stability
+- npm downloads (Feb 10-16): 797 total, ~15-25/day organic baseline
+- Today (Feb 17): data pending (npm API delay)
+- Week 3 so far: steady organic growth without marketing
 
 **Week 3 priority:** Jo needs to execute marketing (Reddit/HN posts ready in `/marketing/`)
 
