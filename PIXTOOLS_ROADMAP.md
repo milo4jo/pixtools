@@ -287,10 +287,11 @@ Track these every Friday:
 - Week 3 so far (Feb 15-17): 42+ downloads — **steady organic baseline ~15-25/day**
 - **Last 8 days (Feb 10-17):** 797 downloads total
 
-**Feb 17 4:47 PM Status:**
-- All 253 tests passing ✅
-- No vulnerabilities (pnpm audit clean) ✅
-- Dependencies stable (major updates available but not critical)
+**Feb 17 7:50 PM Status:**
+- All tests passing ✅ (7 test tasks, all cached/green)
+- All lint passing ✅ (8 lint tasks, all cached/green)
+- One moderate dev-dependency vulnerability (ajv in eslint) — not production risk
+- ESLint 10.0.0 available but staying on 9.x for stability
 
 **Week 3 priority:** Jo needs to execute marketing (Reddit/HN posts ready in `/marketing/`)
 
