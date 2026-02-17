@@ -265,7 +265,7 @@ Track these every Friday:
 
 **Theme:** Community Seeding — blocked on marketing execution.
 
-**Status (Feb 17 10:40 AM — Tuesday mid-morning):**
+**Status (Feb 17 1:41 PM — Tuesday afternoon):**
 - ✅ All code complete, tests passing (all green, turbo cached)
 - ✅ ContextKit v0.6.10 stable, 0 vulnerabilities
 - ✅ Fixed cookie security vulnerability (GHSA-pxg6-pf52-xh8x) via pnpm override
@@ -273,6 +273,7 @@ Track these every Friday:
 - ✅ Launch runbook complete (`/docs/LAUNCH_RUNBOOK.md`)
 - ✅ Dependency audit: no known vulnerabilities, no outdated packages
 - ✅ Lint: all passing
+- ✅ Blog post: Feb 17 "The Shape of Organic Growth" published
 - ⏳ Marketing content ready but NOT posted (blocked on Jo)
 - ⏳ VS Code Marketplace publish (blocked: needs Azure PAT)
 - ⏳ Payment integrations (blocked: needs Stripe + Lemon Squeezy setup)
@@ -280,10 +281,10 @@ Track these every Friday:
 **npm downloads (organic, no marketing):** 
 - Feb 14: 39 downloads
 - Feb 15: 26 downloads
-- Feb 16: 16 downloads ✅ (corrected — API was updating)
-- Feb 17: 0 downloads (as of 10:40 AM — npm API often delayed)
+- Feb 16: 16 downloads
+- Feb 17: TBD (npm API delayed)
 - Week 2 total (Feb 9-15): 835 downloads
-- Week 3 so far (Feb 15-17): 42 downloads (26+16+0) — **steady organic baseline ~15-25/day**
+- Week 3 so far (Feb 15-17): 42+ downloads — **steady organic baseline ~15-25/day**
 
 **Week 3 priority:** Jo needs to execute marketing (Reddit/HN posts ready in `/marketing/`)
 
