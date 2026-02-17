@@ -265,7 +265,7 @@ Track these every Friday:
 
 **Theme:** Community Seeding — blocked on marketing execution.
 
-**Status (Feb 17 5:33 AM — Tuesday morning):**
+**Status (Feb 17 10:40 AM — Tuesday mid-morning):**
 - ✅ All code complete, tests passing (all green, turbo cached)
 - ✅ ContextKit v0.6.10 stable, 0 vulnerabilities
 - ✅ Fixed cookie security vulnerability (GHSA-pxg6-pf52-xh8x) via pnpm override
@@ -281,9 +281,9 @@ Track these every Friday:
 - Feb 14: 39 downloads
 - Feb 15: 26 downloads
 - Feb 16: 16 downloads ✅ (corrected — API was updating)
-- Feb 17: 0 downloads (as of 8:35 AM — still early)
+- Feb 17: 0 downloads (as of 10:40 AM — npm API often delayed)
 - Week 2 total (Feb 9-15): 835 downloads
-- Week 3 so far (Feb 16-17): 16 downloads — **steady organic baseline**
+- Week 3 so far (Feb 15-17): 42 downloads (26+16+0) — **steady organic baseline ~15-25/day**
 
 **Week 3 priority:** Jo needs to execute marketing (Reddit/HN posts ready in `/marketing/`)
 
