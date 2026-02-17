@@ -280,10 +280,10 @@ Track these every Friday:
 **npm downloads (organic, no marketing):** 
 - Feb 14: 39 downloads
 - Feb 15: 26 downloads
-- Feb 16: 0 downloads ⚠️
-- Feb 17: 0 downloads (as of 5:33 AM)
+- Feb 16: 16 downloads ✅ (corrected — API was updating)
+- Feb 17: 0 downloads (as of 8:35 AM — still early)
 - Week 2 total (Feb 9-15): 835 downloads
-- Week 3 so far (Feb 16-17): 0 downloads — **concerning trend**
+- Week 3 so far (Feb 16-17): 16 downloads — **steady organic baseline**
 
 **Week 3 priority:** Jo needs to execute marketing (Reddit/HN posts ready in `/marketing/`)
 
