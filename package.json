@@ -11,7 +11,7 @@
     "clean": "turbo clean && rm -rf node_modules"
   },
   "devDependencies": {
-    "turbo": "^2.8.9"
+    "turbo": "^2.8.10"
   },
   "pnpm": {
     "overrides": {
